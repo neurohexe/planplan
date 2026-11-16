@@ -1,0 +1,19 @@
+{
+  "rule_id": null,
+  "sources": [
+    "%zomb-vodeyko%"
+  ],
+  "protocol": "tcp",
+  "locations": [
+    "office"
+  ],
+  "until": null,
+  "destinations": [
+    "_FEI_TUN_NETS_",
+    "_FEI_TUNNELER_WS_NETS_"
+  ],
+  "ports": [
+    "2022"
+  ],
+  "comment": "План-факт: переносим работающий стенд с Mac на офисный мини-ПК zomb-vodeyko-132.zombie.yandex.net (зомбик %zomb-vodeyko%), чтобы 8 коллег открывали HTTPS-ссылку независимо от ноутбука. Приложение работает на 127.0.0.1:18766; вход по личным кодам и ролям. Нужен постоянный исходящий TCP 2022 до _FEI_TUN_NETS_ и _FEI_TUNNELER_WS_NETS_ из офиса для транспорта Tunneler. TCP 443 до балансера запрашиваем отдельно. Доступ к приложению только из корпоративной сети/VPN."
+}

@@ -1,0 +1,12 @@
+{
+  "preserve": {"login": "padolskiye", "role": "superadmin"},
+  "create": [
+    {"login": "lilitstep", "role": "superadmin"},
+    {"login": "vasiliipetrov", "role": "superadmin"},
+    {"login": "azamatikramov", "role": "admin"},
+    {"login": "iangrb", "role": "admin"},
+    {"login": "neurohexe", "role": "admin"},
+    {"login": "ibkmt", "role": "admin"},
+    {"login": "aniarzumanyan", "role": "admin"}
+  ]
+}

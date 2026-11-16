@@ -1,0 +1,25 @@
+{
+  "id": "8519f0aea3ba5f5666b1835a",
+  "rule_id": "b25d55375bc7f02ca331ab6a",
+  "type": "create",
+  "protocol": "tcp",
+  "ports": [
+    "2022"
+  ],
+  "locations": [
+    "office"
+  ],
+  "until": null,
+  "status": "new",
+  "task": "DOSTUPREQ-1244066",
+  "system": "dynamic",
+  "added": "2026-10-31T11:27:39.982Z",
+  "sources": [
+    "%zomb-vodeyko%"
+  ],
+  "destinations": [
+    "_FEI_TUN_NETS_",
+    "_FEI_TUNNELER_WS_NETS_"
+  ],
+  "author": "padolskiye"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "plan-fact-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Server-mode foundation for Plan Fact",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "start": "node --experimental-sqlite src/index.js",
+    "test": "node --experimental-sqlite --test tests/*.test.js",
+    "migrate:sqlite-to-postgres": "node --experimental-sqlite src/migrate-sqlite-to-postgres.js",
+    "bootstrap-superadmin": "node --experimental-sqlite src/cli.js bootstrap-superadmin"
+  },
+  "dependencies": {
+    "pg": "^8.23.0"
+  }
+}

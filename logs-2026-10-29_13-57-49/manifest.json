@@ -1,0 +1,84 @@
+{
+  "collected_at": "2026-10-29T13:57:49+05:00",
+  "source": "/Users/padolskiye/PlanFactMVP/logs",
+  "note": "Снимок всех текущих .log-файлов. Секретные поля, параметры URL и длинные непрозрачные значения замаскированы. Работающий стенд не изменён.",
+  "files": [
+    {
+      "file": "app.stderr.log",
+      "snapshot_bytes": 1013,
+      "lines": 12,
+      "modified": "2026-10-23T15:43:32+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "app.stdout.log",
+      "snapshot_bytes": 492,
+      "lines": 12,
+      "modified": "2026-10-23T15:43:32+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "backup.stderr.log",
+      "snapshot_bytes": 0,
+      "lines": 0,
+      "modified": "2026-10-13T13:36:51+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "backup.stdout.log",
+      "snapshot_bytes": 9656,
+      "lines": 142,
+      "modified": "2026-10-29T13:35:01+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "caffeinate.stderr.log",
+      "snapshot_bytes": 0,
+      "lines": 0,
+      "modified": "2026-10-13T13:36:51+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "caffeinate.stdout.log",
+      "snapshot_bytes": 0,
+      "lines": 0,
+      "modified": "2026-10-13T13:36:51+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "healthcheck.stderr.log",
+      "snapshot_bytes": 0,
+      "lines": 0,
+      "modified": "2026-10-13T13:41:51+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "healthcheck.stdout.log",
+      "snapshot_bytes": 0,
+      "lines": 0,
+      "modified": "2026-10-13T13:41:51+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "logrotate.stderr.log",
+      "snapshot_bytes": 0,
+      "lines": 0,
+      "modified": "2026-10-13T14:36:52+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "logrotate.stdout.log",
+      "snapshot_bytes": 0,
+      "lines": 0,
+      "modified": "2026-10-13T14:36:52+05:00",
+      "redacted_lines": 0
+    },
+    {
+      "file": "tunnel.log",
+      "snapshot_bytes": 3964461,
+      "lines": 36222,
+      "modified": "2026-10-29T10:59:59+05:00",
+      "redacted_lines": 874
+    }
+  ]
+}

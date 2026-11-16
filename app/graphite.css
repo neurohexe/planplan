@@ -1,0 +1,171 @@
+/* Оформление «Графит» в компактной плотности (задача 37, выбор владельца в лаборатории визуала).
+   Подключается после styles.css и действует при <html data-skin="graphite" data-density="compact">.
+   Палитра «Графита» — только в светлой теме; тёмная тема сохраняет прежние цвета,
+   а общие улучшения и плотность работают в обеих. */
+
+/* ---------- Общие улучшения ---------- */
+
+html[data-skin="graphite"] {
+  /* Одна валюта в карточке — без дублирующей подписи «RUB … ₽». */
+  & .summary-card > strong > span:only-child {
+    display: block;
+    margin-top: 0;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  & .summary-card > strong > span:only-child b { display: none; }
+
+  /* Крупная сумма помещается в узкую карточку целиком. */
+  & .summary-card > strong { font-size: clamp(19px, 1.75vw, 26px); }
+
+  /* Значок резерва — текстовый символ вместо цветного эмодзи. */
+  & .summary-card.summary-forecast > .summary-icon { font-size: 0; }
+  & .summary-card.summary-forecast > .summary-icon::before { content: "◔"; font-size: 16px; }
+
+  /* Низ меню (профиль) не уходит за край экрана на ноутбуке: меню чуть плотнее
+     и при нехватке высоты прокручивается. */
+  & .sidebar { padding-top: 22px; overflow-y: auto; scrollbar-width: thin; }
+  & .brand { padding-bottom: 20px; }
+  & .nav-item { padding-top: 10px; padding-bottom: 10px; }
+  & .global-ticket-search { margin: 14px 0 2px; }
+  & .location-group { gap: 6px; }
+  & .storage-badge { padding: 8px 10px; }
+
+  /* Фильтры — плотная сетка: на обзоре ровно две строки вместо трёх. */
+  & .filters-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 8px;
+    padding: 12px 14px;
+  }
+  & .overview-filters-panel .filters-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  & .filters-row > .search-field { grid-column: span 2; }
+  & .filters-row select,
+  & .search-field input { height: 36px; font-size: 12px; }
+  & .search-field svg { top: 9px; }
+  & .overview-filters-panel { margin-bottom: 16px; }
+}
+
+/* ---------- Компактная плотность ---------- */
+
+html[data-density="compact"] {
+  & .content { padding: 24px 30px 48px; }
+  & .topbar { height: 62px; }
+  & .page-heading { margin-bottom: 18px; }
+  & .page-heading h1 { font-size: 25px; }
+  & .summary-grid { gap: 10px; margin-bottom: 12px; }
+  & .summary-card { min-height: 0; padding: 15px 16px; }
+  & .summary-card > small { margin-top: 6px; }
+  & .panel + .panel,
+  & .recent-panel { margin-top: 12px; }
+  & .panel-header { padding: 14px 18px 11px; }
+  & .data-table th,
+  & .data-table td { padding: 7px 12px; }
+  & .budget-project-heading small { display: none; }
+  & .recent-row { padding: 8px 18px; }
+}
+
+/* ---------- Палитра «Графит»: нейтральные серые, чёрные акценты, кобальт для факта ---------- */
+
+html[data-skin="graphite"]:not([data-theme="dark"]) {
+  --bg: #f4f4f2;
+  --surface: #ffffff;
+  --surface-muted: #f7f7f5;
+  --sidebar: #fbfbfa;
+  --sidebar-hover: #efefec;
+  --text: #1c1c1e;
+  --text-soft: #6e6e73;
+  --line: #e5e5e1;
+  --primary: #2f5bd3;
+  --primary-dark: #2448ad;
+  --primary-soft: #edf1fc;
+  --amber: #c77700;
+  --amber-soft: #fdf3e1;
+  --amber-strong: #8a5300;
+  --red: #d33a2c;
+  --red-soft: #fcebea;
+  --blue: #2f5bd3;
+  --shadow: none;
+  --topbar: rgba(244, 244, 242, 0.88);
+  --table-head: #fafaf8;
+  --row-hover: #f5f7fc;
+  --input: #ffffff;
+  --input-hover: #fafaf9;
+  --track: #e8e8e4;
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --radius-sm: 7px;
+
+  & body { background: var(--bg); }
+
+  & .sidebar { color: var(--text); background: var(--sidebar); border-right: 1px solid var(--line); }
+  & .brand small { color: var(--text-soft); }
+  & .brand-mark { background: #1c1c1e; border-radius: 9px; box-shadow: none; }
+  & .nav-item { color: #48484d; }
+  & .nav-item:hover { color: var(--text); background: var(--sidebar-hover); }
+  & .nav-item.is-active { color: #fff; background: #1c1c1e; box-shadow: none; }
+  & .nav-count { color: #48484d; background: #e9e9e5; }
+  & .nav-item.is-active .nav-count { color: #fff; background: rgba(255, 255, 255, 0.16); }
+  & .location-group { border-top-color: var(--line); }
+  & .location-group-heading { color: #8e8e93; }
+  & .location-add-btn { color: #48484d; background: #ecece8; }
+  & .location-add-btn:hover { color: var(--text); background: #e2e2dd; }
+  & .sidebar-location-search svg { fill: #8e8e93; }
+  & .sidebar-location-search input,
+  & .global-ticket-search input { color: var(--text); background: #fff; border-color: var(--line); }
+  & .sidebar-location-search input::placeholder,
+  & .global-ticket-search input::placeholder { color: #a1a1a6; }
+  & .sidebar-location-search input:focus { border-color: var(--primary); background: #fff; }
+  & .global-ticket-search label { color: #8e8e93; }
+  & .global-ticket-search button { background: #1c1c1e; }
+  & .location-item { color: #48484d; }
+  & .location-item:hover { color: var(--text); background: var(--sidebar-hover); }
+  & .location-item.is-active { color: var(--text); background: #ebebe7; box-shadow: inset 2px 0 var(--primary); font-weight: 600; }
+  & .location-code { color: #8e8e93; }
+  & .location-manage-btn { color: #48484d; border-color: var(--line); }
+  & .location-manage-btn:hover { color: var(--text); background: var(--sidebar-hover); }
+  & .location-empty { color: var(--text-soft); }
+  & .storage-badge { border-color: var(--line); background: #fff; }
+  & .storage-badge small { color: var(--text-soft); }
+  & .user-chip > span { color: #fff; background: #1c1c1e; }
+  & .user-chip button { color: var(--text-soft); }
+
+  & .button-primary { background: #1c1c1e; box-shadow: none; }
+  & .button-primary:hover { background: #38383b; transform: none; }
+  & .eyebrow { color: var(--text-soft); }
+  & .page-heading h1 { font-weight: 700; letter-spacing: -0.03em; }
+
+  & .summary-card,
+  & .panel { border-color: var(--line); box-shadow: none; }
+  & .summary-card::after { display: none; }
+  & .summary-card > strong { font-weight: 650; letter-spacing: -0.035em; }
+  & .summary-card > small { color: #8e8e93; }
+  & .summary-icon { width: 30px; height: 30px; border-radius: 8px; color: #48484d; background: #f1f1ee; font-size: 13px; }
+  & .summary-fact .summary-icon { color: var(--primary); background: var(--primary-soft); }
+  & .summary-progress .summary-icon { color: var(--amber-strong); background: var(--amber-soft); }
+  & .mini-progress { height: 5px; }
+
+  & .data-table th { color: #8e8e93; background: var(--table-head); letter-spacing: 0.04em; }
+  & .budget-project-summary-row { background: var(--surface); }
+  & .budget-project-summary-row td { border-top-color: var(--line); }
+  & .overview-project-detail-row td { background: #fbfbfa; }
+  & .project-code { color: #3a3a3c; background: #f1f1ee; }
+  & .currency-badge { color: #48484d; background: #f1f1ee; }
+  & .budget-type-badge.is-opex { color: var(--primary-dark); background: var(--primary-soft); }
+  & .budget-type-badge.is-capex { color: #6b3fa0; background: #f3eefb; }
+  & .balance-positive { color: var(--text); font-weight: 650; }
+  & .usage-track { height: 5px; }
+  & .legend-reserved { background: #a1a1a6; }
+  & .search-field svg { fill: #8e8e93; }
+  & .modal { border-radius: 14px; }
+  & .form-field input,
+  & .form-field select,
+  & .form-field textarea,
+  & .profile-form input,
+  & .budget-input { border-radius: 7px; }
+}
+
+/* ---------- Компактные карточки: значок меньше и ближе к углу ---------- */
+
+/* Длинная сумма («10 120 000 ₽») не заходит под значок на экране ноутбука. */
+html[data-skin="graphite"][data-density="compact"] .summary-icon { top: 12px; right: 12px; width: 26px; height: 26px; }

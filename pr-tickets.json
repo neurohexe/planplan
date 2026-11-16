@@ -1,0 +1,9 @@
+{
+  "action": "tickets",
+  "pr_id": 16890146,
+  "expected_diff_set": 40177942,
+  "expected": [
+    "SHA-256"
+  ],
+  "value": []
+}

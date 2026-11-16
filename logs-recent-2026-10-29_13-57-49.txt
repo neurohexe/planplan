@@ -1,0 +1,223 @@
+Логи стенда «План Факт»
+Собрано: 2026-10-29T13:57:49+05:00
+Секретные поля и параметры URL замаскированы.
+
+============================================================
+app.stdout.log — последние 12 из 12 строк
+============================================================
+Plan Fact backend: http://127.0.0.1:18766
+auth_mode access-code secure_cookies=on
+Plan Fact backend: http://127.0.0.1:18766
+auth_mode access-code secure_cookies=on
+Plan Fact backend: http://127.0.0.1:18766
+auth_mode access-code secure_cookies=on
+Plan Fact backend: http://127.0.0.1:18766
+auth_mode access-code secure_cookies=on
+Plan Fact backend: http://127.0.0.1:18766
+auth_mode access-code secure_cookies=on
+Plan Fact backend: http://127.0.0.1:18766
+auth_mode access-code secure_cookies=on
+
+============================================================
+app.stderr.log — последние 12 из 12 строк
+============================================================
+(node:70959) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79492) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:93275) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20477) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24235) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:1252) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+============================================================
+backup.stdout.log — последние 30 из 142 строк
+============================================================
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+Резервная копия создана и проверена.
+
+============================================================
+tunnel.log — последние 150 из 36222 строк
+============================================================
+ws1-tunnelerapi.tunneler-si.yandex-team.ru seems to be down
+RequestError: getaddrinfo ENOTFOUND ws1-tunnelerapi.tunneler-si.yandex-team.ru
+    at ClientRequest.<anonymous> (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@[OPAQUE_VALUE_REDACTED].js:178:14)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at origin.emit (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/node_modules/@szmarczak/http-timer/source/index.js:37:11)
+    at emitErrorEvent (node:_http_client:108:11)
+    at TLSSocket.socketErrorListener (node:_http_client:575:5)
+    at TLSSocket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+Error: All tunneler instances seems to be down
+    at Tunneler._getInstanceAddress (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:192:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Tunneler._openTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:107:22)
+    at async Tunneler.mkTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:61:13)
+    at async Promise.all (index 0)
+    at async Tun.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/build/commands/tun/index.js:51:9)
+    at async Tun._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+    at async Config.runCommand (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/config/lib/config.js:172:9)
+    at async Main.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/main.js:21:9)
+    at async Main._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: All tunneler instances seems to be down
+    at Tunneler._getInstanceAddress (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:192:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Tunneler._openTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:107:22)
+    at async Tunneler.mkTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:61:13)
+    at async Promise.all (index 0)
+    at async Tun.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/build/commands/tun/index.js:51:9)
+    at async Tun._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+    at async Config.runCommand (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/config/lib/config.js:172:9)
+    at async Main.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/main.js:21:9)
+    at async Main._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+
+Node.js v22.23.2
+2026-10-29 09:20:50 Клиент dk завершился (код 1): туннель не работает, launchd запустит его заново.
+2026-10-29 09:20:50 Пауза 90 с перед следующей попыткой.
+2026-10-29 09:39:56 Запускаю туннель: 127.0.0.1:18766 → https://padolskiye-28766-ws1.tunneler-si.yandex.ru (сервер Tunneler ws1-tunnelerapi.tunneler-si.yandex-team.ru, клиент dk 0.5.2).
+ws1-tunnelerapi.tunneler-si.yandex-team.ru seems to be down
+TimeoutError: Timeout awaiting 'request' for 3000ms
+    at ClientRequest.<anonymous> (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@[OPAQUE_VALUE_REDACTED].js:176:14)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at origin.emit (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/node_modules/@szmarczak/http-timer/source/index.js:37:11)
+    at Immediate.timeoutHandler (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@[OPAQUE_VALUE_REDACTED].js:63:11)
+    at process.processImmediate (node:internal/timers:486:21)
+Error: All tunneler instances seems to be down
+    at Tunneler._getInstanceAddress (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:192:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Tunneler._openTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:107:22)
+    at async Tunneler.mkTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:61:13)
+    at async Promise.all (index 0)
+    at async Tun.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/build/commands/tun/index.js:51:9)
+    at async Tun._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+    at async Config.runCommand (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/config/lib/config.js:172:9)
+    at async Main.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/main.js:21:9)
+    at async Main._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: All tunneler instances seems to be down
+    at Tunneler._getInstanceAddress (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:192:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Tunneler._openTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:107:22)
+    at async Tunneler.mkTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:61:13)
+    at async Promise.all (index 0)
+    at async Tun.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/build/commands/tun/index.js:51:9)
+    at async Tun._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+    at async Config.runCommand (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/config/lib/config.js:172:9)
+    at async Main.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/main.js:21:9)
+    at async Main._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+
+Node.js v22.23.2
+2026-10-29 09:41:23 Клиент dk завершился (код 1): туннель не работает, launchd запустит его заново.
+2026-10-29 09:41:23 Пауза 90 с перед следующей попыткой.
+2026-10-29 10:14:43 Запускаю туннель: 127.0.0.1:18766 → https://padolskiye-28766-ws1.tunneler-si.yandex.ru (сервер Tunneler ws1-tunnelerapi.tunneler-si.yandex-team.ru, клиент dk 0.5.2).
+ws1-tunnelerapi.tunneler-si.yandex-team.ru seems to be down
+RequestError: getaddrinfo ENOTFOUND ws1-tunnelerapi.tunneler-si.yandex-team.ru
+    at ClientRequest.<anonymous> (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@[OPAQUE_VALUE_REDACTED].js:178:14)
+    at Object.onceWrapper (node:events:634:26)
+    at ClientRequest.emit (node:events:531:35)
+    at origin.emit (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/node_modules/@szmarczak/http-timer/source/index.js:37:11)
+    at emitErrorEvent (node:_http_client:108:11)
+    at TLSSocket.socketErrorListener (node:_http_client:575:5)
+    at TLSSocket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+Error: All tunneler instances seems to be down
+    at Tunneler._getInstanceAddress (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:192:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Tunneler._openTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:107:22)
+    at async Tunneler.mkTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:61:13)
+    at async Promise.all (index 0)
+    at async Tun.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/build/commands/tun/index.js:51:9)
+    at async Tun._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+    at async Config.runCommand (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/config/lib/config.js:172:9)
+    at async Main.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/main.js:21:9)
+    at async Main._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: All tunneler instances seems to be down
+    at Tunneler._getInstanceAddress (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:192:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Tunneler._openTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:107:22)
+    at async Tunneler.mkTunnel (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@yandex-int/tunneler/lib/index.js:61:13)
+    at async Promise.all (index 0)
+    at async Tun.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/build/commands/tun/index.js:51:9)
+    at async Tun._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+    at async Config.runCommand (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/config/lib/config.js:172:9)
+    at async Main.run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/main.js:21:9)
+    at async Main._run (/Users/padolskiye/.local/lib/nodejs/node-v22.23.2-darwin-arm64/lib/node_modules/@yandex-int/devkit/node_modules/@oclif/command/lib/command.js:44:20)
+
+Node.js v22.23.2
+2026-10-29 10:14:51 Клиент dk завершился (код 1): туннель не работает, launchd запустит его заново.
+2026-10-29 10:14:51 Пауза 90 с перед следующей попыткой.
+2026-10-29 10:19:54 Запускаю туннель: 127.0.0.1:18766 → https://padolskiye-28766-ws1.tunneler-si.yandex.ru (сервер Tunneler ws1-tunnelerapi.tunneler-si.yandex-team.ru, клиент dk 0.5.2).
+INFO: creating tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+INFO: Tunnel created to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+
+Tunnel is ready to use: https://padolskiye-28766-ws1.tunneler-si.yandex.ru
+
+Tunnel is closed (code 255, signal null). Trying to reconnect (1/2)...
+INFO: Tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766 closed. Exit code: 255
+INFO: creating tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+INFO: Tunnel created to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+Tunnel is closed (code 255, signal null). Trying to reconnect (2/2)...
+INFO: Tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766 closed. Exit code: 255
+INFO: creating tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+INFO: Tunnel created to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+INFO: Tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766 closed. Exit code: 255
+2026-10-29 10:36:15 Клиент dk завершился (код 0): туннель не работает, launchd запустит его заново.
+2026-10-29 10:36:16 Запускаю туннель: 127.0.0.1:18766 → https://padolskiye-28766-ws1.tunneler-si.yandex.ru (сервер Tunneler ws1-tunnelerapi.tunneler-si.yandex-team.ru, клиент dk 0.5.2).
+INFO: creating tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+INFO: Tunnel created to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+
+Tunnel is ready to use: https://padolskiye-28766-ws1.tunneler-si.yandex.ru
+
+Tunnel is closed (code 255, signal null). Trying to reconnect (1/2)...
+INFO: Tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766 closed. Exit code: 255
+INFO: creating tunnel to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766
+INFO: Tunnel created to 2a02:6b8:c6a:3a18:0:4d65:e3bd:0:28766

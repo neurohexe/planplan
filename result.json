@@ -1,0 +1,28 @@
+{
+  "project": "junk/padolskiye/plan_fact_minipc",
+  "branch": "users/padolskiye/plan-fact-minipc-import-20261104",
+  "commit": "99d68932b4ace4233b3fd828ab4e7d87d63e9c5f",
+  "pr_id": 16890146,
+  "pr_url": "https://a.yandex-team.ru/review/16890146",
+  "diff_set": 40177942,
+  "pr_status": "open",
+  "diff_published": true,
+  "auto_publish": "disabled",
+  "auto_merge": "on_satisfied_requirements",
+  "source_files": 46,
+  "committed_files": 49,
+  "source_checksums": "verified against mini-PC snapshot",
+  "committed_blobs": "all 49 verified",
+  "pr_readback_head": "99d68932b4ace4233b3fd828ab4e7d87d63e9c5f",
+  "snapshot_api": "Published diff downloaded; all 49 file blobs verified",
+  "existing_deploy_project_changes": 0,
+  "minipc_changes": 0,
+  "published_blobs_verified": 49,
+  "merge_completed": false,
+  "attention_required": [
+    "required_checks_not_started"
+  ],
+  "ci_start_api_status": 403,
+  "browser_available": false,
+  "next_action": "PR -> Merge checks -> Start all CI checks"
+}

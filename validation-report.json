@@ -1,0 +1,37 @@
+{
+  "node": "v22.23.2",
+  "source_files_sha256_verified": 46,
+  "javascript_syntax_checked": 31,
+  "smoke_checks": [
+    {
+      "request": "GET /health",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "request": "GET /ready",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "request": "GET /",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "request": "GET /runtime-config.js",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "request": "GET /api/state",
+      "status": 401,
+      "passed": true
+    }
+  ],
+  "database": "temporary synthetic SQLite; removed after check",
+  "not_checked": [
+    "original unit tests absent from installed package",
+    "PostgreSQL and corporate integrations"
+  ]
+}

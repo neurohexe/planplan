@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "source_host": "zomb-vodeyko-132.zombie.yandex.net",
+  "source_directory": "/home/zomb-vodeyko/PlanFactMVP/app",
+  "snapshot_utc": "2026-11-04T08:22:03.342303+00:00",
+  "service": {
+    "MainPID": "5381",
+    "WorkingDirectory": "/home/zomb-vodeyko/PlanFactMVP",
+    "ActiveState": "active",
+    "SubState": "running"
+  },
+  "files": [
+    {
+      "path": "app/app.js",
+      "bytes": 525518,
+      "sha256": "0e3d145accff9c4f56125d949ce2dc585d59df1151018d311b7a8497b68b9f23"
+    },
+    {
+      "path": "app/budget-import.js",
+      "bytes": 67604,
+      "sha256": "e9b68f4b4914d5033e631a732a35ffd2fa09a4fd8547c1a08e8465702ea0e91f"
+    },
+    {
+      "path": "app/expense-import.js",
+      "bytes": 38445,
+      "sha256": "13469a136a866face08302c0fc7ff60664a9ae3290d3f0200e3a3cf2f6519913"
+    },
+    {
+      "path": "app/graphite.css",
+      "bytes": 8281,
+      "sha256": "d6ce491a6ea185790f47c6c57bdecf4f277dde8e71004fa7f549e4dbfa659a9a"
+    },
+    {
+      "path": "app/index.html",
+      "bytes": 71363,
+      "sha256": "82cb682dbab724e6e2d2c07380ef0fe6ed7910f08685a8d58112e83e0c8e5f60"
+    },
+    {
+      "path": "app/nav-drawer.css",
+      "bytes": 8300,
+      "sha256": "e0d106b2478de8cf100b4fd14be737075ae75fa1af9986d0c80c9e91049fdf7a"
+    },
+    {
+      "path": "app/nav-drawer.js",
+      "bytes": 8480,
+      "sha256": "b8ccac5d5fb40292afdc283f151746c48699d9bac32539270ab21493200beade"
+    },
+    {
+      "path": "app/period-locks.js",
+      "bytes": 18029,
+      "sha256": "7235afa81fcb0a7d5da34412c7283e802e5a83848c8a6b333d205bdc706ff7e3"
+    },
+    {
+      "path": "app/plan-fact-chart.css",
+      "bytes": 6529,
+      "sha256": "21e661fc3963a15668ecd1277efbcb2905ecc36716f1bbf7ff211ecfb422a68d"
+    },
+    {
+      "path": "app/plan-fact-chart.js",
+      "bytes": 26739,
+      "sha256": "c056037694051bfbd9ab7a5060921a6a69c0753eacea953197894649474922f5"
+    },
+    {
+      "path": "app/runtime-config.js",
+      "bytes": 301,
+      "sha256": "cd7f7b6145476a08637167d28e28cb1efab8736168d2f5839d6fa8cf302d9b4c"
+    },
+    {
+      "path": "app/styles.css",
+      "bytes": 68132,
+      "sha256": "9339ed80b7df3a73be812b68253ea304f3660ea9e16ec973b06aa8aa57ca8f94"
+    },
+    {
+      "path": "app/tracker-sync.js",
+      "bytes": 30768,
+      "sha256": "72559585a06a5f4c3cbbe82ec34bf859e1165c007cf94ea0370175c64c6d5e01"
+    },
+    {
+      "path": "backend/migrations/postgres/001_initial.sql",
+      "bytes": 4166,
+      "sha256": "a2729f9e5a11853835d12473e0af07772303cc9e0c5aa77f5824977aecc56701"
+    },
+    {
+      "path": "backend/migrations/postgres/002_staff_identity.sql",
+      "bytes": 992,
+      "sha256": "97b2d2521335a507567c343981462edbb326a95978676251225cfe98e699c240"
+    },
+    {
+      "path": "backend/migrations/postgres/003_idm_roles.sql",
+      "bytes": 403,
+      "sha256": "562234b4a5bcacb067323e9c95da0d3053d1505ae33bae0f1c1404e5ab97b264"
+    },
+    {
+      "path": "backend/migrations/sqlite/001_initial.sql",
+      "bytes": 3904,
+      "sha256": "8e81d7628b7ec8bb5207b5fc1c89aca8629ebb832e470f6449538a2fe6581f2b"
+    },
+    {
+      "path": "backend/migrations/sqlite/002_audit_location.sql",
+      "bytes": 128,
+      "sha256": "32b4fa9f03c8d1de8888d8fde621ebe98aa3d196843aa80780ac05cc7913a6e6"
+    },
+    {
+      "path": "backend/migrations/sqlite/003_staff_identity.sql",
+      "bytes": 1849,
+      "sha256": "d543d57e7c84e4abb76bbd8c2518549213d227f9a63f87d42a2cd680c8fa7dec"
+    },
+    {
+      "path": "backend/migrations/sqlite/004_idm_roles.sql",
+      "bytes": 403,
+      "sha256": "562234b4a5bcacb067323e9c95da0d3053d1505ae33bae0f1c1404e5ab97b264"
+    },
+    {
+      "path": "backend/migrations/sqlite/005_access_codes.sql",
+      "bytes": 736,
+      "sha256": "6c6b55f78ee30753614aa3304f0f8b93c0618ddcfc7593250aa59c30cdb56e79"
+    },
+    {
+      "path": "backend/migrations/sqlite/006_session_auth_mode.sql",
+      "bytes": 419,
+      "sha256": "3d7a0c1f4b6f9b5d5682bff4c392af941292960199477ed2ed881c279eb37f5e"
+    },
+    {
+      "path": "backend/package.json",
+      "bytes": 568,
+      "sha256": "a9af407fff30b2c8f4d81b2be29febe1502b5af2fe01611e373477ab97138c68"
+    },
+    {
+      "path": "backend/src/access-control.js",
+      "bytes": 3961,
+      "sha256": "e7d81ecbb581d1251f77763d61b8c3ce81b723a4884412b6ba36303283fb9ca6"
+    },
+    {
+      "path": "backend/src/cli.js",
+      "bytes": 8294,
+      "sha256": "4d2359a1620ec1215550c835a0a442e40bebbacbcf8b29495470f955cce58d1a"
+    },
+    {
+      "path": "backend/src/config.js",
+      "bytes": 5226,
+      "sha256": "16e7691bbca120e63c8d0f3950730d6c0783bf15f5762dd393cdee92438df11e"
+    },
+    {
+      "path": "backend/src/corporate-identity-sessions.js",
+      "bytes": 5670,
+      "sha256": "103797814172f88d85aa75ae5ecddf2444cd44b4bf5653bbd76de85129c6732c"
+    },
+    {
+      "path": "backend/src/corporate-login.js",
+      "bytes": 8133,
+      "sha256": "7432c02adf81f03ff83deaa08e827970ee92e494f842e3203045d545822c6d08"
+    },
+    {
+      "path": "backend/src/corporate-roles.js",
+      "bytes": 8683,
+      "sha256": "f8b678eb7dd4b69613158f4981666ca3c9ba86a63c6012f4b871411845fa0d5a"
+    },
+    {
+      "path": "backend/src/domain.js",
+      "bytes": 12749,
+      "sha256": "857ab0f3cc2ac20be053f99cc3492b0b978be664844d899b207d8f82be94107a"
+    },
+    {
+      "path": "backend/src/errors.js",
+      "bytes": 941,
+      "sha256": "5eb93573a5d74e9a344d9526c2b354bb2cb4df6c9568b718a775aee9d94f8af9"
+    },
+    {
+      "path": "backend/src/http-server.js",
+      "bytes": 34033,
+      "sha256": "f407ae47844ce00f6f5f6e3beddd681cc887006dadb10bf5dddd9440bbc8dfa5"
+    },
+    {
+      "path": "backend/src/identity-provider.js",
+      "bytes": 12223,
+      "sha256": "6073628d3d5c6e9f9c63995bd691bfef7ee009b383c5fe94efffd9ea34b16784"
+    },
+    {
+      "path": "backend/src/idm.js",
+      "bytes": 16908,
+      "sha256": "35ac22e50c5e66a65be03c9d5639eda89783b0204c1570afdb83443bb806b61f"
+    },
+    {
+      "path": "backend/src/index.js",
+      "bytes": 5009,
+      "sha256": "9ef57e336eee85b3ede4e67d8036f07b578584f2ecb2728b14dba50304d62eb6"
+    },
+    {
+      "path": "backend/src/migrate-sqlite-to-postgres.js",
+      "bytes": 8884,
+      "sha256": "6ae88efad2c85960534411401b7fcdd48ad6c161902395614ef1dbb21920ff48"
+    },
+    {
+      "path": "backend/src/postgres-store.js",
+      "bytes": 26571,
+      "sha256": "cff3be61e8191c8db526c8b5c7de54f9fae40d7956d2d7910c8a41decfbdf950"
+    },
+    {
+      "path": "backend/src/realtime.js",
+      "bytes": 3402,
+      "sha256": "0fdfb9f4e04171709bf497d09bbd86c9524af4dbbbefc739a1129a19ca859be1"
+    },
+    {
+      "path": "backend/src/security.js",
+      "bytes": 681,
+      "sha256": "ec70733c68817e2bc5fe1a5da6e8be982ad85fe457d342469263a1a40d5a4369"
+    },
+    {
+      "path": "backend/src/service.js",
+      "bytes": 53367,
+      "sha256": "94e578205749dcec258a08ff1c04a3a42a1182490d51a034c71cdc0de1b84d24"
+    },
+    {
+      "path": "backend/src/sqlite-store.js",
+      "bytes": 26744,
+      "sha256": "0bbe5d93bc96c748be88ac8a3ce06afc578f5c15032265428d721454bbf007d9"
+    },
+    {
+      "path": "backend/src/store-factory.js",
+      "bytes": 1274,
+      "sha256": "87d17d256d05359945092b1ffd037149d21370b30adcb8b226d49a7e97814549"
+    },
+    {
+      "path": "backend/src/time.js",
+      "bytes": 165,
+      "sha256": "e8dbe06309afc489d9c9fa05b18378c3b4c9c4133252024ffa9d9984dbb8b39d"
+    },
+    {
+      "path": "backend/src/tirole-freshness-proxy.js",
+      "bytes": 9153,
+      "sha256": "3c82777c33cbcc0dbf513120c32b425c8e94c36f45e294a493a1ab5b21488a92"
+    },
+    {
+      "path": "backend/src/tirole-source.js",
+      "bytes": 2434,
+      "sha256": "387c79c29a4a95ff489e180ff1d11d500028ee44bdfd97aa780fbb6b4e1fc764"
+    },
+    {
+      "path": "backend/src/webauth-corporate-adapter.js",
+      "bytes": 7152,
+      "sha256": "b54a9b6d9ff86404d56841d7744092b2e6c9602004464050fa0c7887c07baae8"
+    }
+  ],
+  "excluded_installation_directories": [
+    "backups",
+    "bin",
+    "codes",
+    "config.env",
+    "data",
+    "logs",
+    "pgdata",
+    "run",
+    "systemd"
+  ]
+}

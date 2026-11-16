@@ -1,0 +1,14 @@
+{
+  "snapshot_directory": "/Users/padolskiye/Documents/План-факт сервер на мини-пк/minipc-import-2026-11-04/snapshot",
+  "snapshot_utc": "2026-11-04T08:22:03.342303+00:00",
+  "source_file_count": 46,
+  "source_bytes": 1153714,
+  "checksums_verified": true,
+  "service": {
+    "MainPID": "5381",
+    "WorkingDirectory": "/home/zomb-vodeyko/PlanFactMVP",
+    "ActiveState": "active",
+    "SubState": "running"
+  },
+  "possible_secret_locations": []
+}
