@@ -1,0 +1,70 @@
+{
+  "source": "planfact-task42/app",
+  "files": [
+    {
+      "path": "index.html",
+      "bytes": 71439,
+      "sha256": "bc1f62d2ba23bbdd2de49cc4a2479fce4ffab53bc2fbbd3e60d44167a825b304"
+    },
+    {
+      "path": "runtime-config.js",
+      "bytes": 301,
+      "sha256": "cd7f7b6145476a08637167d28e28cb1efab8736168d2f5839d6fa8cf302d9b4c"
+    },
+    {
+      "path": "period-locks.js",
+      "bytes": 18029,
+      "sha256": "7235afa81fcb0a7d5da34412c7283e802e5a83848c8a6b333d205bdc706ff7e3"
+    },
+    {
+      "path": "budget-import.js",
+      "bytes": 67604,
+      "sha256": "e9b68f4b4914d5033e631a732a35ffd2fa09a4fd8547c1a08e8465702ea0e91f"
+    },
+    {
+      "path": "expense-import.js",
+      "bytes": 38445,
+      "sha256": "13469a136a866face08302c0fc7ff60664a9ae3290d3f0200e3a3cf2f6519913"
+    },
+    {
+      "path": "tracker-sync.js",
+      "bytes": 39676,
+      "sha256": "6e175ebbec6bf00b356c0040ac241b07c39e832eeff0b1e542f26cbd438f724f"
+    },
+    {
+      "path": "app.js",
+      "bytes": 546180,
+      "sha256": "797c87e86ec543a8ef300cf6bba5b20d5a5bd892ee2d5cbfb9b0b3b1e843f032"
+    },
+    {
+      "path": "nav-drawer.js",
+      "bytes": 8480,
+      "sha256": "b8ccac5d5fb40292afdc283f151746c48699d9bac32539270ab21493200beade"
+    },
+    {
+      "path": "plan-fact-chart.js",
+      "bytes": 26739,
+      "sha256": "c056037694051bfbd9ab7a5060921a6a69c0753eacea953197894649474922f5"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 68132,
+      "sha256": "9339ed80b7df3a73be812b68253ea304f3660ea9e16ec973b06aa8aa57ca8f94"
+    },
+    {
+      "path": "graphite.css",
+      "bytes": 8281,
+      "sha256": "d6ce491a6ea185790f47c6c57bdecf4f277dde8e71004fa7f549e4dbfa659a9a"
+    },
+    {
+      "path": "plan-fact-chart.css",
+      "bytes": 6529,
+      "sha256": "21e661fc3963a15668ecd1277efbcb2905ecc36716f1bbf7ff211ecfb422a68d"
+    },
+    {
+      "path": "nav-drawer.css",
+      "bytes": 8300,
+      "sha256": "e0d106b2478de8cf100b4fd14be737075ae75fa1af9986d0c80c9e91049fdf7a"
+    }
+  ]
+}

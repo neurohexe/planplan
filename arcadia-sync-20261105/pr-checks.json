@@ -1,0 +1,187 @@
+{
+  "pr": {
+    "merge_allowed": false,
+    "attention_required": [
+      "required_checks_not_started"
+    ],
+    "id": 16890146,
+    "status": "open"
+  },
+  "diff": {
+    "has_conflicts": false,
+    "commit_ids": {
+      "head": "9f0ac6350d4b8af0e41018b4c8ae2149f5076d7d",
+      "base": "0ee318e6dc9718f78ba9191ea1acbacdada480f4",
+      "merge": "50d0e56f8e784807f008555b2bd06b33e53beb6e"
+    },
+    "id": 40202913,
+    "published": true
+  },
+  "checks": [
+    {
+      "system": "arcanum",
+      "type": "approved",
+      "required": true,
+      "status": "pending",
+      "restartable": false,
+      "system_check_id": "",
+      "updated_at": "2026-11-05T07:27:25.309334Z",
+      "need_disable_reason": false,
+      "disabling_policy": "allowed",
+      "configuration": {
+        "data": {
+          "min_approvers_count": 1,
+          "ignore_self_ship": false,
+          "disable_sticky_ships": false,
+          "rules_check_exists": true
+        },
+        "need_disable_reason": false,
+        "disabling_policy": "allowed",
+        "restartable": false
+      }
+    },
+    {
+      "system": "arcanum",
+      "type": "comment_issues_closed",
+      "required": true,
+      "status": "success",
+      "restartable": false,
+      "system_check_id": "",
+      "updated_at": "2026-11-05T07:29:52.803735Z",
+      "need_disable_reason": false,
+      "disabling_policy": "allowed",
+      "configuration": {
+        "need_disable_reason": false,
+        "disabling_policy": "allowed",
+        "restartable": false
+      }
+    },
+    {
+      "system": "arcanum",
+      "type": "configs_discovered",
+      "required": true,
+      "status": "success",
+      "restartable": false,
+      "system_check_id": "",
+      "updated_at": "2026-11-05T07:27:31.312866Z",
+      "need_disable_reason": false,
+      "disabling_policy": "denied",
+      "configuration": {
+        "need_disable_reason": false,
+        "disabling_policy": "denied",
+        "restartable": false
+      }
+    },
+    {
+      "system": "arcanum",
+      "type": "processed_by_ci",
+      "required": true,
+      "status": "unknown",
+      "restartable": false,
+      "need_disable_reason": false,
+      "disabling_policy": "allowed",
+      "configuration": {
+        "need_disable_reason": false,
+        "disabling_policy": "allowed",
+        "restartable": false
+      }
+    },
+    {
+      "system": "arcanum",
+      "type": "published",
+      "required": true,
+      "status": "success",
+      "restartable": false,
+      "system_check_id": "",
+      "updated_at": "2026-11-05T07:29:52.803735Z",
+      "need_disable_reason": false,
+      "disabling_policy": "denied",
+      "configuration": {
+        "need_disable_reason": false,
+        "disabling_policy": "denied",
+        "restartable": false
+      }
+    },
+    {
+      "system": "arcanum",
+      "type": "services_configured",
+      "required": true,
+      "status": "pending",
+      "restartable": false,
+      "system_check_id": "",
+      "updated_at": "2026-11-05T07:27:25.096660Z",
+      "need_disable_reason": false,
+      "disabling_policy": "allowed",
+      "configuration": {
+        "need_disable_reason": false,
+        "disabling_policy": "allowed",
+        "restartable": false
+      }
+    },
+    {
+      "system": "arcanum",
+      "type": "st_issue_linked",
+      "required": false,
+      "status": "success",
+      "restartable": false,
+      "system_check_id": "",
+      "updated_at": "2026-11-05T07:29:53.579062Z",
+      "need_disable_reason": false,
+      "disabling_policy": "allowed",
+      "configuration": {
+        "data": {
+          "in_commit_message": false
+        },
+        "need_disable_reason": false,
+        "disabling_policy": "allowed",
+        "restartable": false
+      }
+    },
+    {
+      "system": "ci",
+      "type": "build",
+      "required": true,
+      "status": "unknown",
+      "restartable": false,
+      "need_disable_reason": false,
+      "disabling_policy": "allowed",
+      "configuration": {
+        "need_disable_reason": false,
+        "disabling_policy": "allowed",
+        "restartable": false
+      }
+    },
+    {
+      "system": "ci",
+      "type": "configure",
+      "required": true,
+      "status": "unknown",
+      "restartable": false,
+      "need_disable_reason": true,
+      "disabling_policy": "need_reason",
+      "configuration": {
+        "need_disable_reason": true,
+        "disabling_policy": "need_reason",
+        "disabling_policy_notice": {
+          "en": "You must not disable this check for tier-0 projects, especially if you change files in `build` directory or any `ya.make` files or remove a directory. There's a huge risk of breaking `trunk`: if the `Configure`stage cannot complete in few hours and you don't understand what to do, please [contact Devtools](https://st.yandex-team.ru/createTicket?queue=DEVTOOLSSUPPORT&_form=65090)."
+        },
+        "restartable": false
+      }
+    },
+    {
+      "system": "ci",
+      "type": "tests",
+      "required": true,
+      "status": "unknown",
+      "restartable": false,
+      "need_disable_reason": false,
+      "disabling_policy": "allowed",
+      "configuration": {
+        "need_disable_reason": false,
+        "disabling_policy": "allowed",
+        "restartable": false
+      }
+    }
+  ],
+  "complete": true
+}

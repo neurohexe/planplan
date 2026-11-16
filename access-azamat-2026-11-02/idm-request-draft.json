@@ -1,0 +1,14 @@
+{
+  "draft_only": true,
+  "waiting_for": "срок временного доступа, вопрос пользователю задан",
+  "proposed_request": {
+    "system": "cauth",
+    "path": "/zomb-vodeyko-132.zombie.yandex.net/ssh/",
+    "user": "azamatikramov",
+    "fields_data": {
+      "root": false
+    },
+    "deprive_after_days": 30,
+    "comment": "Временный персональный SSH-доступ Азамату (azamatikramov) к офисному мини-ПК zomb-vodeyko-132.zombie.yandex.net для локального SSH-туннеля к приложению План-факт на 127.0.0.1:18766. Подключение с рабочего компьютера из корпоративной сети/VPN; права root не нужны."
+  }
+}

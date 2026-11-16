@@ -1,0 +1,125 @@
+TAP version 13
+# Subtest: copied vendor files retain their original SHA256
+ok 1 - copied vendor files retain their original SHA256
+  ---
+  duration_ms: 6.354875
+  type: 'test'
+  ...
+# Subtest: partial payment consumes the reserve in overview and closing totals
+ok 2 - partial payment consumes the reserve in overview and closing totals
+  ---
+  duration_ms: 118.384708
+  type: 'test'
+  ...
+# Subtest: canceling a partial payment restores reserve; full payment clears reserve
+ok 3 - canceling a partial payment restores reserve; full payment clears reserve
+  ---
+  duration_ms: 69.340666
+  type: 'test'
+  ...
+# Subtest: closed months still prevent mutations and JSON restore remains guarded
+ok 4 - closed months still prevent mutations and JSON restore remains guarded
+  ---
+  duration_ms: 63.205792
+  type: 'test'
+  ...
+# Subtest: snapshot reader accepts agreed CSV and legacy JSON without losing decimals
+ok 5 - snapshot reader accepts agreed CSV and legacy JSON without losing decimals
+  ---
+  duration_ms: 57.776167
+  type: 'test'
+  ...
+# Subtest: transformed scripts parse and have no native network, storage, dialogs, blob downloads
+ok 6 - transformed scripts parse and have no native network, storage, dialogs, blob downloads
+  ---
+  duration_ms: 104.019583
+  type: 'test'
+  ...
+# Subtest: assembled HTML preserves script text and has no forms or external assets
+ok 7 - assembled HTML preserves script text and has no forms or external assets
+  ---
+  duration_ms: 88.87775
+  type: 'test'
+  ...
+# Subtest: snapshot CSV has a versioned first row and preserves Unicode, quotes, newlines and amounts
+ok 8 - snapshot CSV has a versioned first row and preserves Unicode, quotes, newlines and amounts
+  ---
+  duration_ms: 3.324708
+  type: 'test'
+  ...
+# Subtest: CSV round-trip preserves a full empty state and view without inventing records
+ok 9 - CSV round-trip preserves a full empty state and view without inventing records
+  ---
+  duration_ms: 0.852834
+  type: 'test'
+  ...
+# Subtest: unsupported or malformed CSV is rejected instead of being treated as a usable snapshot
+ok 10 - unsupported or malformed CSV is rejected instead of being treated as a usable snapshot
+  ---
+  duration_ms: 0.69725
+  type: 'test'
+  ...
+# Subtest: payload names its application and format and keeps state and selected view
+ok 11 - payload names its application and format and keeps state and selected view
+  ---
+  duration_ms: 3.223625
+  type: 'test'
+  ...
+# Subtest: План-факт.html: all pages render with sandbox APIs disabled and fixture distinction is preserved
+ok 12 - План-факт.html: all pages render with sandbox APIs disabled and fixture distinction is preserved
+  ---
+  duration_ms: 1137.195166
+  type: 'test'
+  ...
+# JSDOM does not parse the complete modern CSS; this test verifies DOM behaviour, not browser layout.
+# Subtest: План-факт.html: expenses and forecasts update totals, filter correctly, and cancel stays unchanged
+ok 13 - План-факт.html: expenses and forecasts update totals, filter correctly, and cancel stays unchanged
+  ---
+  duration_ms: 3948.4455
+  type: 'test'
+  ...
+# JSDOM does not parse the complete modern CSS; this test verifies DOM behaviour, not browser layout.
+# Subtest: План-факт.html: snapshot export and file restore keep financial state; rejected restore keeps edits
+ok 14 - План-факт.html: snapshot export and file restore keep financial state; rejected restore keeps edits
+  ---
+  duration_ms: 2362.000667
+  type: 'test'
+  ...
+# JSDOM does not parse the complete modern CSS; this test verifies DOM behaviour, not browser layout.
+# Subtest: План-факт-пример.html: all pages render with sandbox APIs disabled and fixture distinction is preserved
+ok 15 - План-факт-пример.html: all pages render with sandbox APIs disabled and fixture distinction is preserved
+  ---
+  duration_ms: 957.035292
+  type: 'test'
+  ...
+# JSDOM does not parse the complete modern CSS; this test verifies DOM behaviour, not browser layout.
+# Subtest: План-факт-пример.html: expenses and forecasts update totals, filter correctly, and cancel stays unchanged
+ok 16 - План-факт-пример.html: expenses and forecasts update totals, filter correctly, and cancel stays unchanged
+  ---
+  duration_ms: 3717.704708
+  type: 'test'
+  ...
+# JSDOM does not parse the complete modern CSS; this test verifies DOM behaviour, not browser layout.
+# Subtest: План-факт-пример.html: snapshot export and file restore keep financial state; rejected restore keeps edits
+ok 17 - План-факт-пример.html: snapshot export and file restore keep financial state; rejected restore keeps edits
+  ---
+  duration_ms: 2439.181417
+  type: 'test'
+  ...
+# JSDOM does not parse the complete modern CSS; this test verifies DOM behaviour, not browser layout.
+# Subtest: XLSX budget and request imports preserve monthly plans and create forecasts via the visible workflow
+ok 18 - XLSX budget and request imports preserve monthly plans and create forecasts via the visible workflow
+  ---
+  duration_ms: 1092.856
+  type: 'test'
+  ...
+# JSDOM does not parse the complete modern CSS; this test verifies DOM behaviour, not browser layout.
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 16646.951458

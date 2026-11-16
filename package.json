@@ -1,0 +1,12 @@
+{
+  "name": "plan-fact-datalens-html",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Автономная HTML-страница план-факта для DataLens",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node --test tests/*.test.cjs",
+    "check:datalens": "python3 tools/validate_page.py --strict dist/*.html"
+  }
+}

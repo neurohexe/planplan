@@ -1,0 +1,27 @@
+{
+  "pr": {
+    "auto_merge": "disabled",
+    "id": 16890146,
+    "summary": "Добавить отдельный проект «План-факт» со стенда мини-ПК",
+    "description": "Добавляет отдельный проект junk/padolskiye/plan_fact_minipc на основе установленного приложения из /home/zomb-vodeyko/PlanFactMVP/app на zomb-vodeyko-132.zombie.yandex.net. Снимок получен 4 ноября 2026 года в 08:22:03 UTC: 46 исходных файлов перенесены без изменения содержимого.\n\nДобавлены README с локальным запуском и ограничениями поставки, source-manifest.json с SHA256 и .arcignore для рабочих данных и зависимостей. Базы, коды доступа, config.env, логи и резервные копии не переносились. Каталог taxi/int_real_estate/plan_fact не затронут.\n\nПроверки на Node.js v22.23.2: совпадение SHA256 всех 46 исходных файлов, node --check для 31 файла JavaScript, локальный запуск на временной пустой SQLite-базе, HTTP 200 для /health, /ready, / и /runtime-config.js, HTTP 401 для /api/state без авторизации.\n\nОграничения: установленная поставка не содержит backend/tests и lockfile; исходный npm test не запускался. PostgreSQL и корпоративные интеграции не проверялись. Стенд не изменялся и не перезапускался.\n",
+    "settings": {
+      "auto_publish": "disabled"
+    },
+    "vcs": {
+      "repo_name": "arc_vcs",
+      "from_branch": "users/padolskiye/plan-fact-minipc-import-20261104",
+      "to_branch": "trunk"
+    },
+    "status": "open"
+  },
+  "diff": {
+    "has_conflicts": false,
+    "commit_ids": {
+      "head": "9f0ac6350d4b8af0e41018b4c8ae2149f5076d7d",
+      "base": "0ee318e6dc9718f78ba9191ea1acbacdada480f4",
+      "merge": "50d0e56f8e784807f008555b2bd06b33e53beb6e"
+    },
+    "id": 40202913,
+    "published": false
+  }
+}

@@ -1,0 +1,33 @@
+/* DataLens owns the outer scroll. Keep the working app in one bounded scroll area. */
+html, body { min-width: 360px; height: 100%; overflow: hidden; }
+.app-shell { height: 900px; min-height: 640px; overflow: hidden; }
+.main-area { height: 900px; min-width: 0; overflow: auto; overscroll-behavior: contain; }
+.sidebar { height: 900px; overflow-y: auto; bottom: auto; }
+.content { width: 100%; }
+.pf-dl-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 28px; border-bottom: 1px solid var(--line); color: var(--text); background: var(--surface); }
+.pf-dl-toolbar strong { font-size: 14px; }
+.pf-dl-toolbar p { margin: 6px 0 0; font-size: 12px; line-height: 1.45; color: var(--text-soft); max-width: 600px; }
+.pf-dl-toolbar p.is-error { color: var(--red); }
+.pf-dl-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.pf-dl-actions .button { font-size: 12px; padding: 10px 12px; }
+.pf-dl-question { max-width: min(600px, 92vw); padding: 28px; border: 1px solid var(--line); border-radius: 16px; color: var(--text); background: var(--surface); box-shadow: var(--shadow); }
+.pf-dl-question::backdrop { background: var(--overlay); }
+.pf-dl-question h2 { margin: 0 0 16px; font-size: 20px; }
+.pf-dl-question p { line-height: 1.55; }
+.pf-dl-question input, .pf-dl-question textarea { width: 100%; padding: 10px; color: var(--text); background: var(--input); border: 1px solid var(--line); border-radius: 8px; margin-bottom: 18px; }
+.pf-dl-question .button + .button { margin-left: 8px; }
+#tracker-sync-card, #tracker-token-dialog, #tracker-mapping-dialog, #tracker-warning-button,
+#auth-dialog, #admin-users-card, #user-admin-dialog, #shared-profile, #logout-btn,
+.shared-mode-card { display: none !important; }
+@media (max-width: 1000px) {
+  .pf-dl-toolbar { align-items: flex-start; flex-direction: column; gap: 12px; padding: 16px; }
+  .pf-dl-actions { flex-wrap: wrap; }
+  .topbar { flex-wrap: wrap; }
+  .content { padding: 18px 14px; }
+  .table-wrap { overflow-x: auto; }
+}
+@media (max-width: 680px) {
+  .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .heading-actions, .filters-row { flex-wrap: wrap; }
+  .page-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
+}

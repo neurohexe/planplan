@@ -1,0 +1,2 @@
+Официальный validate_page.py --strict
+Оба dist/*.html: exit code 0; ошибок, предупреждений и замечаний нет.

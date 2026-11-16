@@ -1,0 +1,1271 @@
+<!doctype html>
+<html lang="ru" data-skin="graphite" data-density="compact" data-drawer="on">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#102820">
+  <meta name="application-name" content="План Факт">
+  <title>План · Факт — бюджет офиса</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="graphite.css">
+  <link rel="stylesheet" href="plan-fact-chart.css">
+  <link rel="stylesheet" href="nav-drawer.css">
+  <script src="nav-drawer.js"></script>
+  <script src="plan-fact-chart.js" defer></script>
+</head>
+<body>
+  <div class="app-shell" id="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div>
+          <strong>План · Факт</strong>
+          <small>Бюджет офиса</small>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <button class="nav-item is-active" data-page="overview" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13h6V4H4v9Zm0 7h6v-5H4v5Zm10 0h6v-9h-6v9Zm0-16v5h6V4h-6Z"/></svg>
+          Обзор
+        </button>
+        <button class="nav-item" data-page="expenses" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6V2Zm8 2v4h4l-4-4ZM9 12v2h8v-2H9Zm0 4v2h8v-2H9Z"/></svg>
+          Расходы
+          <span id="expenses-nav-count" class="nav-count">0</span>
+        </button>
+        <button class="nav-item" data-page="forecast" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8Zm1-13h-2v6l5 3 1-1.7-4-2.3V7Z"/></svg>
+          Прогнозы
+          <span id="forecast-nav-count" class="nav-count">0</span>
+        </button>
+        <button class="nav-item" data-page="budget" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v14H3V6Zm2 3v8h14V9H5Zm3 2h5v2H8v-2ZM5 3h14v2H5V3Z"/></svg>
+          Бюджет и статьи
+        </button>
+        <button class="nav-item" data-page="data" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v12l8 4 8-4V6l-8-4Zm0 2.2L17.6 7 12 9.8 6.4 7 12 4.2ZM6 8.6l5 2.5v8.3l-5-2.5V8.6Zm7 10.8v-8.3l5-2.5v8.3l-5 2.5Z"/></svg>
+          Данные
+        </button>
+      </nav>
+
+      <form id="global-ticket-search-form" class="global-ticket-search">
+        <label for="global-ticket-search">Найти тикет</label>
+        <div>
+          <input id="global-ticket-search" type="search" placeholder="TAXIASSIST-12345" autocomplete="off">
+          <button type="submit" aria-label="Найти тикет">Найти</button>
+        </div>
+      </form>
+
+      <div class="location-group">
+        <div class="location-group-heading">
+          <span>Локации</span>
+          <button id="add-location-btn" class="location-add-btn" type="button" title="Добавить локацию" aria-label="Добавить локацию">+</button>
+        </div>
+        <label class="sidebar-location-search">
+          <span class="sr-only">Поиск локаций</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 19-4.4-4.4A7 7 0 1 0 14.2 16l4.4 4.4L20 19ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/></svg>
+          <input id="sidebar-location-search" type="search" placeholder="Название или код" autocomplete="off">
+        </label>
+        <div class="location-list" id="location-list" role="list">
+          <!-- пункты локаций рендерятся в app.js -->
+        </div>
+        <button id="manage-locations-btn" class="location-manage-btn" type="button">Управление локациями</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div id="storage-badge" class="storage-badge">
+          <span class="status-dot"></span>
+          <div>
+            <strong>Локальный режим</strong>
+            <small>Данные сохраняются в браузере</small>
+          </div>
+        </div>
+        <div class="user-chip">
+          <span id="user-avatar">?</span>
+          <div>
+            <strong id="sidebar-user-name">Имя не задано</strong>
+            <button id="open-profile-btn" type="button">Изменить профиль</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <!-- Локация видна в шапке, пока меню задвинуто (nav-drawer.css). Название и код пишет app.js,
+             щелчок выдвигает меню с поиском локаций (nav-drawer.js). -->
+        <div class="topbar-location" id="topbar-location" hidden>
+          <span class="topbar-location-caption"><span id="topbar-location-label">Локация</span><span id="topbar-location-code" class="topbar-location-code"></span></span>
+          <button id="topbar-location-button" class="topbar-location-button" type="button" aria-labelledby="topbar-location-label topbar-location-code topbar-location-value">
+            <span id="topbar-location-value" class="topbar-location-value"></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+          </button>
+        </div>
+        <div class="period-control" aria-label="Выбранный период">
+          <label>
+            <span>Период</span>
+            <select id="quarter-select" aria-label="Квартал">
+              <option value="1">1 квартал</option>
+              <option value="2">2 квартал</option>
+              <option value="3">3 квартал</option>
+              <option value="4">4 квартал</option>
+            </select>
+          </label>
+          <label class="year-label">
+            <span class="sr-only">Год</span>
+            <select id="year-select" aria-label="Год"></select>
+          </label>
+        </div>
+
+        <div class="topbar-actions">
+          <span id="tracker-sync-indicator" class="tracker-sync-indicator" hidden aria-live="polite">
+            <svg class="spin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V1L8 5l4 4V6a6 6 0 1 1-5.65 8H4.26A8 8 0 1 0 12 4Z"/></svg>
+            Синхронизация с Tracker…
+          </span>
+          <button id="tracker-warning-button" class="tracker-topbar-warning" type="button" hidden>
+            <span aria-hidden="true">!</span>
+            Tracker: <strong id="tracker-topbar-warning-count">0</strong>
+          </button>
+          <span id="save-status" class="save-status">Все изменения сохранены</span>
+          <button id="logout-btn" class="button button-secondary" type="button" hidden>Выйти</button>
+          <button id="language-toggle" class="language-toggle" type="button" aria-label="Switch to English" title="Switch to English">EN</button>
+          <label class="exchange-mode-badge" title="Режим отображения валют">
+            <span>¤ / ₽</span>
+            <select id="currency-display-mode" aria-label="Режим отображения валют">
+              <option value="original">Валюта оригинала</option>
+              <option value="RUB">В рублях</option>
+            </select>
+          </label>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Включить тёмную тему" aria-pressed="false">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0-6h1v3h-2V2h1Zm0 17h1v3h-2v-3h1ZM2 11h3v2H2v-2Zm17 0h3v2h-3v-2ZM4.2 5.6l1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1Zm12.1 12.1 1.4-1.4 2.1 2.1-1.4 1.4-2.1-2.1ZM4.2 18.4l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4ZM16.3 6.3l2.1-2.1 1.4 1.4-2.1 2.1-1.4-1.4Z"/></svg>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.7 15.2A8.5 8.5 0 0 1 8.8 3.3 9 9 0 1 0 20.7 15.2ZM11 20a7 7 0 0 1-5.8-10.9 10.5 10.5 0 0 0 9.7 9.7A7 7 0 0 1 11 20Z"/></svg>
+          </button>
+          <button id="add-expense-btn" class="button button-primary" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg>
+            Добавить расход
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section id="page-overview" class="page is-active" aria-labelledby="overview-title">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">Текущая картина</p>
+              <h1 id="overview-title">Бюджет за <span id="overview-period-label"></span></h1> <span id="overview-quarter-status" class="period-close-status-badge" hidden></span>
+              <p>План, потраченные и зарезервированные деньги, а также доступный остаток по всем проектам.</p>
+            </div>
+            <button class="button button-secondary go-to-expenses" type="button">Открыть реестр</button>
+          </div>
+
+          <section class="panel overview-filters-panel" aria-label="Фильтры обзора">
+            <div class="filters-row">
+              <label class="search-field">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 19-4.4-4.4A7 7 0 1 0 14.2 16l4.4 4.4L20 19ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/></svg>
+                <input id="overview-search" type="search" placeholder="Название или код проекта">
+              </label>
+              <label><span class="sr-only">Фильтр обзора по проекту</span><select id="overview-article-filter"><option value="all">Все проекты</option></select></label>
+              <label><span class="sr-only">Фильтр обзора по ответственному</span><select id="overview-responsible-filter"><option value="all">Все ответственные</option></select></label>
+              <label><span class="sr-only">Фильтр обзора по типу бюджета</span><select id="overview-budget-type-filter"><option value="all">Все</option><option value="opex">OPEX</option><option value="capex">CAPEX</option></select></label>
+              <label><span class="sr-only">Фильтр обзора по сервису</span><select id="overview-service-filter"><option value="all">Все сервисы</option></select></label>
+              <label><span class="sr-only">Фильтр обзора по юр лицу</span><select id="overview-legal-filter"><option value="all">Все юр лица</option></select></label>
+              <label><span class="sr-only">Фильтр обзора по локации проекта</span><select id="overview-location-filter"><option value="all">Все локации</option></select></label>
+            </div>
+          </section>
+
+          <div class="summary-grid">
+            <article class="summary-card summary-plan">
+              <div class="summary-icon" aria-hidden="true">¤</div>
+              <span>План</span>
+              <strong id="summary-plan">—</strong>
+              <small>Выделено на квартал</small>
+            </article>
+            <article class="summary-card summary-fact">
+              <div class="summary-icon" aria-hidden="true">↗</div>
+              <span>Факт</span>
+              <strong id="summary-fact">—</strong>
+              <small id="summary-expense-count">0 расходов</small>
+            </article>
+            <article class="summary-card summary-forecast">
+              <div class="summary-icon" aria-hidden="true">⌛</div>
+              <span>Зарезервировано</span>
+              <strong id="summary-forecast">—</strong>
+              <small id="summary-forecast-count">0 активных распределений</small>
+            </article>
+            <article class="summary-card summary-balance">
+              <div class="summary-icon" aria-hidden="true">=</div>
+              <span>Свободно</span>
+              <strong id="summary-balance">—</strong>
+              <small>План минус факт и резерв</small>
+            </article>
+            <article class="summary-card summary-progress">
+              <div class="summary-icon" aria-hidden="true">%</div>
+              <span>Ожидается</span>
+              <strong id="summary-progress">0%</strong>
+              <div class="mini-progress"><span id="summary-progress-bar"></span></div>
+            </article>
+          </div>
+
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>План-факт по статьям</h2>
+                <p>Нажмите на проект, чтобы увидеть статьи и суммы по ним.</p>
+              </div>
+              <div class="legend" aria-label="Легенда">
+                <span><i class="legend-spent"></i> Потрачено</span>
+                <span><i class="legend-reserved"></i> Зарезервировано</span>
+                <span><i class="legend-danger"></i> Овербюджет</span>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table budget-overview-table">
+                <thead>
+                  <tr>
+                    <th>Проект</th>
+                    <th>Код проекта</th>
+                    <th class="overview-location-cell">Локация</th>
+                    <th>Валюта</th>
+                    <th class="number-cell">План</th>
+                    <th class="number-cell">Факт</th>
+                    <th class="number-cell">Зарезервировано</th>
+                    <th class="number-cell">Свободно</th>
+                    <th>Ожидается</th>
+                  </tr>
+                </thead>
+                <tbody id="overview-table-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel recent-panel">
+            <div class="panel-header">
+              <div>
+                <h2>Последние расходы</h2>
+                <p>Новые записи выбранного квартала.</p>
+              </div>
+            </div>
+            <div id="recent-expenses" class="recent-expenses"></div>
+          </section>
+        </section>
+
+        <section id="page-expenses" class="page" aria-labelledby="expenses-title">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">Реестр</p>
+              <h1 id="expenses-title">Расходы за <span id="expenses-period-label"></span></h1> <span id="expenses-quarter-status" class="period-close-status-badge" hidden></span>
+              <p>Расход попадает в квартал по дате его добавления.</p>
+            </div>
+            <div class="heading-actions">
+              <button class="button button-primary open-expense-modal" type="button">Добавить расход</button>
+              <button class="button button-secondary" id="open-expense-import-btn" type="button">Импортировать отчёт по ЗП</button>
+              <button class="button button-secondary" id="export-csv-top-btn" type="button">Выгрузить CSV</button>
+            </div>
+          </div>
+
+          <section class="panel">
+            <div class="filters-row">
+              <label class="search-field">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 19-4.4-4.4A7 7 0 1 0 14.2 16l4.4 4.4L20 19ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/></svg>
+                <input id="expense-search" type="search" placeholder="Поиск по статье, коду, тикету или комментарию">
+              </label>
+              <label>
+                <span class="sr-only">Фильтр по статье</span>
+                <select id="expense-article-filter">
+                  <option value="all">Все проекты</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Фильтр по статусу</span>
+                <select id="expense-status-filter">
+                  <option value="active">Только действующие</option>
+                  <option value="all">Все записи</option>
+                  <option value="canceled">Только аннулированные</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Фильтр по ответственному</span>
+                <select id="expense-responsible-filter">
+                  <option value="all">Все ответственные</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Фильтр по типу бюджета</span>
+                <select id="expense-budget-type-filter">
+                  <option value="all">Все</option>
+                  <option value="opex">OPEX</option>
+                  <option value="capex">CAPEX</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Фильтр по сервису</span>
+                <select id="expense-service-filter">
+                  <option value="all">Все сервисы</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Фильтр по юр лицу</span>
+                <select id="expense-legal-filter">
+                  <option value="all">Все юр лица</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Фильтр по локации</span>
+                <select id="expense-location-filter">
+                  <option value="all">Все локации</option>
+                </select>
+              </label>
+            </div>
+            <p id="expense-export-filter-hint" class="expense-export-filter-hint">Выгрузка CSV учитывает выбранные фильтры.</p>
+            <div class="table-wrap">
+              <table class="data-table expenses-table">
+                <thead>
+                  <tr>
+                    <th>Дата</th>
+                    <th>Проект и статья</th>
+                    <th class="expense-location-cell">Локация</th>
+                    <th class="number-cell">Сумма без НДС</th>
+                    <th>Тикет</th>
+                    <th>Описание расхода</th>
+                    <th>Добавил</th>
+                    <th class="actions-cell"></th>
+                  </tr>
+                </thead>
+                <tbody id="expenses-table-body"></tbody>
+              </table>
+            </div>
+            <div id="expenses-empty" class="empty-state" hidden>
+              <div class="empty-icon">¤</div>
+              <h3>Расходов пока нет</h3>
+              <p>Добавьте первую запись — остатки пересчитаются автоматически.</p>
+              <button class="button button-primary open-expense-modal" type="button">Добавить расход</button>
+            </div>
+          </section>
+
+        </section>
+
+        <section id="page-forecast" class="page" aria-labelledby="forecast-title">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">Ожидаемые расходы</p>
+              <h1 id="forecast-title">Прогнозы за <span id="forecast-period-label"></span></h1> <span id="forecast-quarter-status" class="period-close-status-badge" hidden></span>
+              <p>Прогноз резервирует деньги до оплаты или освобождения.</p>
+            </div>
+            <div class="heading-actions">
+              <button class="button button-primary" id="add-forecast-btn" type="button">Добавить прогноз</button>
+            </div>
+          </div>
+
+          <section class="panel forecast-panel">
+            <div class="filters-row">
+              <label class="search-field">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 19-4.4-4.4A7 7 0 1 0 14.2 16l4.4 4.4L20 19ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/></svg>
+                <input id="forecast-search" type="search" placeholder="Поиск по проекту, тикету или описанию">
+              </label>
+              <label>
+                <span class="sr-only">Фильтр прогнозов по проекту</span>
+                <select id="forecast-article-filter">
+                  <option value="all">Все проекты</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Фильтр прогнозов по состоянию</span>
+                <select id="forecast-lifecycle-filter">
+                  <option value="current" selected>Текущие прогнозы</option>
+                  <option value="all">Все состояния</option>
+                  <option value="active">Зарезервированные</option>
+                  <option value="review">На проверке</option>
+                  <option value="released">Освобождённые</option>
+                  <option value="converted">Оплаченные</option>
+                </select>
+              </label>
+            </div>
+            <div class="table-wrap">
+              <table id="forecast-table" class="data-table expenses-table forecast-table">
+                <thead>
+                  <tr>
+                    <th>Ожидаемая дата</th>
+                    <th>Проект и статья</th>
+                    <th class="expense-location-cell">Локация</th>
+                    <th class="number-cell">Сумма без НДС</th>
+                    <th>Тикет</th>
+                    <th>Состояние</th>
+                    <th>Описание</th>
+                    <th class="actions-cell"></th>
+                  </tr>
+                </thead>
+                <tbody id="forecast-table-body"></tbody>
+              </table>
+            </div>
+            <div id="forecasts-empty" class="empty-state" hidden>
+              <div class="empty-icon">⌛</div>
+              <h3>Прогнозов в этом квартале нет</h3>
+              <p>Добавьте прогноз вручную или импортируйте отчёт по ЗП.</p>
+            </div>
+          </section>
+        </section>
+
+        <section id="page-budget" class="page" aria-labelledby="budget-title">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">Настройки квартала</p>
+              <h1 id="budget-title">Бюджет и статьи</h1>
+              <p>Нажмите на проект, чтобы раскрыть его статьи и суммы.</p>
+            </div>
+            <div class="heading-actions">
+              <button class="button button-secondary" id="open-excel-import-btn" type="button">Импортировать</button>
+              <button class="button button-secondary" id="manage-projects-btn" type="button">Управление проектами</button>
+              <button class="button button-secondary" id="edit-budget-btn" type="button">Редактировать бюджет</button>
+              <button class="button button-secondary" id="copy-budget-btn" type="button" hidden>Скопировать прошлый квартал</button>
+              <button class="button button-secondary" id="cancel-budget-edit-btn" type="button" hidden>Отменить</button>
+              <button class="button button-primary" id="save-budget-btn" type="button" hidden>Сохранить изменения</button>
+            </div>
+          </div>
+
+          <div class="info-banner">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 10h2v7h-2v-7Zm0-3h2v2h-2V7Zm1-5a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16Z"/></svg>
+            <div>
+              <strong>Код проекта меняется через «Управление проектами».</strong>
+              <span>План задаётся по статьям и месяцам, а строка проекта показывает их общий итог. Валюты не конвертируются и не складываются.</span>
+            </div>
+          </div>
+
+          <section class="panel">
+            <div class="panel-header budget-editor-heading">
+              <div>
+                <h2 id="budget-editor-period"></h2>
+                <p>Проекты и помесячные плановые суммы</p>
+              </div>
+              <div class="budget-editor-total">
+                <span>Итого план</span>
+                <strong id="budget-editor-total">—</strong>
+              </div>
+            </div>
+            <div class="budget-project-search-wrap">
+              <div class="budget-project-controls">
+                <label class="search-field budget-project-search-field">
+                  <span class="sr-only">Поиск проектов</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 19-4.4-4.4A7 7 0 1 0 14.2 16l4.4 4.4L20 19ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/></svg>
+                  <input id="budget-project-search" type="search" placeholder="Название или код проекта" autocomplete="off">
+                </label>
+                <label class="budget-project-control">
+                  <span>Ответственный</span>
+                  <select id="budget-responsible-filter">
+                    <option value="all">Все ответственные</option>
+                  </select>
+                </label>
+                <label class="budget-project-control">
+                  <span>Тип бюджета</span>
+                  <select id="budget-type-filter">
+                    <option value="all">Все</option>
+                    <option value="opex">OPEX</option>
+                    <option value="capex">CAPEX</option>
+                  </select>
+                </label>
+                <label class="budget-project-control">
+                  <span>Сервис</span>
+                  <select id="budget-service-filter">
+                    <option value="all">Все сервисы</option>
+                  </select>
+                </label>
+                <label class="budget-project-control">
+                  <span>Юр лицо</span>
+                  <select id="budget-legal-filter">
+                    <option value="all">Все юр лица</option>
+                  </select>
+                </label>
+              </div>
+              <p id="budget-reimport-warning" class="budget-reimport-warning" hidden>Текущий бюджет был загружен старой версией без статей проектов. Администратору нужно повторно импортировать исходный Excel и выбрать квартал.</p>
+              <p id="budget-responsible-reimport-warning" class="budget-reimport-warning" hidden>Для этого бюджета ответственные ещё не загружены. Администратору нужно один раз повторно импортировать исходный Excel — приложение прочитает столбец «Группа» или «Ответственный».</p>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table budget-editor-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Проект / статья</th>
+                    <th>Код проекта / статьи</th>
+                    <th>Валюта</th>
+                    <th class="number-cell" data-budget-month-header="0">Месяц 1</th>
+                    <th class="number-cell" data-budget-month-header="1">Месяц 2</th>
+                    <th class="number-cell" data-budget-month-header="2">Месяц 3</th>
+                    <th class="number-cell">Итого за квартал</th>
+                  </tr>
+                </thead>
+                <tbody id="budget-editor-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section id="page-data" class="page" aria-labelledby="data-title">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">Настройки</p>
+              <h1 id="data-title">Профиль и данные</h1>
+              <p>Укажите имя автора расходов и управляйте резервными копиями.</p>
+            </div>
+          </div>
+
+          <div class="settings-grid">
+            <section class="panel settings-card exchange-settings-card">
+              <div class="settings-icon">¤ ₽</div>
+              <div>
+                <h2>Курсы валют к RUB</h2>
+                <p>Курсы загружаются из листа «курс» бюджетного файла и хранятся отдельно для каждого квартала.</p>
+                <div class="exchange-period-controls">
+                  <label><span>Год</span><select id="exchange-rate-year"></select></label>
+                  <label><span>Квартал</span><select id="exchange-rate-quarter"><option value="1">Q1</option><option value="2">Q2</option><option value="3">Q3</option><option value="4">Q4</option></select></label>
+                </div>
+                <div class="exchange-dialog-status"><span id="exchange-rate-status" class="exchange-rate-status"></span></div>
+                <p class="exchange-help">Значения доступны только для просмотра. Кнопка ⇄ меняет только направление отображения. Чтобы обновить курсы, повторно импортируйте бюджет за нужный квартал.</p>
+                <div id="exchange-rates-grid" class="exchange-rates-grid"></div>
+              </div>
+            </section>
+
+            <section class="panel settings-card" id="profile-card">
+              <div class="settings-icon">АЯ</div>
+              <div>
+                <h2>Профиль пользователя</h2>
+                <p id="profile-description">Это имя будет записываться в графу «Добавил».</p>
+                <form id="profile-form" class="profile-form" data-local-only>
+                  <label>
+                    <span>Ваше имя</span>
+                    <input id="profile-name" type="text" maxlength="80" placeholder="Например, Анна">
+                  </label>
+                  <button class="button button-primary" type="submit">Сохранить имя</button>
+                </form>
+                <div id="shared-profile" class="shared-profile" hidden>
+                  <div>
+                    <strong id="shared-profile-name">—</strong>
+                    <span id="shared-profile-role" class="role-badge">—</span>
+                    <small id="shared-profile-login">—</small>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel settings-card" id="admin-users-card" hidden>
+              <div class="settings-icon">👥</div>
+              <div>
+                <h2>Пользователи и доступы</h2>
+                <p id="admin-users-description">Добавляйте сотрудников по Staff login и назначайте роли и права на локации.</p>
+                <button id="manage-users-btn" class="button button-primary settings-action" type="button">Управлять пользователями</button>
+              </div>
+            </section>
+
+            <section class="panel settings-card tracker-sync-card" id="tracker-sync-card">
+              <div class="settings-icon">ST</div>
+              <div>
+                <div class="tracker-sync-heading">
+                  <div>
+                    <h2>Синхронизация с Tracker</h2>
+                    <p id="tracker-sync-description">Новые финансовые тикеты TAXIASSIST создают расходы и резервы по периоду оказания услуги. Изменения суммы, валюты, проекта или офиса требуют ручной проверки.</p>
+                  </div>
+                  <span id="tracker-warning-count" class="tracker-warning-count" hidden>0</span>
+                </div>
+                <div id="tracker-period-controls" class="tracker-period-controls" aria-label="Настройки поиска и периода Tracker">
+                  <label>
+                    <span>Область поиска</span>
+                    <select id="tracker-sync-scope" aria-label="Область поиска в Tracker">
+                      <option value="mine">Мои тикеты</option>
+                      <option value="queue">Вся очередь TAXIASSIST</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Квартал импорта</span>
+                    <select id="tracker-sync-quarter" aria-label="Квартал импорта из Tracker">
+                      <option value="1">1 квартал</option>
+                      <option value="2">2 квартал</option>
+                      <option value="3">3 квартал</option>
+                      <option value="4">4 квартал</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Год</span>
+                    <select id="tracker-sync-year" aria-label="Год импорта из Tracker"></select>
+                  </label>
+                  <small>Поиск по очереди проверяет финансовые тикеты всех авторов. Квартал определяется по дате окончания периода оказания услуги; если период не указан — по дате создания тикета. Уже добавленные расходы продолжают контролироваться при любом режиме.</small>
+                </div>
+                <div id="tracker-sync-status" class="tracker-sync-status">Tracker ещё не проверялся</div>
+                <p id="tracker-sync-meta" class="tracker-sync-meta">Автоматическая проверка выполняется каждые 30 минут, пока приложение открыто.</p>
+                <div class="button-row">
+                  <button id="tracker-sync-btn" class="button button-primary" type="button">Синхронизировать с Tracker</button>
+                  <button id="update-tracker-token-btn" class="button button-secondary" type="button">Обновить токен</button>
+                </div>
+                <div id="tracker-sync-results" class="tracker-sync-results" hidden></div>
+                <div id="tracker-sync-warnings" class="tracker-sync-warnings"></div>
+              </div>
+            </section>
+
+            <section class="panel settings-card" id="export-card">
+              <div class="settings-icon">↕</div>
+              <div>
+                <h2>Выгрузка данных</h2>
+                <p>JSON — полная резервная копия. CSV — расходы и прогнозы выбранного квартала с учётом фильтров экрана «Расходы».</p>
+                <div class="button-row">
+                  <button id="export-json-btn" class="button button-secondary" type="button">Скачать JSON</button>
+                  <button id="export-csv-btn" class="button button-secondary" type="button">Скачать CSV</button>
+                </div>
+              </div>
+            </section>
+
+            <section class="panel settings-card" id="restore-card">
+              <div class="settings-icon">⇧</div>
+              <div>
+                <h2>Восстановление</h2>
+                <p>Загрузите JSON, ранее выгруженный из этого приложения. Текущие данные будут заменены.</p>
+                <label class="file-button button button-secondary">
+                  Выбрать JSON
+                  <input id="import-json-input" type="file" accept="application/json,.json">
+                </label>
+              </div>
+            </section>
+
+            <section class="panel settings-card" id="period-close-card">
+              <div class="settings-icon">🔒</div>
+              <div>
+                <h2>Закрытие периодов</h2>
+                <p>Закрытый период защищает план и расходы от изменений для всех локаций. Квартал закрывается после трёх месяцев и фиксирует итоговый снимок.</p>
+                <div class="period-close-grid">
+                  <div>
+                    <span class="period-close-label">Квартал</span>
+                    <strong id="period-close-quarter-label">—</strong>
+                    <span class="period-close-status" id="period-close-quarter-status">Открыт</span>
+                  </div>
+                  <div id="period-close-months" class="period-close-months"></div>
+                </div>
+                <div class="button-row" id="period-close-actions"></div>
+                <p class="period-close-hint" id="period-close-hint" hidden></p>
+              </div>
+            </section>
+
+            <dialog id="period-close-dialog" class="modal">
+              <form id="period-close-form">
+                <div class="modal-header">
+                  <div>
+                    <p class="eyebrow">Период</p>
+                    <h2 id="period-close-dialog-title">Закрытие периода</h2>
+                  </div>
+                  <button class="icon-button" id="close-period-close-modal" type="button" aria-label="Закрыть">×</button>
+                </div>
+                <p id="period-close-dialog-summary"></p>
+                <label class="form-field">
+                  <span>Причина (обязательна для переоткрытия)</span>
+                  <textarea id="period-close-reason" rows="3" maxlength="500" placeholder="Например: найдена ошибка в расходе, нужно исправить"></textarea>
+                </label>
+                <p class="form-error" id="period-close-error" role="alert" hidden></p>
+                <div class="modal-footer">
+                  <button type="button" id="cancel-period-close" class="button button-secondary">Отмена</button>
+                  <button type="submit" id="submit-period-close" class="button button-primary">Подтвердить</button>
+                </div>
+              </form>
+            </dialog>
+
+            <section class="panel settings-card shared-mode-card">
+              <div class="settings-icon">◎</div>
+              <div>
+                <h2>Автономный HTML</h2>
+                <p id="shared-mode-description">Данные сохраняются локально в этом браузере. Для переноса на другой компьютер используйте JSON.</p>
+                <code id="shared-mode-command">План Факт для Windows.html</code>
+                <small>Интерфейс и расчёты совпадают с версией для Mac. Сервер и установка не требуются.</small>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+      <footer class="nda-footer">
+        <a id="nda-notice-link" href="https://wiki.yandex-team.ru/security/nda/" target="_blank" rel="noopener noreferrer">Конфиденциально</a>
+      </footer>
+    </div>
+  </div>
+
+  <dialog id="location-dialog" class="modal location-modal">
+    <form id="location-form" method="dialog">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Локации</p>
+          <h2 id="location-modal-title">Управление локациями</h2>
+        </div>
+        <button class="icon-button" id="close-location-modal" type="button" aria-label="Закрыть">×</button>
+      </div>
+
+      <div class="location-manager">
+        <div class="location-form-row">
+          <label class="form-field">
+            <span>Название <b>*</b></span>
+            <input id="location-name-input" type="text" maxlength="120" placeholder="Москва, Казань, Склад №2…">
+          </label>
+          <label class="form-field">
+            <span>Код</span>
+            <input id="location-code-input" type="text" maxlength="80" placeholder="MSK">
+          </label>
+          <input id="location-edit-id" type="hidden">
+          <button class="button button-primary" id="location-save-btn" type="button">Добавить</button>
+        </div>
+        <p id="location-form-error" class="form-error" role="alert"></p>
+
+        <label class="search-field location-search">
+          <span class="sr-only">Поиск локаций</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 19-4.4-4.4A7 7 0 1 0 14.2 16l4.4 4.4L20 19ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/></svg>
+          <input id="location-search" type="search" placeholder="Поиск по названию или коду" autocomplete="off">
+        </label>
+
+        <div class="table-wrap">
+          <table class="data-table location-table">
+            <thead>
+              <tr>
+                <th>Локация</th>
+                <th>Код</th>
+                <th class="number-cell">Расходов</th>
+                <th class="actions-col">Действия</th>
+              </tr>
+            </thead>
+            <tbody id="location-table-body"></tbody>
+          </table>
+        </div>
+        <p class="location-hint">Локацию нельзя удалить, если по ней есть расходы — сначала удалите или перенесите их. Архивация скрывает локацию из меню, данные сохраняются.</p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="button button-secondary" id="cancel-location-modal" type="button">Закрыть</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="project-dialog" class="modal project-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Проекты</p>
+          <h2 id="project-modal-title">Управление проектами</h2>
+        </div>
+        <button class="icon-button" id="close-project-modal" type="button" aria-label="Закрыть">×</button>
+      </div>
+
+      <div class="project-manager">
+        <form id="project-form" class="project-edit-form">
+          <div class="project-form-row">
+            <label class="form-field">
+              <span>Название проекта <b>*</b></span>
+              <input id="project-name-input" type="text" maxlength="120" placeholder="Например, Уборка помещений" required>
+            </label>
+            <label class="form-field">
+              <span>Код проекта</span>
+              <input id="project-code-input" type="text" maxlength="80" placeholder="OFFICE-CLEANING">
+            </label>
+            <input id="project-edit-id" type="hidden">
+            <button class="button button-primary" id="project-save-btn" type="submit">Добавить проект</button>
+          </div>
+          <p id="project-form-error" class="form-error" role="alert"></p>
+        </form>
+
+        <div class="table-wrap project-table-wrap">
+          <table class="data-table project-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Проект / статья бюджета</th>
+                <th>Код</th>
+                <th>Тип</th>
+                <th>Статей</th>
+                <th class="actions-col">Действия</th>
+              </tr>
+            </thead>
+            <tbody id="project-table-body"></tbody>
+          </table>
+        </div>
+
+        <section id="project-article-manager" class="project-article-manager" hidden>
+          <div class="project-article-heading">
+            <div>
+              <p class="eyebrow">Статьи проекта</p>
+              <h3 id="project-article-project-name">—</h3>
+            </div>
+            <p>Бюджет и расходы распределяются между статьями этого проекта.</p>
+          </div>
+          <div class="project-article-form-row">
+            <label class="form-field">
+              <span>Название статьи <b>*</b></span>
+              <input id="project-article-name-input" type="text" maxlength="120" placeholder="Например, Дезинсекция и дератизация">
+            </label>
+            <input id="project-article-edit-id" type="hidden">
+            <div class="project-article-form-actions">
+              <button class="button button-primary" id="project-article-save-btn" type="button">Добавить статью</button>
+              <button class="button button-secondary" id="project-article-cancel-btn" type="button" hidden>Отмена</button>
+            </div>
+          </div>
+          <p id="project-article-form-error" class="form-error" role="alert"></p>
+          <div class="table-wrap project-article-table-wrap">
+            <table class="data-table project-article-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Статья</th>
+                  <th>Код</th>
+                  <th class="actions-col">Действия</th>
+                </tr>
+              </thead>
+              <tbody id="project-article-table-body"></tbody>
+            </table>
+          </div>
+          <p class="location-hint">Статью с расходами или ненулевым бюджетом удалить нельзя. У проекта всегда должна оставаться хотя бы одна статья.</p>
+        </section>
+      </div>
+
+      <div class="modal-footer">
+        <button class="button button-secondary" id="cancel-project-modal" type="button">Закрыть</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="excel-import-dialog" class="modal import-modal">
+    <div class="modal-header">
+      <div>
+        <p class="eyebrow">OPEX и CAPEX</p>
+        <h2>Импорт бюджета</h2>
+      </div>
+      <button class="icon-button" id="close-excel-import-modal" type="button" aria-label="Закрыть">×</button>
+    </div>
+    <p class="import-privacy-note">Исходный Excel не изменяется. Валюты не конвертируются и не складываются между собой.</p>
+    <p class="import-privacy-note">Импорт обновляет только план выбранного квартала. Расходы, прогнозы и комментарии сохраняются.</p>
+    <div class="import-controls">
+      <label class="import-control">
+        <span>Файл Excel</span>
+        <span class="file-button button button-secondary import-file-button">
+          Выбрать файл
+          <input id="import-excel-input" type="file" accept=".xlsx,.xlsm,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        </span>
+        <small id="excel-import-file-name">Файл не выбран</small>
+      </label>
+      <label class="import-control">
+        <span>Отчётный период</span>
+        <select id="excel-import-period" disabled>
+          <option value="">Сначала выберите файл</option>
+        </select>
+        <small>Период выбирается отдельно для каждого импорта.</small>
+      </label>
+    </div>
+    <p id="excel-import-status" class="import-status" role="status"></p>
+    <div id="excel-import-summary" class="import-summary"></div>
+    <div id="excel-import-conflicts"></div>
+    <div class="table-wrap import-preview-wrap" id="excel-import-preview-wrap" hidden>
+      <table class="data-table import-preview-table">
+        <thead>
+          <tr>
+            <th>Локация</th>
+            <th>Тип</th>
+            <th>Проект</th>
+            <th>Статья проекта</th>
+            <th>Ответственный</th>
+            <th>Валюта</th>
+            <th class="number-cell" id="excel-import-month-1">Месяц 1</th>
+            <th class="number-cell" id="excel-import-month-2">Месяц 2</th>
+            <th class="number-cell" id="excel-import-month-3">Месяц 3</th>
+            <th class="number-cell" id="excel-import-quarter-total">Итого</th>
+          </tr>
+        </thead>
+        <tbody id="excel-import-preview-body"></tbody>
+      </table>
+    </div>
+    <p id="excel-import-preview-note" class="location-hint"></p>
+    <div class="modal-footer">
+      <button class="button button-secondary" id="cancel-excel-import-modal" type="button">Отмена</button>
+      <button class="button button-primary" id="apply-excel-import-btn" type="button" disabled>Применить импорт</button>
+    </div>
+  </dialog>
+
+  <dialog id="expense-import-dialog" class="modal import-modal expense-import-modal">
+    <div class="modal-header">
+      <div>
+        <p class="eyebrow">Единая загрузка</p>
+        <h2>Импорт отчёта по ЗП</h2>
+      </div>
+      <button class="icon-button" id="close-expense-import-modal" type="button" aria-label="Закрыть">×</button>
+    </div>
+    <p class="import-privacy-note">Исходный Excel не изменяется. Прогнозы попадут на экран «Прогнозы», а фактический расход появится на экране «Расходы» после подтверждения оплаты.</p>
+    <div class="import-controls expense-import-controls">
+      <label class="import-control">
+        <span>Файл Excel</span>
+        <span class="file-button button button-secondary import-file-button">
+          Выбрать файл
+          <input id="expense-import-input" type="file" accept=".xlsx,.xlsm,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        </span>
+        <small id="expense-import-file-name">Файл не выбран</small>
+      </label>
+      <label class="import-control">
+        <span>Дата прогноза</span>
+        <select id="expense-import-date-field">
+          <option value="expected">Ожидаемая дата</option>
+          <option value="reservation">Дата резервирования</option>
+        </select>
+        <small>Будущие даты загружаются как прогноз. Наступление даты не создаёт факт автоматически.</small>
+      </label>
+    </div>
+    <p id="expense-import-status" class="import-status" role="status"></p>
+    <div id="expense-import-summary" class="import-summary"></div>
+    <div id="expense-import-conflicts"></div>
+    <div id="expense-import-mappings" class="expense-import-mappings"></div>
+    <div class="table-wrap import-preview-wrap" id="expense-import-preview-wrap" hidden>
+      <table class="data-table import-preview-table expense-import-preview-table">
+        <thead>
+          <tr>
+            <th>Действие</th>
+            <th>Дата</th>
+            <th>Локация</th>
+            <th>Проект</th>
+            <th>Статья проекта</th>
+            <th>Валюта</th>
+            <th class="number-cell">Сумма без НДС</th>
+            <th>№ ЗП</th>
+            <th>Статус ЗП</th>
+            <th>Куда попадёт</th>
+          </tr>
+        </thead>
+        <tbody id="expense-import-preview-body"></tbody>
+      </table>
+    </div>
+    <p id="expense-import-preview-note" class="location-hint"></p>
+    <div class="modal-footer">
+      <button class="button button-secondary" id="cancel-expense-import-modal" type="button">Отмена</button>
+      <button class="button button-primary" id="apply-expense-import-btn" type="button" disabled>Применить импорт</button>
+    </div>
+  </dialog>
+
+  <dialog id="forecast-dialog" class="modal">
+    <form id="forecast-form" method="dialog">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Резерв бюджета</p>
+          <h2 id="forecast-modal-title">Добавить прогноз</h2>
+        </div>
+        <button class="icon-button" id="close-forecast-modal" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <div class="date-notice">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h2v2h10V3h2v2h2v16H3V5h2V3Zm14 7H5v9h14v-9ZM5 7v1h14V7H5Z"/></svg>
+        <div>
+          <span>Прогноз резервирует деньги до оплаты или освобождения</span>
+          <strong id="forecast-auto-date"></strong>
+        </div>
+      </div>
+      <input id="forecast-ticket-id" type="hidden">
+      <input id="forecast-allocation-id" type="hidden">
+      <input id="forecast-location-id" type="hidden">
+      <div class="form-grid">
+        <label class="form-field form-field-wide">
+          <span>Проект <b>*</b></span>
+          <select id="forecast-article" required></select>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Статья проекта</span>
+          <select id="forecast-subarticle"></select>
+          <small class="form-hint">Необязательно: без статьи прогноз учитывается в общем итоге проекта.</small>
+        </label>
+        <label class="form-field">
+          <span>Ожидаемая дата <b>*</b></span>
+          <input id="forecast-date" type="date" required>
+        </label>
+        <label class="form-field">
+          <span>Валюта <b>*</b></span>
+          <select id="forecast-currency" required></select>
+        </label>
+        <label class="form-field">
+          <span>Сумма без НДС <b>*</b></span>
+          <input id="forecast-amount" type="text" inputmode="decimal" autocomplete="off" placeholder="0" required>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Ссылка на тикет <b>*</b></span>
+          <input id="forecast-ticket" type="url" maxlength="500" placeholder="https://tracker.example.ru/PROJECT-123" required>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Описание</span>
+          <textarea id="forecast-comment" rows="3" maxlength="500" placeholder="Что планируется оплатить"></textarea>
+        </label>
+      </div>
+      <p id="forecast-form-error" class="form-error" role="alert"></p>
+      <div class="modal-footer">
+        <button class="button button-secondary" id="cancel-forecast-modal" type="button">Отмена</button>
+        <button class="button button-primary" type="submit">Сохранить прогноз</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="expense-dialog" class="modal">
+    <form id="expense-form" method="dialog">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Новая запись</p>
+          <h2 id="expense-modal-title">Добавить расход</h2>
+        </div>
+        <button class="icon-button" id="close-expense-modal" type="button" aria-label="Закрыть">×</button>
+      </div>
+
+      <div class="date-notice">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h2v2h10V3h2v2h2v16H3V5h2V3Zm14 7H5v9h14v-9ZM5 7v1h14V7H5Z"/></svg>
+        <div>
+          <span id="expense-date-caption">Дата расхода определяет квартал</span>
+          <strong id="expense-auto-date"></strong>
+        </div>
+      </div>
+
+      <input id="expense-id" type="hidden">
+      <input id="expense-forecast-ticket-id" type="hidden">
+      <input id="expense-forecast-allocation-id" type="hidden">
+      <p id="expense-forecast-source-note" class="import-privacy-note" hidden>Данные проекта и валюты взяты из прогноза. После сохранения резерв будет снят, а расход появится в факте.</p>
+      <div class="form-grid">
+        <label class="form-field form-field-wide">
+          <span>Проект <b>*</b></span>
+          <select id="expense-article" required></select>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Статья проекта</span>
+          <select id="expense-subarticle"></select>
+          <small class="form-hint">Необязательно: без статьи расход учитывается в общем факте проекта.</small>
+        </label>
+        <label class="form-field">
+          <span>Дата расхода <b>*</b></span>
+          <input id="expense-date" type="date" required>
+        </label>
+        <label class="form-field" id="expense-currency-field">
+          <span>Валюта проекта <b>*</b></span>
+          <select id="expense-currency" required></select>
+        </label>
+        <label class="form-field">
+          <span>Сумма без НДС <b>*</b></span>
+          <input id="expense-amount" type="text" inputmode="decimal" autocomplete="off" placeholder="0" required>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Ссылка на тикет <b>*</b></span>
+          <input id="expense-ticket" type="url" maxlength="500" placeholder="https://tracker.example.ru/PROJECT-123" required>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Описание расхода</span>
+          <textarea id="expense-comment" rows="3" maxlength="500" placeholder="Кратко опишите расход"></textarea>
+        </label>
+      </div>
+      <p id="expense-form-error" class="form-error" role="alert"></p>
+      <div class="modal-footer">
+        <button class="button button-secondary" id="cancel-expense-modal" type="button">Отмена</button>
+        <button class="button button-primary" id="expense-submit-btn" type="submit">Сохранить расход</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="comment-dialog" class="modal comment-modal">
+    <form id="comment-form">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Обсуждение расхода</p>
+          <h2 id="comment-modal-title">Комментарии</h2>
+        </div>
+        <button class="icon-button" id="close-comment-modal" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <input id="comment-expense-id" type="hidden">
+      <div id="comment-expense-summary" class="comment-expense-summary"></div>
+      <div id="comment-list" class="comment-list"></div>
+      <label class="form-field">
+        <span>Новый комментарий</span>
+        <textarea id="comment-text" rows="3" maxlength="1000" placeholder="Напишите комментарий…" required></textarea>
+      </label>
+      <p id="comment-form-error" class="form-error" role="alert"></p>
+      <div class="modal-footer">
+        <button class="button button-secondary" id="cancel-comment-modal" type="button">Закрыть</button>
+        <button class="button button-primary" type="submit">Отправить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="tracker-mapping-dialog" class="modal">
+    <form id="tracker-mapping-form">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Ручное сопоставление Tracker</p>
+          <h2 id="tracker-mapping-title">Разнести тикет</h2>
+        </div>
+        <button class="icon-button" id="close-tracker-mapping-modal" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <input id="tracker-mapping-issue-key" type="hidden">
+      <p class="import-privacy-note">Сопоставление сохраняется для этого тикета; при необходимости его можно применить и к похожим тикетам.</p>
+      <div class="form-grid">
+        <label class="form-field form-field-wide">
+          <span>Проект <b>*</b></span>
+          <select id="tracker-mapping-project" required></select>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Локация <b>*</b></span>
+          <select id="tracker-mapping-location" required></select>
+        </label>
+        <label class="form-field">
+          <span>Сервис</span>
+          <select id="tracker-mapping-service"></select>
+        </label>
+        <label class="form-field">
+          <span>ЦФО</span>
+          <select id="tracker-mapping-cfo"></select>
+        </label>
+        <label class="form-field form-field-wide">
+          <span>Юридическое лицо</span>
+          <select id="tracker-mapping-legal-entity">
+            <option value="">Не указано</option>
+          </select>
+        </label>
+        <label class="form-field form-field-wide">
+          <span><input id="tracker-mapping-remember-project" type="checkbox" checked> Запомнить код Tracker как этот проект</span>
+          <small id="tracker-mapping-project-hint" class="form-hint"></small>
+        </label>
+        <label class="form-field form-field-wide">
+          <span><input id="tracker-mapping-remember-location" type="checkbox" checked> Запомнить код Tracker как эту локацию</span>
+          <small id="tracker-mapping-location-hint" class="form-hint"></small>
+        </label>
+      </div>
+      <p id="tracker-mapping-error" class="form-error" role="alert"></p>
+      <div class="modal-footer">
+        <button class="button button-ghost" id="delete-tracker-mapping" type="button">Удалить сопоставление</button>
+        <button class="button button-secondary" id="cancel-tracker-mapping-modal" type="button">Отмена</button>
+        <button class="button button-primary" type="submit">Сохранить и повторить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="tracker-token-dialog" class="modal">
+    <form id="tracker-token-form">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Подключение к Tracker</p>
+          <h2>Токен Yandex Tracker</h2>
+        </div>
+        <button class="icon-button" id="close-tracker-token-modal" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <p class="import-privacy-note">Токен сохраняется только на этом компьютере: в Keychain на macOS или в пользовательском хранилище Windows. Он не попадает в данные приложения и резервные копии.</p>
+      <label class="form-field">
+        <span>Персональный OAuth-токен</span>
+        <input id="tracker-token-input" type="password" minlength="20" autocomplete="off" spellcheck="false" required>
+      </label>
+      <p id="tracker-token-error" class="form-error" role="alert"></p>
+      <div class="modal-footer">
+        <button class="button button-secondary" id="cancel-tracker-token-modal" type="button">Позже</button>
+        <button class="button button-primary" id="save-tracker-token" type="submit">Сохранить и синхронизировать</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="user-admin-dialog" class="modal user-admin-modal">
+    <form id="user-admin-form">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Администрирование</p>
+          <h2>Пользователи и доступы</h2>
+        </div>
+        <button class="icon-button" id="close-user-admin-modal" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <div class="user-admin-layout">
+        <section class="user-editor">
+          <input id="user-edit-id" type="hidden">
+          <div class="form-grid">
+            <label class="form-field">
+              <span id="user-login-label">Staff login <b>*</b></span>
+              <input id="user-staff-login-input" type="text" maxlength="64" autocomplete="off" spellcheck="false" placeholder="login" required>
+            </label>
+            <label class="form-field">
+              <span>Отображаемое имя</span>
+              <input id="user-display-name-input" type="text" maxlength="80" placeholder="Необязательно">
+            </label>
+            <label class="form-field">
+              <span>Роль</span>
+              <select id="user-role-select">
+                <option value="user">Пользователь</option>
+                <option value="admin">Администратор</option>
+              </select>
+            </label>
+            <label class="form-field">
+              <span>Новые и неназначенные локации</span>
+              <select id="user-default-access">
+                <option value="hidden">Скрывать</option>
+                <option value="view">Показывать для просмотра</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <div class="access-heading">
+              <strong>Права по локациям</strong>
+              <small>Индивидуальное правило важнее настройки выше</small>
+            </div>
+            <div id="user-location-access" class="location-access-list"></div>
+          </div>
+          <p id="user-admin-error" class="form-error" role="alert"></p>
+          <div class="button-row">
+            <button id="reset-user-form-btn" class="button button-secondary" type="button">Новый пользователь</button>
+            <button class="button button-primary" type="submit">Сохранить</button>
+          </div>
+        </section>
+        <section class="user-list-panel">
+          <div id="managed-user-list" class="managed-user-list"></div>
+        </section>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="global-ticket-search-dialog" class="modal global-ticket-search-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">По всем периодам и локациям</p>
+          <h2>Результаты поиска</h2>
+        </div>
+        <button id="close-global-ticket-search" class="icon-button" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <p id="global-ticket-search-summary" class="global-ticket-search-summary"></p>
+      <div id="global-ticket-search-results" class="global-ticket-search-results"></div>
+    </div>
+  </dialog>
+
+  <dialog id="auth-dialog" class="modal auth-modal" aria-labelledby="auth-title" aria-describedby="auth-description">
+    <form id="auth-form">
+      <div class="auth-brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div><strong>План · Факт</strong><small id="auth-brand-caption">Корпоративный вход</small></div>
+      </div>
+      <div class="modal-header auth-heading">
+        <div>
+          <p class="eyebrow" id="auth-eyebrow">Корпоративный доступ</p>
+          <h2 id="auth-title">Вход через Staff</h2>
+          <p id="auth-description">Корпоративный аккаунт проверяется автоматически.</p>
+        </div>
+      </div>
+      <div id="auth-code-fields" class="auth-code-fields" hidden>
+        <label class="form-field">
+          <span>Логин</span>
+          <input id="auth-login" name="login" type="text" maxlength="64" autocomplete="username" autocapitalize="none" spellcheck="false" disabled required>
+        </label>
+        <label class="form-field">
+          <span>Код доступа</span>
+          <input id="auth-code" name="code" type="password" maxlength="64" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" aria-describedby="auth-error" disabled required>
+        </label>
+      </div>
+      <p><a id="auth-idm-request" hidden rel="noopener noreferrer" target="_blank">Запросить доступ в IDM</a></p>
+      <p id="auth-error" class="form-error" role="alert"></p>
+      <button id="auth-submit-btn" class="button button-primary auth-submit" type="submit">Повторить проверку</button>
+    </form>
+  </dialog>
+
+  <div id="sync-block-overlay" class="sync-block-overlay" hidden aria-live="assertive" aria-busy="true">
+    <div class="sync-block-content">
+      <svg class="spin-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4V1L8 5l4 4V6a6 6 0 1 1-5.65 8H4.26A8 8 0 1 0 12 4Z"/></svg>
+      <p>Идёт синхронизация с Tracker. Подождите, действия в приложении временно недоступны…</p>
+    </div>
+  </div>
+
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="runtime-config.js" defer></script>
+  <script src="period-locks.js" defer></script>
+  <script src="budget-import.js" defer></script>
+  <script src="expense-import.js" defer></script>
+  <script src="tracker-sync.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

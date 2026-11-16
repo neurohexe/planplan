@@ -1,0 +1,47 @@
+{
+  "prepared_at": "2026-11-10T14:03:57.300972+00:00",
+  "status": "local_package_ready_not_published",
+  "artifacts": [
+    {
+      "path": "dist/План-факт-пример.html",
+      "bytes": 926770,
+      "sha256": "510868b21c2c6ff25a5f36fac67e6896115b3795c830897de6cd373c7fa54466"
+    },
+    {
+      "path": "dist/План-факт.html",
+      "bytes": 919647,
+      "sha256": "4fa0ece607e6b6ceee41b5f56fc683d886594be98064993d7d449c829bf44cfc"
+    }
+  ],
+  "data": "blank starter and explicitly fictional demonstration only",
+  "source_integrity": "all 13 vendor files match original project; original project unchanged",
+  "checks": {
+    "tests": 18,
+    "passed": 18,
+    "failed": 0,
+    "skipped": 0,
+    "official_validator": "strict: 0 errors, 0 warnings, 0 notes for both HTML files",
+    "snapshot_rebuild": "CSV to embedded HTML financial state exact match",
+    "visual_browser": "not performed: CUA browser inventory empty",
+    "datalens_publication": "not performed",
+    "real_host_export": "not performed"
+  },
+  "validator": {
+    "url": "https://raw.githubusercontent.com/datalens-tech/datalens-skills/main/skills/datalens-html-pages/scripts/validate_page.py",
+    "sha256": "a4dc31ea1a1d14c36312d5afc5cc63e8ac8b2ee5eca227d948e71bb0bce574ef",
+    "license": "Apache-2.0; tools/LICENSE-validator.txt"
+  },
+  "references": [
+    {
+      "url": "https://wiki.yandex-team.ru/stefania/knowledge-base/services/search-portal/hr-budgeting/datalens-html-pages",
+      "revision": 230104745
+    },
+    {
+      "url": "https://wiki.yandex-team.ru/users/mvchaplygina/datalens-html-pages",
+      "revision": 232728940
+    },
+    {
+      "url": "https://github.com/datalens-tech/datalens-skills/tree/main/skills/datalens-html-pages"
+    }
+  ]
+}

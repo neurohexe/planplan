@@ -1,0 +1,240 @@
+/* Боковое меню-шторка (задача 37) поверх styles.css.
+   Работает при <html data-drawer="on">: data-nav="pinned" — меню на месте; "hidden" — задвинуто,
+   страница на всю ширину; data-nav-peek="1" — задвинутое меню выдвинуто шторкой поверх страницы.
+   Логика — nav-drawer.js. */
+
+:root {
+  --pf-nav-w: 244px;
+  --pf-nav-time: 280ms;
+  --pf-nav-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --pf-edge-top: 34px;
+}
+
+@media (max-width: 1180px) {
+  :root { --pf-nav-w: 214px; }
+}
+
+/* В «Графите» меню начинается выше — кнопка на краю стоит вровень со значком. */
+html[data-skin="graphite"] {
+  --pf-edge-top: 28px;
+}
+
+.pf-nav-edge,
+.pf-nav-open,
+.pf-nav-scrim,
+.topbar-location { display: none; }
+
+html[data-drawer="on"] {
+  & .app-shell { transition: grid-template-columns var(--pf-nav-time) var(--pf-nav-ease); }
+  & .content,
+  & .nda-footer { transition: max-width var(--pf-nav-time) var(--pf-nav-ease); }
+  & .topbar > .period-control { margin-right: auto; }
+
+  /* z-index меняется с задержкой: закрепляемая шторка не ныряет под затемнение. */
+  & .sidebar {
+    transition:
+      transform var(--pf-nav-time) var(--pf-nav-ease),
+      box-shadow var(--pf-nav-time) ease,
+      visibility 0s,
+      z-index 0s linear var(--pf-nav-time);
+  }
+
+  /* Круглая кнопка на краю меню: «‹» задвигает меню, в выдвинутой шторке «›» закрепляет. */
+  & .pf-nav-edge {
+    position: fixed;
+    top: var(--pf-edge-top);
+    left: calc(var(--pf-nav-w) - 13px);
+    z-index: 12;
+    display: grid;
+    width: 26px;
+    height: 26px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--text-soft);
+    background: var(--surface);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 3px 10px rgba(0, 0, 0, 0.07);
+    cursor: pointer;
+    transition:
+      transform var(--pf-nav-time) var(--pf-nav-ease),
+      visibility 0s,
+      z-index 0s linear var(--pf-nav-time),
+      color 160ms ease,
+      border-color 160ms ease;
+  }
+  & .pf-nav-edge:hover {
+    color: var(--text);
+    border-color: color-mix(in srgb, var(--text) 30%, var(--line));
+  }
+  & .pf-nav-edge svg {
+    width: 14px;
+    height: 14px;
+    transition: transform var(--pf-nav-time) var(--pf-nav-ease);
+  }
+
+  /* Кнопка «Меню» в шапке — видна, пока меню задвинуто. Подпись сверху, как у полей локации и периода
+     (styles.css), под ней квадрат со значком: так в шапке больше места для названия локации. */
+  & .pf-nav-open {
+    flex: none;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 16px 0 0;
+    padding: 0;
+    border: 0;
+    color: var(--text);
+    background: none;
+  }
+  & .pf-nav-open-box {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--surface);
+    transition: border-color 160ms ease, background-color 160ms ease;
+  }
+  & .pf-nav-open:hover .pf-nav-open-box {
+    border-color: color-mix(in srgb, var(--text) 30%, var(--line));
+    background: var(--surface-muted);
+  }
+  /* Рамка фокуса — вокруг квадрата, а не вокруг подписи. */
+  & .pf-nav-open:focus-visible { outline: none; }
+  & .pf-nav-open:focus-visible .pf-nav-open-box {
+    outline: 3px solid rgba(47, 125, 90, 0.2);
+    outline-offset: 2px;
+  }
+  & .pf-nav-open svg { width: 17px; height: 17px; }
+
+  & .pf-nav-edge svg,
+  & .pf-nav-open svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* Затемнение под выдвинутой шторкой: щелчок по нему задвигает меню. */
+  & .pf-nav-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 55;
+    display: block;
+    background: rgba(20, 20, 24, 0.24);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--pf-nav-time) ease, visibility 0s linear var(--pf-nav-time);
+  }
+  &[data-theme="dark"] .pf-nav-scrim { background: rgba(0, 0, 0, 0.5); }
+}
+
+/* Поле «Локация» в шапке (показывается ниже, пока меню задвинуто). Выглядит как поля периода. */
+.topbar-location-caption { white-space: nowrap; }
+.topbar-location-code:not(:empty)::before { content: " · "; }
+.topbar-location-button {
+  display: flex;
+  width: 100%;
+  height: 38px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--text);
+  background: var(--surface);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+}
+.topbar-location-button:hover { border-color: color-mix(in srgb, var(--text) 30%, var(--line)); }
+.topbar-location-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.topbar-location-button svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Меню задвинуто: колонка меню схлопывается, страница забирает её ширину. */
+html[data-drawer="on"][data-nav="hidden"] {
+  & .app-shell { grid-template-columns: 0px minmax(0, 1fr); }
+  & .content,
+  & .nda-footer { max-width: calc(1540px + var(--pf-nav-w)); }
+  & .pf-nav-open { display: inline-flex; }
+
+  /* Поле «Локация» перед периодом: без меню иначе не видно, какая локация открыта. Подпись — как у
+     периода (styles.css), рядом код локации; название и код пишет app.js, щелчок выдвигает меню
+     с поиском локаций. Когда шапке не хватает места, первым сокращается многоточием название,
+     а кнопки и подписи справа остаются как были. */
+  & .topbar-location {
+    display: block;
+    flex: 0 100000 auto;
+    min-width: 150px;
+    max-width: 340px;
+    margin-right: 16px;
+  }
+  /* Подпись «Все изменения сохранены» не прилипает к полю года, даже когда места впритык. */
+  & .topbar-actions { margin-left: 12px; }
+
+  & .sidebar,
+  & .pf-nav-edge {
+    visibility: hidden;
+    transition:
+      transform var(--pf-nav-time) var(--pf-nav-ease),
+      box-shadow var(--pf-nav-time) ease,
+      visibility 0s linear var(--pf-nav-time),
+      z-index 0s linear var(--pf-nav-time);
+  }
+  & .sidebar { transform: translateX(-100%); }
+  & .pf-nav-edge { transform: translateX(calc(-1 * var(--pf-nav-w))); }
+}
+
+/* Шторка выдвинута поверх страницы. */
+html[data-drawer="on"][data-nav="hidden"][data-nav-peek="1"] {
+  & .sidebar,
+  & .pf-nav-edge {
+    visibility: visible;
+    transform: none;
+    transition:
+      transform var(--pf-nav-time) var(--pf-nav-ease),
+      box-shadow var(--pf-nav-time) ease,
+      visibility 0s;
+  }
+  & .sidebar { z-index: 60; box-shadow: 18px 0 48px rgba(0, 0, 0, 0.16); }
+  & .pf-nav-edge { z-index: 61; }
+  & .pf-nav-edge svg { transform: rotate(180deg); }
+  & .pf-nav-scrim {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity var(--pf-nav-time) ease, visibility 0s;
+  }
+}
+
+/* Узкое окно: поле локации может сжаться сильнее, чтобы шапка не вылезала за край. */
+@media (max-width: 1180px) {
+  html[data-drawer="on"][data-nav="hidden"] .topbar-location { min-width: 128px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --pf-nav-time: 0s; }
+}
+
+@media print {
+  .pf-nav-edge,
+  .pf-nav-open,
+  .pf-nav-scrim { display: none !important; }
+}

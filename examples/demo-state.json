@@ -1,0 +1,439 @@
+{
+  "format": "plan-fact-datalens/v1",
+  "application": "План · Факт",
+  "demo": true,
+  "note": "Все названия, тикеты, участники и суммы вымышлены.",
+  "state": {
+    "schemaVersion": 15,
+    "revision": 11,
+    "locations": [
+      {
+        "id": "default",
+        "name": "Учебный офис Север",
+        "code": "DEMO-NORTH",
+        "archived": false
+      },
+      {
+        "id": "demo-south",
+        "name": "Учебный офис Юг",
+        "code": "DEMO-SOUTH",
+        "archived": false
+      }
+    ],
+    "articles": [
+      {
+        "id": "demo-office",
+        "name": "Учебный проект · содержание офиса",
+        "code": "DEMO-OFFICE",
+        "budgetType": "manual",
+        "imported": false,
+        "archived": false,
+        "subarticles": [
+          {
+            "id": "default",
+            "name": "Учебный проект · содержание офиса",
+            "code": "DEMO-OFFICE",
+            "archived": false
+          }
+        ]
+      },
+      {
+        "id": "demo-equipment",
+        "name": "Учебный проект · оборудование",
+        "code": "DEMO-EQUIP",
+        "budgetType": "manual",
+        "imported": false,
+        "archived": false,
+        "subarticles": [
+          {
+            "id": "default",
+            "name": "Учебный проект · оборудование",
+            "code": "DEMO-EQUIP",
+            "archived": false
+          }
+        ]
+      },
+      {
+        "id": "demo-service",
+        "name": "Учебный проект · сервисы",
+        "code": "DEMO-SERVICE",
+        "budgetType": "manual",
+        "imported": false,
+        "archived": false,
+        "subarticles": [
+          {
+            "id": "default",
+            "name": "Учебный проект · сервисы",
+            "code": "DEMO-SERVICE",
+            "archived": false
+          }
+        ]
+      }
+    ],
+    "budgets": {
+      "default|2026-Q4": {
+        "demo-office|default": {
+          "RUB": 120000
+        },
+        "demo-equipment|default": {
+          "RUB": 90000
+        },
+        "demo-service|default": {
+          "RUB": 60000
+        }
+      },
+      "demo-south|2026-Q4": {
+        "demo-office|default": {
+          "RUB": 80000
+        },
+        "demo-equipment|default": {
+          "RUB": 50000
+        },
+        "demo-service|default": {
+          "RUB": 30000
+        }
+      }
+    },
+    "monthlyBudgets": {},
+    "responsibleGroups": {},
+    "projectAttributes": {},
+    "currencyCatalog": [
+      {
+        "code": "AED"
+      },
+      {
+        "code": "AMD"
+      },
+      {
+        "code": "AOA"
+      },
+      {
+        "code": "AZN"
+      },
+      {
+        "code": "BDT"
+      },
+      {
+        "code": "BOB"
+      },
+      {
+        "code": "BRL"
+      },
+      {
+        "code": "CDF"
+      },
+      {
+        "code": "CHF"
+      },
+      {
+        "code": "CLP"
+      },
+      {
+        "code": "CNY"
+      },
+      {
+        "code": "COP"
+      },
+      {
+        "code": "ETB"
+      },
+      {
+        "code": "EUR"
+      },
+      {
+        "code": "GEL"
+      },
+      {
+        "code": "GHS"
+      },
+      {
+        "code": "ILS"
+      },
+      {
+        "code": "KGS"
+      },
+      {
+        "code": "KZT"
+      },
+      {
+        "code": "MAD"
+      },
+      {
+        "code": "MZN"
+      },
+      {
+        "code": "NAD"
+      },
+      {
+        "code": "NPR"
+      },
+      {
+        "code": "OMR"
+      },
+      {
+        "code": "PEN"
+      },
+      {
+        "code": "PKR"
+      },
+      {
+        "code": "QAR"
+      },
+      {
+        "code": "RUB"
+      },
+      {
+        "code": "TRY"
+      },
+      {
+        "code": "USD"
+      },
+      {
+        "code": "UZS"
+      },
+      {
+        "code": "XAF"
+      },
+      {
+        "code": "XOF"
+      },
+      {
+        "code": "ZAR"
+      },
+      {
+        "code": "ZMW"
+      }
+    ],
+    "exchangeRatesByQuarter": {},
+    "legacyExchangeRates": null,
+    "expenses": [
+      {
+        "id": "demo-paid",
+        "locationId": "default",
+        "articleId": "demo-office",
+        "subarticleId": "default",
+        "currency": "RUB",
+        "amount": 42000.25,
+        "ticketUrl": "https://example.org/DEMO-101",
+        "comment": "Вымышленный расход для проверки",
+        "expenseDate": "2026-10-15",
+        "quarterKey": "2026-Q4",
+        "createdAt": "2026-11-10T13:49:20.764Z",
+        "createdBy": "alice",
+        "createdById": null,
+        "updatedAt": null,
+        "updatedBy": null,
+        "updatedById": null,
+        "status": "active",
+        "history": [],
+        "sourceType": null,
+        "sourceExpenseKey": null,
+        "sourceRequestNumber": null,
+        "sourceFile": null,
+        "sourceStatus": null,
+        "sourceReservationDate": null,
+        "sourceExpectedDate": null,
+        "sourceRow": null,
+        "lastImportedAt": null,
+        "sourceKey": null,
+        "sourceAllocationKey": null,
+        "sourceServicePeriodStart": null,
+        "sourceServicePeriodEnd": null,
+        "sourceBusinessKey": null,
+        "sourceOrderId": null,
+        "sourceUpdatedAt": null,
+        "sourceSnapshot": null,
+        "sourceEventKey": null,
+        "sourceDocumentNumber": null,
+        "sourceDocumentDate": null,
+        "sourcePaymentDate": null,
+        "sourceGrossAmount": null,
+        "sourceTaxRatePercent": 0,
+        "forecastTicketId": null,
+        "forecastAllocationId": null
+      },
+      {
+        "id": "demo-partial",
+        "locationId": "default",
+        "articleId": "demo-equipment",
+        "subarticleId": "default",
+        "currency": "RUB",
+        "amount": 20000,
+        "ticketUrl": "https://example.org/DEMO-102",
+        "comment": "Вымышленная закупка с частичной оплатой",
+        "expenseDate": "2026-11-01",
+        "quarterKey": "2026-Q4",
+        "createdAt": "2026-11-10T13:49:20.773Z",
+        "createdBy": "alice",
+        "createdById": null,
+        "updatedAt": null,
+        "updatedBy": null,
+        "updatedById": null,
+        "status": "active",
+        "history": [],
+        "sourceType": null,
+        "sourceExpenseKey": null,
+        "sourceRequestNumber": null,
+        "sourceFile": null,
+        "sourceStatus": null,
+        "sourceReservationDate": null,
+        "sourceExpectedDate": null,
+        "sourceRow": null,
+        "lastImportedAt": null,
+        "sourceKey": null,
+        "sourceAllocationKey": null,
+        "sourceServicePeriodStart": null,
+        "sourceServicePeriodEnd": null,
+        "sourceBusinessKey": null,
+        "sourceOrderId": null,
+        "sourceUpdatedAt": null,
+        "sourceSnapshot": null,
+        "sourceEventKey": null,
+        "sourceDocumentNumber": null,
+        "sourceDocumentDate": null,
+        "sourcePaymentDate": null,
+        "sourceGrossAmount": null,
+        "sourceTaxRatePercent": 0,
+        "forecastTicketId": "demo-forecast",
+        "forecastAllocationId": "demo-allocation"
+      }
+    ],
+    "forecastTickets": [
+      {
+        "id": "demo-forecast",
+        "sourceType": null,
+        "sourceTicketKey": null,
+        "trackerIssueKey": null,
+        "sourceRequestNumber": "DEMO-102",
+        "ticketUrl": "https://example.org/DEMO-102",
+        "description": "Вымышленная закупка с частичной оплатой",
+        "supplier": "",
+        "sourceFile": null,
+        "sourceStatus": null,
+        "sourceService": null,
+        "sourceCostCenter": null,
+        "sourceLegalEntity": null,
+        "sourceUpdatedAt": null,
+        "sourceSnapshot": null,
+        "lifecycle": "active",
+        "createdAt": "2026-11-10T13:49:20.768Z",
+        "createdBy": "alice",
+        "createdById": null,
+        "updatedAt": "2026-11-10T13:49:20.773Z",
+        "updatedBy": "alice",
+        "updatedById": null,
+        "lastImportedAt": null,
+        "history": [
+          {
+            "changedAt": "2026-11-10T13:49:20.773Z",
+            "changedBy": "alice",
+            "action": "forecast-convert",
+            "allocationId": "demo-allocation",
+            "expenseId": "demo-partial",
+            "forecastAmount": 50000,
+            "actualAmount": 20000
+          }
+        ],
+        "allocations": [
+          {
+            "id": "demo-allocation",
+            "sourceAllocationKey": null,
+            "locationId": "default",
+            "articleId": "demo-equipment",
+            "subarticleId": "default",
+            "currency": "RUB",
+            "amount": 50000,
+            "expectedDate": "2026-11-15",
+            "quarterKey": "2026-Q4",
+            "lifecycle": "active",
+            "lifecycleSource": "conversion",
+            "stale": false,
+            "comment": "Вымышленная закупка с частичной оплатой",
+            "sourceFile": null,
+            "sourceStatus": null,
+            "sourceReservationDate": null,
+            "sourceExpectedDate": null,
+            "sourceRow": null,
+            "convertedExpenseId": "demo-partial",
+            "convertedExpenseIds": [
+              "demo-partial"
+            ],
+            "convertedAmount": 20000,
+            "releaseReason": "Частично оплачено: 20000; осталось в резерве: 30000"
+          }
+        ]
+      },
+      {
+        "id": "demo-forecast-2",
+        "sourceType": null,
+        "sourceTicketKey": null,
+        "sourceRequestNumber": "DEMO-103",
+        "ticketUrl": "https://example.org/DEMO-103",
+        "description": "Вымышленный прогноз",
+        "supplier": "",
+        "sourceFile": null,
+        "sourceStatus": null,
+        "lifecycle": "active",
+        "createdAt": "2026-11-10T13:49:20.774Z",
+        "createdBy": "bob",
+        "createdById": null,
+        "updatedAt": null,
+        "updatedBy": null,
+        "updatedById": null,
+        "lastImportedAt": null,
+        "history": [],
+        "allocations": [
+          {
+            "id": "demo-allocation-2",
+            "sourceAllocationKey": null,
+            "locationId": "demo-south",
+            "articleId": "demo-service",
+            "subarticleId": "default",
+            "currency": "RUB",
+            "amount": 12000,
+            "expectedDate": "2026-12-10",
+            "quarterKey": "2026-Q4",
+            "lifecycle": "active",
+            "lifecycleSource": "manual",
+            "stale": false,
+            "comment": "Вымышленный прогноз",
+            "sourceFile": null,
+            "sourceStatus": null,
+            "sourceReservationDate": null,
+            "sourceExpectedDate": null,
+            "sourceRow": null,
+            "convertedExpenseId": null,
+            "convertedAmount": null,
+            "releaseReason": ""
+          }
+        ]
+      }
+    ],
+    "imports": [],
+    "expenseImports": [],
+    "comments": [],
+    "closedPeriods": {
+      "months": {},
+      "quarters": {}
+    },
+    "periodCloseHistory": [],
+    "trackerSync": {
+      "lastAttemptAt": null,
+      "lastSuccessfulSyncAt": null,
+      "nextRetryAt": null,
+      "lastError": "",
+      "lastResult": null,
+      "warnings": [],
+      "manualMappings": {},
+      "projectMappings": {},
+      "locationMappings": {},
+      "mappingRules": {}
+    },
+    "permissions": null
+  },
+  "view": {
+    "year": 2026,
+    "quarter": 4,
+    "locationId": "__all__"
+  }
+}

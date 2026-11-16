@@ -1,0 +1,158 @@
+/* График исполнения бюджета на «Обзоре» (задача 37), логика — plan-fact-chart.js.
+   Цвета меток проверены валидатором dataviz (контраст ≥ 3:1 к фону, различимость
+   при дальтонизме и при обычном зрении). Резерв — намеренно приглушённый серый
+   (форма «акцент + фон»), поэтому проверку насыщенности он не проходит по замыслу. */
+
+html {
+  --pf-fact: #1d7d53;
+  --pf-reserve: #87918c;
+  --pf-track: var(--track);
+  --pf-over: var(--red);
+  --pf-grid: var(--line);
+}
+html[data-theme="dark"] { --pf-fact: #3fa877; --pf-reserve: #64706b; }
+html[data-skin="graphite"]:not([data-theme="dark"]) { --pf-fact: #2f5bd3; --pf-reserve: #8e8e93; }
+
+.pf-chart-panel { margin-bottom: 18px; }
+.pf-header { align-items: flex-start; }
+
+.pf-switch {
+  display: inline-flex;
+  flex: 0 0 auto;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-muted);
+}
+.pf-switch button {
+  padding: 6px 11px;
+  border: 0;
+  border-radius: 7px;
+  color: var(--text-soft);
+  background: transparent;
+  font-size: 12px;
+  font-weight: 650;
+}
+.pf-switch button.is-active { color: var(--text); background: var(--surface); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
+.pf-switch button:disabled { cursor: not-allowed; opacity: 0.45; }
+
+/* Общая полоса квартала */
+.pf-total { padding: 2px 23px 18px; border-bottom: 1px solid var(--line); }
+.pf-total-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; font-size: 12px; }
+.pf-total-head span { color: var(--text-soft); font-variant-numeric: tabular-nums; }
+.pf-total-note { margin-bottom: 10px; color: var(--text-soft); font-size: 12px; }
+.pf-meter { position: relative; height: 14px; }
+.pf-meter .pf-seg:first-child { border-radius: 0; }
+.pf-figures { display: flex; flex-wrap: wrap; gap: 10px 30px; margin-top: 12px; }
+.pf-figure { display: flex; align-items: center; gap: 9px; }
+.pf-figure b { display: block; font-size: 15px; letter-spacing: -0.01em; }
+.pf-figure small { display: block; color: var(--text-soft); font-size: 11px; }
+.pf-key { flex: 0 0 auto; width: 10px; height: 10px; border-radius: 3px; }
+.pf-key.pf-free { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--pf-track) 65%, var(--text) 35%); }
+
+/* Метки */
+.pf-seg { position: absolute; top: 0; bottom: 0; }
+.pf-seg.is-end { border-radius: 0 4px 4px 0; }
+.pf-fact { background: var(--pf-fact); }
+.pf-reserve { background: var(--pf-reserve); }
+.pf-free { background: var(--pf-track); }
+.pf-over { background: var(--pf-over); }
+
+/* Проекты */
+.pf-plot { padding: 14px 23px 4px; }
+.pf-axis,
+.pf-row {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: center;
+}
+.pf-ticks { position: relative; height: 18px; margin-right: 180px; }
+.pf-tick {
+  position: absolute;
+  top: 0;
+  color: var(--text-soft);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+.pf-tick:first-child { transform: none; }
+.pf-tick.is-plan { color: var(--text); font-weight: 750; }
+.pf-row { border-radius: 8px; cursor: pointer; outline: none; }
+.pf-row:hover,
+.pf-row:focus-visible { background: var(--row-hover); }
+.pf-row:focus-visible { box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--pf-fact) 45%, transparent); }
+.pf-name { overflow: hidden; padding-left: 6px; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.pf-area {
+  position: relative;
+  height: 34px;
+  margin-right: 180px;
+  background-image: linear-gradient(to right, var(--pf-grid) 1px, transparent 1px);
+  background-repeat: repeat-x;
+  background-size: var(--pf-step) 100%;
+  box-shadow: inset -1px 0 var(--pf-grid);
+}
+.pf-area .pf-track,
+.pf-area .pf-seg { top: 11px; bottom: 11px; }
+.pf-track { position: absolute; left: 0; border-radius: 0 4px 4px 0; background: var(--pf-track); }
+.pf-plan-mark { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--text-soft); opacity: 0.55; }
+.pf-value {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+.pf-value b { font-variant-numeric: tabular-nums; }
+.pf-over-text { display: inline-flex; align-items: center; gap: 5px; color: var(--red); font-size: 11px; font-weight: 650; }
+.pf-warn-icon {
+  display: inline-grid;
+  width: 15px;
+  height: 15px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--pf-over);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+}
+.pf-note { margin: 0; padding: 6px 23px 16px; color: var(--text-soft); font-size: 11px; }
+.pf-empty { padding: 18px 23px 22px; border-top: 1px solid var(--line); color: var(--text-soft); font-size: 12px; line-height: 1.5; }
+
+/* Подсказка */
+.pf-tooltip {
+  position: fixed;
+  z-index: 1300;
+  min-width: 230px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+  font-size: 12px;
+  pointer-events: none;
+}
+.pf-tip-title { display: flex; justify-content: space-between; gap: 14px; margin-bottom: 7px; color: var(--text-soft); font-size: 11px; }
+.pf-tip-title small { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.pf-tip-row { display: grid; grid-template-columns: 12px auto 1fr; align-items: center; column-gap: 8px; padding: 2px 0; }
+.pf-tip-row b { font-variant-numeric: tabular-nums; }
+.pf-tip-row b.is-over { color: var(--red); }
+.pf-tip-row span { color: var(--text-soft); }
+.pf-tip-key { width: 12px; height: 2px; border-radius: 1px; }
+.pf-tip-key.is-blank { background: transparent; }
+
+/* Подсветка строки таблицы после перехода из графика */
+.pf-flash td { animation: pf-flash 1.6s ease-out; }
+@keyframes pf-flash { from { background-color: color-mix(in srgb, var(--pf-fact) 22%, var(--surface)); } }
+
+/* Компактная плотность */
+html[data-density="compact"] .pf-area { height: 28px; }
+html[data-density="compact"] .pf-area .pf-track,
+html[data-density="compact"] .pf-area .pf-seg { top: 8px; bottom: 8px; }
+html[data-density="compact"] .pf-total { padding-bottom: 14px; }

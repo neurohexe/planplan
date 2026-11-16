@@ -1,0 +1,2048 @@
+
+> @yandex-int/plan-fact@0.1.0 test
+> node --experimental-sqlite --test app/tests/*.test.js backend/tests/*.test.js
+
+TAP version 13
+# Subtest: AccessCodeAuth_LoginRequiredShowsCodeFormWithoutCorporateRedirect
+ok 1 - AccessCodeAuth_LoginRequiredShowsCodeFormWithoutCorporateRedirect
+  ---
+  duration_ms: 61.970125
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_ExistingSessionLoadsStateAndUsesCodeProfile
+ok 2 - AccessCodeAuth_ExistingSessionLoadsStateAndUsesCodeProfile
+  ---
+  duration_ms: 28.353208
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_SuccessLoadsDataAndUsersAndBlocksDuplicateSubmission
+ok 3 - AccessCodeAuth_SuccessLoadsDataAndUsersAndBlocksDuplicateSubmission
+  ---
+  duration_ms: 11.5285
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_ServerErrorIsTextAndClearsAndFocusesCode
+ok 4 - AccessCodeAuth_ServerErrorIsTextAndClearsAndFocusesCode
+  ---
+  duration_ms: 13.153125
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_NetworkFailureAllowsRetryWithoutSavingCode
+ok 5 - AccessCodeAuth_NetworkFailureAllowsRetryWithoutSavingCode
+  ---
+  duration_ms: 6.699334
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_SessionLostWhileLoadingAfterLoginKeepsFormOpen
+ok 6 - AccessCodeAuth_SessionLostWhileLoadingAfterLoginKeepsFormOpen
+  ---
+  duration_ms: 9.972917
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_Api401ReturnsToSameFormWithoutReload
+ok 7 - AccessCodeAuth_Api401ReturnsToSameFormWithoutReload
+  ---
+  duration_ms: 30.981792
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_LogoutClearsSessionAndShowsForm
+ok 8 - AccessCodeAuth_LogoutClearsSessionAndShowsForm
+  ---
+  duration_ms: 9.070166
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_FailedLogoutKeepsSessionAndReportsError
+ok 9 - AccessCodeAuth_FailedLogoutKeepsSessionAndReportsError
+  ---
+  duration_ms: 11.074417
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_WebauthKeepsRedirectAndCorporateForm
+ok 10 - AccessCodeAuth_WebauthKeepsRedirectAndCorporateForm
+  ---
+  duration_ms: 14.553709
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_WebauthRetryStillLoadsData
+ok 11 - AccessCodeAuth_WebauthRetryStillLoadsData
+  ---
+  duration_ms: 7.551209
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_MarkupAndTranslationsIncludeCodeForm
+ok 12 - AccessCodeAuth_MarkupAndTranslationsIncludeCodeForm
+  ---
+  duration_ms: 5.251292
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_ButtonStartsServerLoginWithoutCodeOrReload
+ok 13 - CorporateIdm_ButtonStartsServerLoginWithoutCodeOrReload
+  ---
+  duration_ms: 13.113916
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_CallbackRefusalIsClearAndRemovedFromAddress
+ok 14 - CorporateIdm_CallbackRefusalIsClearAndRemovedFromAddress
+  ---
+  duration_ms: 21.678041
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_BothRolesHaveAllLocationsAndNoLocalAccessAdministration
+ok 15 - CorporateIdm_BothRolesHaveAllLocationsAndNoLocalAccessAdministration
+  ---
+  duration_ms: 4.786917
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_RevocationClosesStreamAndClearsStateEvenWithOpenEditor
+ok 16 - CorporateIdm_RevocationClosesStreamAndClearsStateEvenWithOpenEditor
+  ---
+  duration_ms: 12.857458
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_PollChecksRoleWhileEditingAndClosesOnUnavailable
+ok 17 - CorporateIdm_PollChecksRoleWhileEditingAndClosesOnUnavailable
+  ---
+  duration_ms: 7.731625
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_DowngradeRemovesAdminActionsWithoutDataRevisionChange
+ok 18 - CorporateIdm_DowngradeRemovesAdminActionsWithoutDataRevisionChange
+  ---
+  duration_ms: 16.457334
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_LogoutClearsSessionAndDoesNotAutoLogin
+ok 19 - CorporateIdm_LogoutClearsSessionAndDoesNotAutoLogin
+  ---
+  duration_ms: 8.956792
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_InFlightMutationCannotRestoreDataAfterRevocation
+ok 20 - CorporateIdm_InFlightMutationCannotRestoreDataAfterRevocation
+  ---
+  duration_ms: 5.391625
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_DowngradeDuringPendingAuthCheckReloadsReducedSession
+ok 21 - CorporateIdm_DowngradeDuringPendingAuthCheckReloadsReducedSession
+  ---
+  duration_ms: 62.035667
+  type: 'test'
+  ...
+# Subtest: CorporateIdm_StateResponseAppliesDowngradeEvenWithUnchangedRevision
+ok 22 - CorporateIdm_StateResponseAppliesDowngradeEvenWithUnchangedRevision
+  ---
+  duration_ms: 23.308292
+  type: 'test'
+  ...
+# Subtest: BudgetImport_RepeatedQuarterKeepsEveryExpenseCommentAndForecastUnchanged
+ok 23 - BudgetImport_RepeatedQuarterKeepsEveryExpenseCommentAndForecastUnchanged
+  ---
+  duration_ms: 81.917542
+  type: 'test'
+  ...
+# Subtest: BudgetImport_ChangedPlanAndRenamedItemKeepTheOriginalExpenseAndItsItem
+ok 24 - BudgetImport_ChangedPlanAndRenamedItemKeepTheOriginalExpenseAndItsItem
+  ---
+  duration_ms: 25.97575
+  type: 'test'
+  ...
+# Subtest: BudgetImport_NewYearAndZeroPlanKeepCanceledExpensesAndOldQuarter
+ok 25 - BudgetImport_NewYearAndZeroPlanKeepCanceledExpensesAndOldQuarter
+  ---
+  duration_ms: 16.024208
+  type: 'test'
+  ...
+# Subtest: BudgetImport_Rejects_deletedExpense_BeforeAnyDataCanBeSaved
+ok 26 - BudgetImport_Rejects_deletedExpense_BeforeAnyDataCanBeSaved
+  ---
+  duration_ms: 14.409667
+  type: 'test'
+  ...
+# Subtest: BudgetImport_Rejects_changedAmount_BeforeAnyDataCanBeSaved
+ok 27 - BudgetImport_Rejects_changedAmount_BeforeAnyDataCanBeSaved
+  ---
+  duration_ms: 15.830208
+  type: 'test'
+  ...
+# Subtest: BudgetImport_Rejects_canceledExpense_BeforeAnyDataCanBeSaved
+ok 28 - BudgetImport_Rejects_canceledExpense_BeforeAnyDataCanBeSaved
+  ---
+  duration_ms: 7.926375
+  type: 'test'
+  ...
+# Subtest: BudgetImport_Rejects_movedExpenseDate_BeforeAnyDataCanBeSaved
+ok 29 - BudgetImport_Rejects_movedExpenseDate_BeforeAnyDataCanBeSaved
+  ---
+  duration_ms: 15.055
+  type: 'test'
+  ...
+# Subtest: BudgetImport_Rejects_lostItemBinding_BeforeAnyDataCanBeSaved
+ok 30 - BudgetImport_Rejects_lostItemBinding_BeforeAnyDataCanBeSaved
+  ---
+  duration_ms: 9.696791
+  type: 'test'
+  ...
+# Subtest: BudgetImport_Rejects_lostComment_BeforeAnyDataCanBeSaved
+ok 31 - BudgetImport_Rejects_lostComment_BeforeAnyDataCanBeSaved
+  ---
+  duration_ms: 10.214459
+  type: 'test'
+  ...
+# Subtest: BudgetImport_Rejects_releasedForecast_BeforeAnyDataCanBeSaved
+ok 32 - BudgetImport_Rejects_releasedForecast_BeforeAnyDataCanBeSaved
+  ---
+  duration_ms: 10.050041
+  type: 'test'
+  ...
+# Subtest: BudgetImport_Rejects_deletedForecast_BeforeAnyDataCanBeSaved
+ok 33 - BudgetImport_Rejects_deletedForecast_BeforeAnyDataCanBeSaved
+  ---
+  duration_ms: 11.602083
+  type: 'test'
+  ...
+# Subtest: BudgetImportUi_CancelingRepeatedQuarterDoesNotSendImport
+ok 34 - BudgetImportUi_CancelingRepeatedQuarterDoesNotSendImport
+  ---
+  duration_ms: 40.717791
+  type: 'test'
+  ...
+# Subtest: BudgetImportUi_AcceptingRepeatedQuarterSendsOnlyBudgetImport
+ok 35 - BudgetImportUi_AcceptingRepeatedQuarterSendsOnlyBudgetImport
+  ---
+  duration_ms: 10.475417
+  type: 'test'
+  ...
+# Subtest: BudgetImportUi_FirstImportDoesNotAskToReplaceAnotherQuarter
+ok 36 - BudgetImportUi_FirstImportDoesNotAskToReplaceAnotherQuarter
+  ---
+  duration_ms: 11.495458
+  type: 'test'
+  ...
+# Subtest: BudgetImportUi_RepeatedImportKeepsTheSelectedOfficeInsteadOfShowingAnotherOfficesFacts
+ok 37 - BudgetImportUi_RepeatedImportKeepsTheSelectedOfficeInsteadOfShowingAnotherOfficesFacts
+  ---
+  duration_ms: 41.17075
+  type: 'test'
+  ...
+# Subtest: BudgetImportUi_RepeatedImportKeepsAllLocations
+ok 38 - BudgetImportUi_RepeatedImportKeepsAllLocations
+  ---
+  duration_ms: 23.533792
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_DoubleSubmissionSendsOneMutation
+ok 39 - ConcurrentSave_DoubleSubmissionSendsOneMutation
+  ---
+  duration_ms: 84.437625
+  type: 'test'
+  ...
+# Subtest: DomainIds_DuplicateExpenseForecastAllocationCommentAndConversionAreRejected
+ok 40 - DomainIds_DuplicateExpenseForecastAllocationCommentAndConversionAreRejected
+  ---
+  duration_ms: 21.608583
+  type: 'test'
+  ...
+# Subtest: DomainIds_LocationCodeCannotBeReusedWithDifferentCase
+ok 41 - DomainIds_LocationCodeCannotBeReusedWithDifferentCase
+  ---
+  duration_ms: 3.2235
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_UnknownOutcomeRetryUsesSameMutationId
+ok 42 - ConcurrentSave_UnknownOutcomeRetryUsesSameMutationId
+  ---
+  duration_ms: 25.728917
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_UnknownOutcomeCannotBeRetriedWithChangedContent
+ok 43 - ConcurrentSave_UnknownOutcomeCannotBeRetriedWithChangedContent
+  ---
+  duration_ms: 9.083583
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_TimeoutIsUnknownAndResetsSavingStatus
+ok 44 - ConcurrentSave_TimeoutIsUnknownAndResetsSavingStatus
+  ---
+  duration_ms: 37.446833
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_Unrelated409RetriesOnceOnNewRevision
+ok 45 - ConcurrentSave_Unrelated409RetriesOnceOnNewRevision
+  ---
+  duration_ms: 9.012416
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_ConflictingRecordKeepsInputAndRequiresChoice
+ok 46 - ConcurrentSave_ConflictingRecordKeepsInputAndRequiresChoice
+  ---
+  duration_ms: 9.7845
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_ExplicitOverwriteUsesLatestRevision
+ok 47 - ConcurrentSave_ExplicitOverwriteUsesLatestRevision
+  ---
+  duration_ms: 15.861375
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_PendingFormIgnoresEnterAndSecondClick
+ok 48 - ConcurrentSave_PendingFormIgnoresEnterAndSecondClick
+  ---
+  duration_ms: 17.66325
+  type: 'test'
+  ...
+# Subtest: ConcurrentSave_NewExpenseKeepsItsRecordIdAfterUnknownOutcome
+ok 49 - ConcurrentSave_NewExpenseKeepsItsRecordIdAfterUnknownOutcome
+  ---
+  duration_ms: 11.233416
+  type: 'test'
+  ...
+# Subtest: ConcurrentBudget_RenderDoesNotReplaceUnsavedCells
+ok 50 - ConcurrentBudget_RenderDoesNotReplaceUnsavedCells
+  ---
+  duration_ms: 9.735083
+  type: 'test'
+  ...
+# Subtest: ConcurrentPoll_OlderResponseAndResponseStartedBeforeSaveAreDiscarded
+ok 51 - ConcurrentPoll_OlderResponseAndResponseStartedBeforeSaveAreDiscarded
+  ---
+  duration_ms: 19.887542
+  type: 'test'
+  ...
+# Subtest: ConcurrentPoll_PermissionsChangeArrivesWithoutRevisionChange
+ok 52 - ConcurrentPoll_PermissionsChangeArrivesWithoutRevisionChange
+  ---
+  duration_ms: 9.532625
+  type: 'test'
+  ...
+# Subtest: ConcurrentLock_CloseAndLocationChangeReleaseThePreviousLock
+ok 53 - ConcurrentLock_CloseAndLocationChangeReleaseThePreviousLock
+  ---
+  duration_ms: 11.218208
+  type: 'test'
+  ...
+# Subtest: CorporateAuth_BalancerRedirectAndUnauthorizedRequireSignIn
+ok 54 - CorporateAuth_BalancerRedirectAndUnauthorizedRequireSignIn
+  ---
+  duration_ms: 6.371375
+  type: 'test'
+  ...
+# Subtest: CorporateAuth_RefusalsGetClearMessagesWithoutRedirect
+ok 55 - CorporateAuth_RefusalsGetClearMessagesWithoutRedirect
+  ---
+  duration_ms: 2.4375
+  type: 'test'
+  ...
+# Subtest: CorporateAuth_RedirectGuardAllowsOneAutomaticAttemptPerWindow
+ok 56 - CorporateAuth_RedirectGuardAllowsOneAutomaticAttemptPerWindow
+  ---
+  duration_ms: 1.416708
+  type: 'test'
+  ...
+# Subtest: CorporateAuth_MessagesAreTranslated
+ok 57 - CorporateAuth_MessagesAreTranslated
+  ---
+  duration_ms: 2.841084
+  type: 'test'
+  ...
+# Subtest: EnglishLocalization_CoversStaticPageTextAndAccessibleLabels
+ok 58 - EnglishLocalization_CoversStaticPageTextAndAccessibleLabels
+  ---
+  duration_ms: 17.247416
+  type: 'test'
+  ...
+# Subtest: EnglishLocalization_CoversSimpleRuntimeMessages
+ok 59 - EnglishLocalization_CoversSimpleRuntimeMessages
+  ---
+  duration_ms: 427.886708
+  type: 'test'
+  ...
+# Subtest: EnglishLocalization_TranslatesDynamicMessagesWithoutChangingUserData
+ok 60 - EnglishLocalization_TranslatesDynamicMessagesWithoutChangingUserData
+  ---
+  duration_ms: 15.837458
+  type: 'test'
+  ...
+# Subtest: CsvExport_TreatsFormulaLikeValuesAsText
+ok 61 - CsvExport_TreatsFormulaLikeValuesAsText
+  ---
+  duration_ms: 0.425416
+  type: 'test'
+  ...
+# Subtest: NdaNotice_FooterFollowsMainContentOnEveryPage
+ok 62 - NdaNotice_FooterFollowsMainContentOnEveryPage
+  ---
+  duration_ms: 5.28925
+  type: 'test'
+  ...
+# Subtest: NdaNotice_TextAndLinkFollowLanguage
+ok 63 - NdaNotice_TextAndLinkFollowLanguage
+  ---
+  duration_ms: 8.704416
+  type: 'test'
+  ...
+# Subtest: NdaNotice_StaysVisibleInPrint
+ok 64 - NdaNotice_StaysVisibleInPrint
+  ---
+  duration_ms: 3.043958
+  type: 'test'
+  ...
+# Subtest: Overview_ShowsSelectedExpenseItemAndItsPlanFactReserveWithoutDoubleCounting
+ok 65 - Overview_ShowsSelectedExpenseItemAndItsPlanFactReserveWithoutDoubleCounting
+  ---
+  duration_ms: 163.56875
+  type: 'test'
+  ...
+# Subtest: Overview_AllLocationsKeepsItemsCurrenciesAndLocationPermissionsSeparate
+ok 66 - Overview_AllLocationsKeepsItemsCurrenciesAndLocationPermissionsSeparate
+  ---
+  duration_ms: 32.597584
+  type: 'test'
+  ...
+# Subtest: Overview_ItemDetailsRespectServiceFilter
+ok 67 - Overview_ItemDetailsRespectServiceFilter
+  ---
+  duration_ms: 19.614333
+  type: 'test'
+  ...
+# Subtest: Overview_ConvertsItemAmountsToRubAndHandlesMissingRate
+ok 68 - Overview_ConvertsItemAmountsToRubAndHandlesMissingRate
+  ---
+  duration_ms: 35.837667
+  type: 'test'
+  ...
+# Subtest: Overview_ShowsItemsWithOnlyExpensesAndExpensesWithoutAnItem
+ok 69 - Overview_ShowsItemsWithOnlyExpensesAndExpensesWithoutAnItem
+  ---
+  duration_ms: 39.142291
+  type: 'test'
+  ...
+# Subtest: Overview_EscapesItemNamesAndKeepsHistoricalExpensesOfArchivedItems
+ok 70 - Overview_EscapesItemNamesAndKeepsHistoricalExpensesOfArchivedItems
+  ---
+  duration_ms: 22.296208
+  type: 'test'
+  ...
+# Subtest: Overview_ProjectWithoutItemsKeepsItsExistingSummary
+ok 71 - Overview_ProjectWithoutItemsKeepsItsExistingSummary
+  ---
+  duration_ms: 27.119416
+  type: 'test'
+  ...
+# Subtest: ExpenseDate_AddAndEditAcceptFutureDatesAndAssignTheirQuarter
+ok 72 - ExpenseDate_AddAndEditAcceptFutureDatesAndAssignTheirQuarter
+  ---
+  duration_ms: 4.593625
+  type: 'test'
+  ...
+# Subtest: ExpenseDate_InvalidDatesAndClosedMonthsStillRejectChanges
+ok 73 - ExpenseDate_InvalidDatesAndClosedMonthsStillRejectChanges
+  ---
+  duration_ms: 19.017709
+  type: 'test'
+  ...
+# Subtest: ExpenseDate_ForecastConversionAcceptsFutureDateWithinItsQuarter
+ok 74 - ExpenseDate_ForecastConversionAcceptsFutureDateWithinItsQuarter
+  ---
+  duration_ms: 8.3125
+  type: 'test'
+  ...
+# Subtest: ExpenseDate_NewEditAndForecastDialogsHaveNoTodayLimit
+ok 75 - ExpenseDate_NewEditAndForecastDialogsHaveNoTodayLimit
+  ---
+  duration_ms: 24.824583
+  type: 'test'
+  ...
+# Subtest: PeriodSelection_AllLocationsStayVisibleAcrossYearChange
+ok 76 - PeriodSelection_AllLocationsStayVisibleAcrossYearChange
+  ---
+  duration_ms: 65.195291
+  type: 'test'
+  ...
+# Subtest: PeriodSelection_SelectedOfficeSurvivesQuarterChangeAndReload
+ok 77 - PeriodSelection_SelectedOfficeSurvivesQuarterChangeAndReload
+  ---
+  duration_ms: 16.892625
+  type: 'test'
+  ...
+# Subtest: подтверждает импорт, если после ошибки ответа на сервере появилась новая запись
+ok 78 - подтверждает импорт, если после ошибки ответа на сервере появилась новая запись
+  ---
+  duration_ms: 6.7205
+  type: 'test'
+  ...
+# Subtest: не путает старую запись того же файла с новым импортом
+ok 79 - не путает старую запись того же файла с новым импортом
+  ---
+  duration_ms: 0.374959
+  type: 'test'
+  ...
+# Subtest: не подтверждает импорт по чужому файлу или без роста ревизии
+ok 80 - не подтверждает импорт по чужому файлу или без роста ревизии
+  ---
+  duration_ms: 0.425959
+  type: 'test'
+  ...
+# Subtest: не признаёт другие типы мутаций по одному росту ревизии
+ok 81 - не признаёт другие типы мутаций по одному росту ревизии
+  ---
+  duration_ms: 0.332
+  type: 'test'
+  ...
+# Subtest: подтверждает добавление расхода только по стабильному id и полям payload
+ok 82 - подтверждает добавление расхода только по стабильному id и полям payload
+  ---
+  duration_ms: 2.65075
+  type: 'test'
+  ...
+# Subtest: подтверждает обновление расхода только когда запись действительно изменилась
+ok 83 - подтверждает обновление расхода только когда запись действительно изменилась
+  ---
+  duration_ms: 0.622041
+  type: 'test'
+  ...
+# Subtest: персональный токен Tracker доступен только в локальном режиме
+ok 84 - персональный токен Tracker доступен только в локальном режиме
+  ---
+  duration_ms: 0.240708
+  type: 'test'
+  ...
+# Subtest: после HTTP-ошибки перечитывает состояние и возвращает только подтверждённый импорт
+ok 85 - после HTTP-ошибки перечитывает состояние и возвращает только подтверждённый импорт
+  ---
+  duration_ms: 19.703375
+  type: 'test'
+  ...
+# Subtest: TestStandNotice_RemovedWithoutEmptyGapAbovePage
+ok 86 - TestStandNotice_RemovedWithoutEmptyGapAbovePage
+  ---
+  duration_ms: 19.77425
+  type: 'test'
+  ...
+# Subtest: TopbarLocation_FieldStandsBeforePeriodAndShowsOnlyWhileMenuIsHidden
+ok 87 - TopbarLocation_FieldStandsBeforePeriodAndShowsOnlyWhileMenuIsHidden
+  ---
+  duration_ms: 11.583875
+  type: 'test'
+  ...
+# Subtest: TopbarLocation_ShowsSelectedNameCodeAndFullNameHint
+ok 88 - TopbarLocation_ShowsSelectedNameCodeAndFullNameHint
+  ---
+  duration_ms: 43.448875
+  type: 'test'
+  ...
+# Subtest: TopbarLocation_EscapesLocationNames
+ok 89 - TopbarLocation_EscapesLocationNames
+  ---
+  duration_ms: 5.874791
+  type: 'test'
+  ...
+# Subtest: TopbarLocation_AllLocationsWithoutCodeInBothLanguages
+ok 90 - TopbarLocation_AllLocationsWithoutCodeInBothLanguages
+  ---
+  duration_ms: 11.218042
+  type: 'test'
+  ...
+# Subtest: TopbarLocation_TellsTheTruthForArchivedAndMissingLocations
+ok 91 - TopbarLocation_TellsTheTruthForArchivedAndMissingLocations
+  ---
+  duration_ms: 9.223167
+  type: 'test'
+  ...
+# Subtest: TopbarLocation_FollowsLocationChoiceAndRedrawsOnlyOnChange
+ok 92 - TopbarLocation_FollowsLocationChoiceAndRedrawsOnlyOnChange
+  ---
+  duration_ms: 6.770125
+  type: 'test'
+  ...
+# Subtest: правило для похожих тикетов восстанавливает атрибуты и создаёт расход по прямой оплате
+ok 93 - правило для похожих тикетов восстанавливает атрибуты и создаёт расход по прямой оплате
+  ---
+  duration_ms: 63.580291
+  type: 'test'
+  ...
+# Subtest: правило офиса применяется независимо от проекта
+ok 94 - правило офиса применяется независимо от проекта
+  ---
+  duration_ms: 9.522625
+  type: 'test'
+  ...
+# Subtest: старое парное правило мигрирует в независимые правила без потери данных
+ok 95 - старое парное правило мигрирует в независимые правила без потери данных
+  ---
+  duration_ms: 1.201167
+  type: 'test'
+  ...
+# Subtest: ручной разбор ошибки обучает проект и офис независимо
+ok 96 - ручной разбор ошибки обучает проект и офис независимо
+  ---
+  duration_ms: 2.255541
+  type: 'test'
+  ...
+# Subtest: тикет чужого ЦФО исключается до разнесения и не создаёт предупреждение
+ok 97 - тикет чужого ЦФО исключается до разнесения и не создаёт предупреждение
+  ---
+  duration_ms: 4.033125
+  type: 'test'
+  ...
+# Subtest: прямой платёж Tracker не обходит реальное несовпадение аналитики
+ok 98 - прямой платёж Tracker не обходит реальное несовпадение аналитики
+  ---
+  duration_ms: 4.913583
+  type: 'test'
+  ...
+# Subtest: прямой платёж без бюджетной строки помечается как проблема с оплатой, а не с прогнозом
+ok 99 - прямой платёж без бюджетной строки помечается как проблема с оплатой, а не с прогнозом
+  ---
+  duration_ms: 2.411959
+  type: 'test'
+  ...
+# Subtest: сопоставляет офис по точному уникальному названию, если код Tracker отличается
+ok 100 - сопоставляет офис по точному уникальному названию, если код Tracker отличается
+  ---
+  duration_ms: 0.45725
+  type: 'test'
+  ...
+# Subtest: не сопоставляет офис по названию, если оно неоднозначно
+ok 101 - не сопоставляет офис по названию, если оно неоднозначно
+  ---
+  duration_ms: 4.074459
+  type: 'test'
+  ...
+# Subtest: извлекает однобуквенный код и полное название из параметра Офис/датацентр
+ok 102 - извлекает однобуквенный код и полное название из параметра Офис/датацентр
+  ---
+  duration_ms: 3.048041
+  type: 'test'
+  ...
+# Subtest: не подменяет неизвестный офис единственной локацией из той же географии
+ok 103 - не подменяет неизвестный офис единственной локацией из той же географии
+  ---
+  duration_ms: 0.865042
+  type: 'test'
+  ...
+# Subtest: не сопоставляет по стране, если название страны в бюджете неоднозначно
+ok 104 - не сопоставляет по стране, если название страны в бюджете неоднозначно
+  ---
+  duration_ms: 1.21925
+  type: 'test'
+  ...
+# Subtest: извлекает отдельное поле География наряду с конкретным офисом из параметра Офис/датацентр
+ok 105 - извлекает отдельное поле География наряду с конкретным офисом из параметра Офис/датацентр
+  ---
+  duration_ms: 0.826375
+  type: 'test'
+  ...
+# Subtest: VisualRefresh_PageTurnsOnGraphiteCompactDrawerAndChart
+ok 106 - VisualRefresh_PageTurnsOnGraphiteCompactDrawerAndChart
+  ---
+  duration_ms: 9.90375
+  type: 'test'
+  ...
+# Subtest: VisualRefresh_EveryPageAssetExistsAndIsBuiltForTheStand
+ok 107 - VisualRefresh_EveryPageAssetExistsAndIsBuiltForTheStand
+  ---
+  duration_ms: 5.413791
+  type: 'test'
+  ...
+# Subtest: VisualRefresh_NoSandboxLeftoversReachTheStand
+ok 108 - VisualRefresh_NoSandboxLeftoversReachTheStand
+  ---
+  duration_ms: 13.590166
+  type: 'test'
+  ...
+# Subtest: Chart_ReadsOverviewAmountsInRussianAndEnglish
+ok 109 - Chart_ReadsOverviewAmountsInRussianAndEnglish
+  ---
+  duration_ms: 50.682375
+  type: 'test'
+  ...
+# Subtest: Chart_FormatsMoneyLikeTheOverviewTable
+ok 110 - Chart_FormatsMoneyLikeTheOverviewTable
+  ---
+  duration_ms: 6.894208
+  type: 'test'
+  ...
+# Subtest: Chart_EnglishTextCoversEveryRussianLabel
+ok 111 - Chart_EnglishTextCoversEveryRussianLabel
+  ---
+  duration_ms: 5.543625
+  type: 'test'
+  ...
+# Subtest: Chart_CountsOverBudgetProjectsInProperRussian
+ok 112 - Chart_CountsOverBudgetProjectsInProperRussian
+  ---
+  duration_ms: 0.471792
+  type: 'test'
+  ...
+# Subtest: Chart_MetricsShowOverspendAndFreeBudget
+ok 113 - Chart_MetricsShowOverspendAndFreeBudget
+  ---
+  duration_ms: 0.431459
+  type: 'test'
+  ...
+# (node:65023) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: AccessCodeLogin_SetsHttpOnlyStrictCookieSecureBySettingAndItOpensState
+ok 114 - AccessCodeLogin_SetsHttpOnlyStrictCookieSecureBySettingAndItOpensState
+  ---
+  duration_ms: 1330.981417
+  type: 'test'
+  ...
+# Subtest: AccessCodeAuth_Is401LoginRequiredWithoutSessionAnd200WithIt
+ok 115 - AccessCodeAuth_Is401LoginRequiredWithoutSessionAnd200WithIt
+  ---
+  duration_ms: 574.448209
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_SessionAloneIsEnoughWithoutCorporateIdentityChecks
+ok 116 - AccessCodeHttp_SessionAloneIsEnoughWithoutCorporateIdentityChecks
+  ---
+  duration_ms: 581.935042
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_RepeatedBudgetImportPreservesStoredTransactionsAndRejectsStaleRevision
+ok 117 - AccessCodeHttp_RepeatedBudgetImportPreservesStoredTransactionsAndRejectsStaleRevision
+  ---
+  duration_ms: 554.72
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_HarmfulBudgetImportIsRejectedWithoutStateRevisionOrAuditChanges
+ok 118 - AccessCodeHttp_HarmfulBudgetImportIsRejectedWithoutStateRevisionOrAuditChanges
+  ---
+  duration_ms: 362.315959
+  type: 'test'
+  ...
+# Plan Fact request failed { code: 'internal_error', message: 'Укажите корректную дату расхода' }
+# Plan Fact request failed {
+#   code: 'internal_error',
+#   message: 'Месяц 2100-01 закрыт. Сначала переоткройте его.'
+# }
+# Subtest: AccessCodeHttp_FutureExpenseDatesPersistWithSelectedItemAndKeepValidation
+ok 119 - AccessCodeHttp_FutureExpenseDatesPersistWithSelectedItemAndKeepValidation
+  ---
+  duration_ms: 354.505625
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_PostWithoutOriginOrWithForeignOriginGets403
+ok 120 - AccessCodeHttp_PostWithoutOriginOrWithForeignOriginGets403
+  ---
+  duration_ms: 446.646417
+  type: 'test'
+  ...
+# Subtest: AccessCodeLogin_WrongCodeUnknownLoginAndOtherFailuresGetTheSame401
+ok 121 - AccessCodeLogin_WrongCodeUnknownLoginAndOtherFailuresGetTheSame401
+  ---
+  duration_ms: 1452.8695
+  type: 'test'
+  ...
+# Subtest: AccessCodeLogin_ReadsOnlyLoginAndCodeUpTo64Characters
+ok 122 - AccessCodeLogin_ReadsOnlyLoginAndCodeUpTo64Characters
+  ---
+  duration_ms: 508.078583
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_AliceAndBobEditOneLocationFromTheSameRevision
+ok 123 - AccessCodeHttp_AliceAndBobEditOneLocationFromTheSameRevision
+  ---
+  duration_ms: 383.20425
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_LogoutAndNewCodeCloseTheSession
+ok 124 - AccessCodeHttp_LogoutAndNewCodeCloseTheSession
+  ---
+  duration_ms: 691.410458
+  type: 'test'
+  ...
+# Subtest: AccessCodeLogin_ClosesAnotherUsersSessionInThisBrowser
+ok 125 - AccessCodeLogin_ClosesAnotherUsersSessionInThisBrowser
+  ---
+  duration_ms: 680.594459
+  type: 'test'
+  ...
+# Subtest: AccessCodeLogin_RequestBodyIsNeitherLoggedNorEchoed
+ok 126 - AccessCodeLogin_RequestBodyIsNeitherLoggedNorEchoed
+  ---
+  duration_ms: 426.4055
+  type: 'test'
+  ...
+# Subtest: AccessCodeMode_RefusedInProductionAndWithOtherStorage
+ok 127 - AccessCodeMode_RefusedInProductionAndWithOtherStorage
+  ---
+  duration_ms: 2.80725
+  type: 'test'
+  ...
+# Subtest: AccessCodeMode_ServerProcessRefusesToStartInProductionOrWithOtherStorage
+ok 128 - AccessCodeMode_ServerProcessRefusesToStartInProductionOrWithOtherStorage
+  ---
+  duration_ms: 322.807583
+  type: 'test'
+  ...
+# Subtest: AccessCodeMode_ServerProcessStartsAndAnnouncesTheMode
+ok 129 - AccessCodeMode_ServerProcessStartsAndAnnouncesTheMode
+  ---
+  duration_ms: 232.936958
+  type: 'test'
+  ...
+# Subtest: OtherAuthModes_KeepTheirBehaviourOutsideProduction
+ok 130 - OtherAuthModes_KeepTheirBehaviourOutsideProduction
+  ---
+  duration_ms: 210.48825
+  type: 'test'
+  ...
+# Subtest: CodesDir_IsOneSettingForTheServerAndTheIssueCommand
+ok 131 - CodesDir_IsOneSettingForTheServerAndTheIssueCommand
+  ---
+  duration_ms: 0.85825
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_ForeignHostIsRefusedBeforeAnythingElse
+ok 132 - AccessCodeHttp_ForeignHostIsRefusedBeforeAnythingElse
+  ---
+  duration_ms: 291.474458
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_SessionCookieCannotBeTossedFromANeighbour
+ok 133 - AccessCodeHttp_SessionCookieCannotBeTossedFromANeighbour
+  ---
+  duration_ms: 787.808833
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_EventStreamEndsWhenItsSessionIsClosedElsewhere
+ok 134 - AccessCodeHttp_EventStreamEndsWhenItsSessionIsClosedElsewhere
+  ---
+  duration_ms: 942.653167
+  type: 'test'
+  ...
+# Subtest: AccessCodeLogin_AuditIpIsTheConnectionAddressUnlessFromATrustedProxy
+ok 135 - AccessCodeLogin_AuditIpIsTheConnectionAddressUnlessFromATrustedProxy
+  ---
+  duration_ms: 668.807292
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_SimultaneousAttemptsCannotSlipPastTheLock
+ok 136 - AccessCodeHttp_SimultaneousAttemptsCannotSlipPastTheLock
+  ---
+  duration_ms: 1801.567208
+  type: 'test'
+  ...
+# Subtest: AccessCodeHttp_CodeReplacedWhileItIsCheckedDoesNotOpenASession
+ok 137 - AccessCodeHttp_CodeReplacedWhileItIsCheckedDoesNotOpenASession
+  ---
+  duration_ms: 429.991458
+  type: 'test'
+  ...
+# (node:65024) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: LoginWithStaff_AuditPayloadAndSessionReplacementStayTheSame
+ok 138 - LoginWithStaff_AuditPayloadAndSessionReplacementStayTheSame
+  ---
+  duration_ms: 75.802708
+  type: 'test'
+  ...
+# Subtest: AccessCodesMigration_CreatesTheTableWithOneRowPerUser
+ok 139 - AccessCodesMigration_CreatesTheTableWithOneRowPerUser
+  ---
+  duration_ms: 258.433833
+  type: 'test'
+  ...
+# Subtest: AccessCode_GeneratedCodesHaveTheCrockfordFormat
+ok 140 - AccessCode_GeneratedCodesHaveTheCrockfordFormat
+  ---
+  duration_ms: 27.115333
+  type: 'test'
+  ...
+# Subtest: AccessCode_GenerationHasNoBias
+ok 141 - AccessCode_GenerationHasNoBias
+  ---
+  duration_ms: 9.934
+  type: 'test'
+  ...
+# Subtest: AccessCode_GenerationTakesTwentyRandomBytesInOrder
+ok 142 - AccessCode_GenerationTakesTwentyRandomBytesInOrder
+  ---
+  duration_ms: 0.492833
+  type: 'test'
+  ...
+# Subtest: AccessCode_NormalizationIgnoresCaseSpacesAndHyphensAndFoldsLookAlikes
+ok 143 - AccessCode_NormalizationIgnoresCaseSpacesAndHyphensAndFoldsLookAlikes
+  ---
+  duration_ms: 0.545042
+  type: 'test'
+  ...
+# Subtest: IssueAccessCode_StoresOnlyTheScryptHashWithFreshSalt
+ok 144 - IssueAccessCode_StoresOnlyTheScryptHashWithFreshSalt
+  ---
+  duration_ms: 517.242792
+  type: 'test'
+  ...
+# Subtest: IssueAccessCode_RefusesUnknownDisabledAndInvalidUsers
+ok 145 - IssueAccessCode_RefusesUnknownDisabledAndInvalidUsers
+  ---
+  duration_ms: 36.421167
+  type: 'test'
+  ...
+# Subtest: IssueAccessCodeCli_WritesPrivateFileAndPrintsOnlyThePath
+ok 146 - IssueAccessCodeCli_WritesPrivateFileAndPrintsOnlyThePath
+  ---
+  duration_ms: 849.308875
+  type: 'test'
+  ...
+# Subtest: IssueAccessCodeCli_FixesLooseDirectoryPermissionsAndReplacesTheFile
+ok 147 - IssueAccessCodeCli_FixesLooseDirectoryPermissionsAndReplacesTheFile
+  ---
+  duration_ms: 1527.944541
+  type: 'test'
+  ...
+# Subtest: IssueAccessCodeCli_RefusesUnsafeLoginsWithoutWritingAnything
+ok 148 - IssueAccessCodeCli_RefusesUnsafeLoginsWithoutWritingAnything
+  ---
+  duration_ms: 2383.275291
+  type: 'test'
+  ...
+# Subtest: IssueAccessCodeCli_LeavesNoTemporaryFilesWhenTheWriteFails
+ok 149 - IssueAccessCodeCli_LeavesNoTemporaryFilesWhenTheWriteFails
+  ---
+  duration_ms: 264.564083
+  type: 'test'
+  ...
+# Subtest: LoginWithAccessCode_CorrectCodeOpensSessionAndWrongCodeGetsTheGenericError
+ok 150 - LoginWithAccessCode_CorrectCodeOpensSessionAndWrongCodeGetsTheGenericError
+  ---
+  duration_ms: 334.452417
+  type: 'test'
+  ...
+# Subtest: LoginWithAccessCode_ConfusableCharactersInTheCodeAreAccepted
+ok 151 - LoginWithAccessCode_ConfusableCharactersInTheCodeAreAccepted
+  ---
+  duration_ms: 317.164375
+  type: 'test'
+  ...
+# Subtest: LoginWithAccessCode_EveryKindOfFailureLooksTheSame
+ok 152 - LoginWithAccessCode_EveryKindOfFailureLooksTheSame
+  ---
+  duration_ms: 1166.92525
+  type: 'test'
+  ...
+# (node:65024) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time
+# Subtest: LoginWithAccessCode_ComparesHashesInConstantTime
+ok 153 - LoginWithAccessCode_ComparesHashesInConstantTime
+  ---
+  duration_ms: 248.68075
+  type: 'test'
+  ...
+# Subtest: LoginWithAccessCode_FiveWrongCodesInARowLockTheLoginForFifteenMinutes
+ok 154 - LoginWithAccessCode_FiveWrongCodesInARowLockTheLoginForFifteenMinutes
+  ---
+  duration_ms: 828.985625
+  type: 'test'
+  ...
+# Subtest: LoginWithAccessCode_CountRestartsAfterTheLockExpires
+ok 155 - LoginWithAccessCode_CountRestartsAfterTheLockExpires
+  ---
+  duration_ms: 933.902291
+  type: 'test'
+  ...
+# Subtest: LoginWithAccessCode_SuccessResetsTheFailureCounter
+ok 156 - LoginWithAccessCode_SuccessResetsTheFailureCounter
+  ---
+  duration_ms: 925.313125
+  type: 'test'
+  ...
+# Subtest: IssueAccessCode_NewCodeInvalidatesTheOldOneAndClosesSessions
+ok 157 - IssueAccessCode_NewCodeInvalidatesTheOldOneAndClosesSessions
+  ---
+  duration_ms: 929.981791
+  type: 'test'
+  ...
+# Subtest: AccessCode_NeverAppearsInAuditDatabaseOrErrors
+ok 158 - AccessCode_NeverAppearsInAuditDatabaseOrErrors
+  ---
+  duration_ms: 824.372875
+  type: 'test'
+  ...
+# Subtest: LoginWithAccessCode_CodeTypedIntoTheLoginFieldNeverReachesTheAudit
+ok 159 - LoginWithAccessCode_CodeTypedIntoTheLoginFieldNeverReachesTheAudit
+  ---
+  duration_ms: 1996.03225
+  type: 'test'
+  ...
+# Subtest: StoreAccessCode_CounterIsSharedAcrossConnections
+ok 160 - StoreAccessCode_CounterIsSharedAcrossConnections
+  ---
+  duration_ms: 21.872167
+  type: 'test'
+  ...
+# Subtest: StoreAccessCode_FailuresFromParallelProcessesAreNeverLost
+ok 161 - StoreAccessCode_FailuresFromParallelProcessesAreNeverLost
+  ---
+  duration_ms: 358.406875
+  type: 'test'
+  ...
+# Subtest: VisibleState_UserCannotReadForbiddenLocationOrAdminImports
+ok 162 - VisibleState_UserCannotReadForbiddenLocationOrAdminImports
+  ---
+  duration_ms: 5.681875
+  type: 'test'
+  ...
+# Subtest: AuthorizeMutation_ViewAccessCannotEditAndEditAccessCannotCrossLocation
+ok 163 - AuthorizeMutation_ViewAccessCannotEditAndEditAccessCannotCrossLocation
+  ---
+  duration_ms: 1.147625
+  type: 'test'
+  ...
+# Subtest: ImportExpenses_RequiresEditAccessForEveryChangedLocation
+ok 164 - ImportExpenses_RequiresEditAccessForEveryChangedLocation
+  ---
+  duration_ms: 7.0945
+  type: 'test'
+  ...
+# Subtest: AuthorizeMutation_DefaultViewAppliesUnlessLocationIsExplicitlyHidden
+ok 165 - AuthorizeMutation_DefaultViewAppliesUnlessLocationIsExplicitlyHidden
+  ---
+  duration_ms: 3.981708
+  type: 'test'
+  ...
+# Subtest: AuthorizeMutation_UserCannotRestoreSharedStateOrPerformAdminAction
+ok 166 - AuthorizeMutation_UserCannotRestoreSharedStateOrPerformAdminAction
+  ---
+  duration_ms: 0.364917
+  type: 'test'
+  ...
+# Subtest: AuthorizeMutation_AdminCanPerformBudgetOperation
+ok 167 - AuthorizeMutation_AdminCanPerformBudgetOperation
+  ---
+  duration_ms: 0.169125
+  type: 'test'
+  ...
+# Subtest: ProjectState_OnlySuperadminCanManageUsers
+ok 168 - ProjectState_OnlySuperadminCanManageUsers
+  ---
+  duration_ms: 1.0075
+  type: 'test'
+  ...
+# (node:65026) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: ProductionConfig_RequiresExplicitStorageDriver
+ok 169 - ProductionConfig_RequiresExplicitStorageDriver
+  ---
+  duration_ms: 25.579083
+  type: 'test'
+  ...
+# Subtest: PostgresOnlyProfile_RejectsLegacyStorageDrivers
+ok 170 - PostgresOnlyProfile_RejectsLegacyStorageDrivers
+  ---
+  duration_ms: 1.765416
+  type: 'test'
+  ...
+# Subtest: BuildMetadata_IsSanitizedAndHasStableFallbacks
+ok 171 - BuildMetadata_IsSanitizedAndHasStableFallbacks
+  ---
+  duration_ms: 0.87775
+  type: 'test'
+  ...
+# Subtest: TrustedProxyIps_DefaultsToEmptyAndParsesExplicitList
+ok 172 - TrustedProxyIps_DefaultsToEmptyAndParsesExplicitList
+  ---
+  duration_ms: 4.554833
+  type: 'test'
+  ...
+# Subtest: WebAuthCaFile_ComesFromNodeExtraCaCertsAndBootstrapEnvIsIgnored
+ok 173 - WebAuthCaFile_ComesFromNodeExtraCaCertsAndBootstrapEnvIsIgnored
+  ---
+  duration_ms: 2.159167
+  type: 'test'
+  ...
+# Subtest: RoleSource_DefaultsToApplicationAndReadsTvmSettings
+ok 174 - RoleSource_DefaultsToApplicationAndReadsTvmSettings
+  ---
+  duration_ms: 0.884708
+  type: 'test'
+  ...
+# Subtest: CorporateHTTP_LoginCallbackRefreshLogoutUsesApplicationSession
+ok 175 - CorporateHTTP_LoginCallbackRefreshLogoutUsesApplicationSession
+  ---
+  duration_ms: 398.807375
+  type: 'test'
+  ...
+# Subtest: CorporateHTTP_OriginHostOldCodeIdmAndDirectIdentityCannotBypassLogin
+ok 176 - CorporateHTTP_OriginHostOldCodeIdmAndDirectIdentityCannotBypassLogin
+  ---
+  duration_ms: 291.972541
+  type: 'test'
+  ...
+# Subtest: CorporateHTTP_CallbackFailuresScrubParametersAndDistinguishNoRole
+ok 177 - CorporateHTTP_CallbackFailuresScrubParametersAndDistinguishNoRole
+  ---
+  duration_ms: 111.715042
+  type: 'test'
+  ...
+# Subtest: CorporateHTTP_UnconfiguredRealAdaptersKeepReadinessClosed
+ok 178 - CorporateHTTP_UnconfiguredRealAdaptersKeepReadinessClosed
+  ---
+  duration_ms: 90.691084
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_InitialLeaseUsesCallbackIdentityAndRenewsAfterThirtySeconds
+ok 179 - CorporateIdentitySessions_InitialLeaseUsesCallbackIdentityAndRenewsAfterThirtySeconds
+  ---
+  duration_ms: 7.74975
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_ServerExpiryErasesCredentialAndCannotBeRenewed
+ok 180 - CorporateIdentitySessions_ServerExpiryErasesCredentialAndCannotBeRenewed
+  ---
+  duration_ms: 9.004292
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_BindingKeepsUpstreamStartTimeAndRejectsStaleConfirmation
+ok 181 - CorporateIdentitySessions_BindingKeepsUpstreamStartTimeAndRejectsStaleConfirmation
+  ---
+  duration_ms: 1.412792
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_ClockRollbackErasesAllConfirmations
+ok 182 - CorporateIdentitySessions_ClockRollbackErasesAllConfirmations
+  ---
+  duration_ms: 2.474291
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_NetworkErrorErasesConfirmationWithoutExposingCredential
+ok 183 - CorporateIdentitySessions_NetworkErrorErasesConfirmationWithoutExposingCredential
+  ---
+  duration_ms: 1.402875
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_ChangedOrMalformedIdentityErasesAccess
+ok 184 - CorporateIdentitySessions_ChangedOrMalformedIdentityErasesAccess
+  ---
+  duration_ms: 3.974167
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_ConcurrentVerificationSharesOneUpstreamCall
+ok 185 - CorporateIdentitySessions_ConcurrentVerificationSharesOneUpstreamCall
+  ---
+  duration_ms: 3.304291
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_LateReplyCannotRestoreForgottenOrReboundSession
+ok 186 - CorporateIdentitySessions_LateReplyCannotRestoreForgottenOrReboundSession
+  ---
+  duration_ms: 2.9575
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_LateFailureCannotEraseNewBinding
+ok 187 - CorporateIdentitySessions_LateFailureCannotEraseNewBinding
+  ---
+  duration_ms: 0.791042
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_ChangingIpRequiresNewServerCheckAndInvalidatesOldLease
+ok 188 - CorporateIdentitySessions_ChangingIpRequiresNewServerCheckAndInvalidatesOldLease
+  ---
+  duration_ms: 4.123958
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_ConcurrentDifferentIpsFailClosed
+ok 189 - CorporateIdentitySessions_ConcurrentDifferentIpsFailClosed
+  ---
+  duration_ms: 3.096625
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_ResponseLatencyConsumesLeaseAndStaleReplyIsRejected
+ok 190 - CorporateIdentitySessions_ResponseLatencyConsumesLeaseAndStaleReplyIsRejected
+  ---
+  duration_ms: 7.730792
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_ExpiryOrRollbackWhileVerifyingCannotInstallLease
+ok 191 - CorporateIdentitySessions_ExpiryOrRollbackWhileVerifyingCannotInstallLease
+  ---
+  duration_ms: 2.723916
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_CapacityPrunesExpiredEntriesAndDoesNotEvictValidSessions
+ok 192 - CorporateIdentitySessions_CapacityPrunesExpiredEntriesAndDoesNotEvictValidSessions
+  ---
+  duration_ms: 1.069625
+  type: 'test'
+  ...
+# Subtest: CorporateIdentitySessions_InvalidBindingAndSettingsFailClosed
+ok 193 - CorporateIdentitySessions_InvalidBindingAndSettingsFailClosed
+  ---
+  duration_ms: 0.518541
+  type: 'test'
+  ...
+# (node:65029) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: CorporateIntegration_RealServiceHttpSessionDowngradeAndRevocation
+ok 194 - CorporateIntegration_RealServiceHttpSessionDowngradeAndRevocation
+  ---
+  duration_ms: 756.318958
+  type: 'test'
+  ...
+# Локальный тест с подставным источником: снижение роли и завершение SSE за 14 мс; доставка от IDM не измерена.
+# Subtest: CorporateCLI_ForbiddenProvisioningNeverCreatesDatabaseOrCodes
+ok 195 - CorporateCLI_ForbiddenProvisioningNeverCreatesDatabaseOrCodes
+  ---
+  duration_ms: 1289.696125
+  type: 'test'
+  ...
+# Subtest: CorporateLogin_BrowserBoundOneTimeAttemptAndVerifiedIdentity
+ok 196 - CorporateLogin_BrowserBoundOneTimeAttemptAndVerifiedIdentity
+  ---
+  duration_ms: 11.653916
+  type: 'test'
+  ...
+# Subtest: CorporateLogin_MissingWrongDuplicateCookieAndStateDoNotReachVerifier
+ok 197 - CorporateLogin_MissingWrongDuplicateCookieAndStateDoNotReachVerifier
+  ---
+  duration_ms: 13.60125
+  type: 'test'
+  ...
+# Subtest: CorporateLogin_ExpiryAndConcurrentReplayFailClosed
+ok 198 - CorporateLogin_ExpiryAndConcurrentReplayFailClosed
+  ---
+  duration_ms: 2.860917
+  type: 'test'
+  ...
+# Subtest: CorporateLogin_AdapterErrorsMalformedIdentityAndRedirectAreSanitized
+ok 199 - CorporateLogin_AdapterErrorsMalformedIdentityAndRedirectAreSanitized
+  ---
+  duration_ms: 6.843166
+  type: 'test'
+  ...
+# Subtest: CorporateLogin_DefaultAdapterCannotAuthenticateOrReportReady
+ok 200 - CorporateLogin_DefaultAdapterCannotAuthenticateOrReportReady
+  ---
+  duration_ms: 3.556167
+  type: 'test'
+  ...
+# Subtest: CorporateLogin_UpstreamMustNotReuseStateAcrossBrowsers
+ok 201 - CorporateLogin_UpstreamMustNotReuseStateAcrossBrowsers
+  ---
+  duration_ms: 2.179458
+  type: 'test'
+  ...
+# Subtest: CorporateConfig_RejectsUnsafeCombinationsAndUntrustedReturnAddress
+ok 202 - CorporateConfig_RejectsUnsafeCombinationsAndUntrustedReturnAddress
+  ---
+  duration_ms: 22.945334
+  type: 'test'
+  ...
+# Subtest: CorporateRoles_UsesExactRolesAndUid_NotTvmOrEmptyAssignments
+ok 203 - CorporateRoles_UsesExactRolesAndUid_NotTvmOrEmptyAssignments
+  ---
+  duration_ms: 17.548041
+  type: 'test'
+  ...
+# Subtest: CorporateRoles_FullReplacementHandlesDowngradeAndEmptyExport
+ok 204 - CorporateRoles_FullReplacementHandlesDowngradeAndEmptyExport
+  ---
+  duration_ms: 11.864084
+  type: 'test'
+  ...
+# Subtest: CorporateRoles_InvalidResponseFailsAtomicallyWithoutKeepingOldAdmin
+ok 205 - CorporateRoles_InvalidResponseFailsAtomicallyWithoutKeepingOldAdmin
+  ---
+  duration_ms: 11.556416
+  type: 'test'
+  ...
+# Subtest: CorporateRoles_NetworkFailureAndSleepCloseAccess_200DoesNotRenewConfirmation
+ok 206 - CorporateRoles_NetworkFailureAndSleepCloseAccess_200DoesNotRenewConfirmation
+  ---
+  duration_ms: 3.746333
+  type: 'test'
+  ...
+# Subtest: CorporateRoles_SerializesRefreshAndWaitsForSessionInvalidation
+ok 207 - CorporateRoles_SerializesRefreshAndWaitsForSessionInvalidation
+  ---
+  duration_ms: 2.023292
+  type: 'test'
+  ...
+# Subtest: CorporateRoles_TenMinuteConfirmationLimit_Repeated200DoesNotExtendIt
+ok 208 - CorporateRoles_TenMinuteConfirmationLimit_Repeated200DoesNotExtendIt
+  ---
+  duration_ms: 192.803792
+  type: 'test'
+  ...
+# Subtest: CorporateRoles_TenMinuteWindowStillRequiresUpstreamConfirmation
+ok 209 - CorporateRoles_TenMinuteWindowStillRequiresUpstreamConfirmation
+  ---
+  duration_ms: 6.807334
+  type: 'test'
+  ...
+# Subtest: TvmRolesSource_UsesAuthenticatedLoopbackDocumentedContractAndTrustedVerifier
+ok 210 - TvmRolesSource_UsesAuthenticatedLoopbackDocumentedContractAndTrustedVerifier
+  ---
+  duration_ms: 5.803083
+  type: 'test'
+  ...
+# Subtest: TvmRolesSource_DefaultBlocked_Redirect304BodyLimitBindingAndSecretsRejected
+ok 211 - TvmRolesSource_DefaultBlocked_Redirect304BodyLimitBindingAndSecretsRejected
+  ---
+  duration_ms: 8.876333
+  type: 'test'
+  ...
+# (node:65033) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: CorporateRuntime_RealAdapterServiceAndSqliteRenewIdentityWithoutBrowserCredentials
+ok 212 - CorporateRuntime_RealAdapterServiceAndSqliteRenewIdentityWithoutBrowserCredentials
+  ---
+  duration_ms: 703.229375
+  type: 'test'
+  ...
+# Subtest: CorporateRuntime_RevocationChangedUidAndNetworkFailureCloseSessionLocksAndEvents
+ok 213 - CorporateRuntime_RevocationChangedUidAndNetworkFailureCloseSessionLocksAndEvents
+  ---
+  duration_ms: 544.07525
+  type: 'test'
+  ...
+# Subtest: CorporateRuntime_RestartRequiresLoginDespiteDatabaseSessionAndLiveRole
+ok 214 - CorporateRuntime_RestartRequiresLoginDespiteDatabaseSessionAndLiveRole
+  ---
+  duration_ms: 135.9525
+  type: 'test'
+  ...
+# Subtest: CorporateRuntime_IdentityLeaseExpiringDuringDatabaseReadCannotExposeState
+ok 215 - CorporateRuntime_IdentityLeaseExpiringDuringDatabaseReadCannotExposeState
+  ---
+  duration_ms: 69.761458
+  type: 'test'
+  ...
+# Subtest: CorporateRuntime_EventsDoNotSubscribeWhenIdentityExpiresDuringFinalSessionCheck
+ok 216 - CorporateRuntime_EventsDoNotSubscribeWhenIdentityExpiresDuringFinalSessionCheck
+  ---
+  duration_ms: 80.796709
+  type: 'test'
+  ...
+# Subtest: CorporateRuntime_EventHeartbeatRechecksLeaseAfterDatabaseAwait
+ok 217 - CorporateRuntime_EventHeartbeatRechecksLeaseAfterDatabaseAwait
+  ---
+  duration_ms: 107.859834
+  type: 'test'
+  ...
+# Subtest: CorporateRuntime_EventPublishCannotSendPayloadAfterIdentityLeaseExpires
+ok 218 - CorporateRuntime_EventPublishCannotSendPayloadAfterIdentityLeaseExpires
+  ---
+  duration_ms: 127.858042
+  type: 'test'
+  ...
+# (node:65034) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: CorporateService_AutomaticProfileAndNewLocations_AllEditableDespiteLegacyAcl
+ok 219 - CorporateService_AutomaticProfileAndNewLocations_AllEditableDespiteLegacyAcl
+  ---
+  duration_ms: 303.929667
+  type: 'test'
+  ...
+# Subtest: CorporateService_MemberCannotChangeBudgetDictionariesPeriodOrRestoreState
+ok 220 - CorporateService_MemberCannotChangeBudgetDictionariesPeriodOrRestoreState
+  ---
+  duration_ms: 189.417334
+  type: 'test'
+  ...
+# Subtest: CorporateService_NoLocalOrLegacyIdmBypass_EvenForCorporateAdmin
+ok 221 - CorporateService_NoLocalOrLegacyIdmBypass_EvenForCorporateAdmin
+  ---
+  duration_ms: 55.257084
+  type: 'test'
+  ...
+# Subtest: CorporateService_DowngradeThenRevokeCloseRealtimeReleaseLocksAndBlockOldSession
+ok 222 - CorporateService_DowngradeThenRevokeCloseRealtimeReleaseLocksAndBlockOldSession
+  ---
+  duration_ms: 42.461208
+  type: 'test'
+  ...
+# Subtest: CorporateService_ErrorAndStalenessInvalidateSessionsWithoutLocalFallback
+ok 223 - CorporateService_ErrorAndStalenessInvalidateSessionsWithoutLocalFallback
+  ---
+  duration_ms: 126.168958
+  type: 'test'
+  ...
+# Subtest: CorporateService_UidBindingPreservesAuthorsAndRejectsCollisionsAtomically
+ok 224 - CorporateService_UidBindingPreservesAuthorsAndRejectsCollisionsAtomically
+  ---
+  duration_ms: 69.290375
+  type: 'test'
+  ...
+# Subtest: CorporateService_AuthProvenanceSurvivesRestartAndRejectsBothModeSwitchDirections
+ok 225 - CorporateService_AuthProvenanceSurvivesRestartAndRejectsBothModeSwitchDirections
+  ---
+  duration_ms: 69.94825
+  type: 'test'
+  ...
+# Subtest: CorporateService_IdentityLifetimeCapsSessionAndRejectsUnconfirmedIdentity
+ok 226 - CorporateService_IdentityLifetimeCapsSessionAndRejectsUnconfirmedIdentity
+  ---
+  duration_ms: 50.460625
+  type: 'test'
+  ...
+# Subtest: CorporateService_LocksConflictAndIdempotencyRemainEnforced
+ok 227 - CorporateService_LocksConflictAndIdempotencyRemainEnforced
+  ---
+  duration_ms: 103.335
+  type: 'test'
+  ...
+# Subtest: CorporateService_RoleChangeDuringMutationWaitCannotCommitFormerAdminAction
+ok 228 - CorporateService_RoleChangeDuringMutationWaitCannotCommitFormerAdminAction
+  ---
+  duration_ms: 140.946333
+  type: 'test'
+  ...
+# Subtest: CorporateService_ExpiredCorporateConfirmationClosesRealtimeAndLocksOnRefresh
+ok 229 - CorporateService_ExpiredCorporateConfirmationClosesRealtimeAndLocksOnRefresh
+  ---
+  duration_ms: 54.282083
+  type: 'test'
+  ...
+# Subtest: CorporateService_ConflictResponsesNeverLeakStateAfterRevocationDuringAwait
+ok 230 - CorporateService_ConflictResponsesNeverLeakStateAfterRevocationDuringAwait
+  ---
+  duration_ms: 219.965834
+  type: 'test'
+  ...
+# Subtest: CorporateService_ConflictProjectionUsesDowngradedRoleAndAuditRechecksSession
+ok 231 - CorporateService_ConflictProjectionUsesDowngradedRoleAndAuditRechecksSession
+  ---
+  duration_ms: 49.613917
+  type: 'test'
+  ...
+# Subtest: CorporateService_ReleaseLockRechecksIdentityAfterAwaitAndPreservesLockOnDenial
+ok 232 - CorporateService_ReleaseLockRechecksIdentityAfterAwaitAndPreservesLockOnDenial
+  ---
+  duration_ms: 57.725
+  type: 'test'
+  ...
+# Subtest: CorporateService_ReconciliationForgetsRevokedExpiredAndUnavailableIdentityButKeepsDowngrade
+ok 233 - CorporateService_ReconciliationForgetsRevokedExpiredAndUnavailableIdentityButKeepsDowngrade
+  ---
+  duration_ms: 149.612292
+  type: 'test'
+  ...
+# Subtest: CorporateService_FailedCredentialBindingDeletesPartialIdentityAndSession
+ok 234 - CorporateService_FailedCredentialBindingDeletesPartialIdentityAndSession
+  ---
+  duration_ms: 47.625917
+  type: 'test'
+  ...
+# Subtest: CorporateTvmConfig_WritesOnlyEnvReferencesWithPrivatePermissionsAndExactDaemonFlags
+ok 235 - CorporateTvmConfig_WritesOnlyEnvReferencesWithPrivatePermissionsAndExactDaemonFlags
+  ---
+  duration_ms: 77.091041
+  type: 'test'
+  ...
+# Subtest: CorporateTvmConfig_RefusesOverwriteSymlinksAndNonPrivateDirectory
+ok 236 - CorporateTvmConfig_RefusesOverwriteSymlinksAndNonPrivateDirectory
+  ---
+  duration_ms: 66.309
+  type: 'test'
+  ...
+# Subtest: CorporateTvmConfig_RequiresExplicitValidSettingsAndSandboxPorts
+ok 237 - CorporateTvmConfig_RequiresExplicitValidSettingsAndSandboxPorts
+  ---
+  duration_ms: 37.618958
+  type: 'test'
+  ...
+# Subtest: CorporateTvmConfig_CliDoesNotReadOrPrintSecrets_AndDoesNotStartDaemon
+ok 238 - CorporateTvmConfig_CliDoesNotReadOrPrintSecrets_AndDoesNotStartDaemon
+  ---
+  duration_ms: 691.946083
+  type: 'test'
+  ...
+# Subtest: HealthAndReadiness_ExposeBuildAndDatabaseStatusSeparately
+ok 239 - HealthAndReadiness_ExposeBuildAndDatabaseStatusSeparately
+  ---
+  duration_ms: 474.605542
+  type: 'test'
+  ...
+# Subtest: StaticRoot_ServesOnlyPublicDirectory_WithSecurityHeaders
+ok 240 - StaticRoot_ServesOnlyPublicDirectory_WithSecurityHeaders
+  ---
+  duration_ms: 153.21
+  type: 'test'
+  ...
+# Subtest: RuntimeConfig_IsGeneratedForServerMode
+ok 241 - RuntimeConfig_IsGeneratedForServerMode
+  ---
+  duration_ms: 46.345458
+  type: 'test'
+  ...
+# Subtest: ProductionPost_RejectsRequestWithoutSameOrigin
+ok 242 - ProductionPost_RejectsRequestWithoutSameOrigin
+  ---
+  duration_ms: 73.429042
+  type: 'test'
+  ...
+# Subtest: ForwardedProto_IgnoredFromUntrustedPeerEvenWithMatchingHost
+ok 243 - ForwardedProto_IgnoredFromUntrustedPeerEvenWithMatchingHost
+  ---
+  duration_ms: 52.878
+  type: 'test'
+  ...
+# Subtest: ForwardedProto_TrustedOnlyFromConfiguredProxyPeer
+ok 244 - ForwardedProto_TrustedOnlyFromConfiguredProxyPeer
+  ---
+  duration_ms: 63.408666
+  type: 'test'
+  ...
+# Subtest: StaffAuth_CreatesSessionWithoutAccountEnumeration
+ok 245 - StaffAuth_CreatesSessionWithoutAccountEnumeration
+  ---
+  duration_ms: 71.661375
+  type: 'test'
+  ...
+# Subtest: StaffAuth_MalformedCookieEncodingDoesNotCrashRequest
+ok 246 - StaffAuth_MalformedCookieEncodingDoesNotCrashRequest
+  ---
+  duration_ms: 31.041916
+  type: 'test'
+  ...
+# Subtest: MalformedEncodedPath_ReturnsClientError
+ok 247 - MalformedEncodedPath_ReturnsClientError
+  ---
+  duration_ms: 24.202792
+  type: 'test'
+  ...
+# Subtest: StaffAuth_ReplacesStaleSessionAfterCorporateAccountSwitch
+ok 248 - StaffAuth_ReplacesStaleSessionAfterCorporateAccountSwitch
+  ---
+  duration_ms: 34.125334
+  type: 'test'
+  ...
+# Subtest: StaffAuth_ClearsStaleCookieEvenWhenNewAccountIsNotProvisioned
+ok 249 - StaffAuth_ClearsStaleCookieEvenWhenNewAccountIsNotProvisioned
+  ---
+  duration_ms: 21.032792
+  type: 'test'
+  ...
+# Subtest: StaffAuth_KeepsMatchingSessionAndExtendsItOnlyAfterIdentityCheck
+ok 250 - StaffAuth_KeepsMatchingSessionAndExtendsItOnlyAfterIdentityCheck
+  ---
+  duration_ms: 22.159666
+  type: 'test'
+  ...
+# Subtest: Logout_ClearsCookieWithoutValidCorporateSession
+ok 251 - Logout_ClearsCookieWithoutValidCorporateSession
+  ---
+  duration_ms: 24.173916
+  type: 'test'
+  ...
+# Subtest: StaffAuth_RecordsClientIpFromBalancerHeader
+ok 252 - StaffAuth_RecordsClientIpFromBalancerHeader
+  ---
+  duration_ms: 23.153041
+  type: 'test'
+  ...
+# Subtest: IdmEndpoints_RequireTvmTicketAndAnswerInIdmFormat
+ok 253 - IdmEndpoints_RequireTvmTicketAndAnswerInIdmFormat
+  ---
+  duration_ms: 179.966292
+  type: 'test'
+  ...
+# Plan Fact IDM request failed { code: 'internal_error', message: 'database is down' }
+# Subtest: IdmEndpoints_ServerErrorsAreRetryableAndDisabledIntegrationIsHidden
+ok 254 - IdmEndpoints_ServerErrorsAreRetryableAndDisabledIntegrationIsHidden
+  ---
+  duration_ms: 66.702833
+  type: 'test'
+  ...
+# Subtest: IdmRemoveRole_IsLenientAndTakesTheRoleFromPath
+ok 255 - IdmRemoveRole_IsLenientAndTakesTheRoleFromPath
+  ---
+  duration_ms: 33.039209
+  type: 'test'
+  ...
+# Subtest: CorporateCookies_ForwardsOnlyWebAuthCredentials
+ok 256 - CorporateCookies_ForwardsOnlyWebAuthCredentials
+  ---
+  duration_ms: 7.92975
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_VerifiesCookieRemotelyAndCachesByHash
+ok 257 - WebAuthIdentity_VerifiesCookieRemotelyAndCachesByHash
+  ---
+  duration_ms: 238.003584
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_CacheHasHardEntryLimit
+ok 258 - WebAuthIdentity_CacheHasHardEntryLimit
+  ---
+  duration_ms: 9.149208
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_DeniesMissingOrRejectedCorporateSession
+ok 259 - WebAuthIdentity_DeniesMissingOrRejectedCorporateSession
+  ---
+  duration_ms: 6.605792
+  type: 'test'
+  ...
+# Subtest: ProductionIdentity_RejectsDevelopmentHeadersAndInsecureWebAuth
+ok 260 - ProductionIdentity_RejectsDevelopmentHeadersAndInsecureWebAuth
+  ---
+  duration_ms: 0.908125
+  type: 'test'
+  ...
+# Subtest: DevelopmentFixedIdentity_IsExplicitAndNonProductionOnly
+ok 261 - DevelopmentFixedIdentity_IsExplicitAndNonProductionOnly
+  ---
+  duration_ms: 0.795542
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_ForwardsClientIpSetByBalancer
+ok 262 - WebAuthIdentity_ForwardsClientIpSetByBalancer
+  ---
+  duration_ms: 5.912708
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_UsesSocketPeerAndIgnoresClientForwardedFor
+ok 263 - WebAuthIdentity_UsesSocketPeerAndIgnoresClientForwardedFor
+  ---
+  duration_ms: 8.761125
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_OmitsIpHeadersWhenPeerIsUnknown
+ok 264 - WebAuthIdentity_OmitsIpHeadersWhenPeerIsUnknown
+  ---
+  duration_ms: 13.779417
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_CacheIsBoundToClientIp
+ok 265 - WebAuthIdentity_CacheIsBoundToClientIp
+  ---
+  duration_ms: 34.259458
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_TransportFailuresBecome503WithServerOnlyDiagnostic
+ok 266 - WebAuthIdentity_TransportFailuresBecome503WithServerOnlyDiagnostic
+  ---
+  duration_ms: 17.852541
+  type: 'test'
+  ...
+# Subtest: WebAuthIdentity_SelfCheckProbesWithoutUserCookies
+ok 267 - WebAuthIdentity_SelfCheckProbesWithoutUserCookies
+  ---
+  duration_ms: 4.540375
+  type: 'test'
+  ...
+# Subtest: ProductionWebAuth_RequiresReadableExtraCaFile
+ok 268 - ProductionWebAuth_RequiresReadableExtraCaFile
+  ---
+  duration_ms: 10.443167
+  type: 'test'
+  ...
+# Subtest: ClientIp_NormalizesBracketsAndMappedIpv4
+ok 269 - ClientIp_NormalizesBracketsAndMappedIpv4
+  ---
+  duration_ms: 0.216625
+  type: 'test'
+  ...
+# (node:65041) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: IdmGrant_CreatesAccountWithHiddenLocationsAndIsIdempotent
+ok 270 - IdmGrant_CreatesAccountWithHiddenLocationsAndIsIdempotent
+  ---
+  duration_ms: 73.383875
+  type: 'test'
+  ...
+# Subtest: IdmRoles_HighestRoleWinsAndLastRevocationRemovesAccessEverywhere
+ok 271 - IdmRoles_HighestRoleWinsAndLastRevocationRemovesAccessEverywhere
+  ---
+  duration_ms: 119.514708
+  type: 'test'
+  ...
+# Subtest: IdmMode_PreIdmAccountsStayVisibleUntilIdmDecides
+ok 272 - IdmMode_PreIdmAccountsStayVisibleUntilIdmDecides
+  ---
+  duration_ms: 73.370417
+  type: 'test'
+  ...
+# Subtest: IdmMode_AppCannotGrantOrDisableAccessButStillManagesLocations
+ok 273 - IdmMode_AppCannotGrantOrDisableAccessButStillManagesLocations
+  ---
+  duration_ms: 112.263959
+  type: 'test'
+  ...
+# Subtest: IdmMode_SavingAStaleCardCannotBringRevokedAccessBack
+ok 274 - IdmMode_SavingAStaleCardCannotBringRevokedAccessBack
+  ---
+  duration_ms: 59.794417
+  type: 'test'
+  ...
+# Subtest: IdmMode_CardSavedWithARoleThatIdmChangedMeanwhileIsRejected
+ok 275 - IdmMode_CardSavedWithARoleThatIdmChangedMeanwhileIsRejected
+  ---
+  duration_ms: 49.499625
+  type: 'test'
+  ...
+# Subtest: IdmGrant_ReactivatingAnAccountDisabledOutsideIdmStartsClean
+ok 276 - IdmGrant_ReactivatingAnAccountDisabledOutsideIdmStartsClean
+  ---
+  duration_ms: 42.405417
+  type: 'test'
+  ...
+# Subtest: IdmGetRoles_RoleChangedOutsideIdmIsVisibleToIdmAndRevocable
+ok 277 - IdmGetRoles_RoleChangedOutsideIdmIsVisibleToIdmAndRevocable
+  ---
+  duration_ms: 55.05775
+  type: 'test'
+  ...
+# Subtest: StaffLoginRename_MovesIdmRolesWithTheAccount
+ok 278 - StaffLoginRename_MovesIdmRolesWithTheAccount
+  ---
+  duration_ms: 81.271958
+  type: 'test'
+  ...
+# Subtest: IdmRoleTree_DescribesOnlyRoleLevelsInBothLanguages
+ok 279 - IdmRoleTree_DescribesOnlyRoleLevelsInBothLanguages
+  ---
+  duration_ms: 6.509083
+  type: 'test'
+  ...
+# Subtest: IdmRoleRequest_ParsesFormAndJsonBodies
+ok 280 - IdmRoleRequest_ParsesFormAndJsonBodies
+  ---
+  duration_ms: 4.891541
+  type: 'test'
+  ...
+# Subtest: IdmRoleRequest_RejectsWhatTheSystemDoesNotSupport
+ok 281 - IdmRoleRequest_RejectsWhatTheSystemDoesNotSupport
+  ---
+  duration_ms: 0.938791
+  type: 'test'
+  ...
+# Subtest: IdmRemoval_IsLenientForEverythingTheSystemDoesNotGrant
+ok 282 - IdmRemoval_IsLenientForEverythingTheSystemDoesNotGrant
+  ---
+  duration_ms: 2.362833
+  type: 'test'
+  ...
+# Subtest: IdmGrantedRoles_AreWhatTheApplicationReallyGrants
+ok 283 - IdmGrantedRoles_AreWhatTheApplicationReallyGrants
+  ---
+  duration_ms: 1.426209
+  type: 'test'
+  ...
+# Subtest: IdmRolePlans_KeepSeveralRolesStartCleanAndRevokeAccessOnlyWithTheLastOne
+ok 284 - IdmRolePlans_KeepSeveralRolesStartCleanAndRevokeAccessOnlyWithTheLastOne
+  ---
+  duration_ms: 0.951417
+  type: 'test'
+  ...
+# Subtest: IdmGetRoles_ReportsEveryActiveGrantIncludingRolesGrantedOutsideIdm
+ok 285 - IdmGetRoles_ReportsEveryActiveGrantIncludingRolesGrantedOutsideIdm
+  ---
+  duration_ms: 32.345292
+  type: 'test'
+  ...
+# Subtest: TvmChecker_AcceptsOnlyValidTicketsFromProductionIdm
+ok 286 - TvmChecker_AcceptsOnlyValidTicketsFromProductionIdm
+  ---
+  duration_ms: 6.622792
+  type: 'test'
+  ...
+# Subtest: TvmChecker_InfrastructureFailuresAreRetryableServerErrors
+ok 287 - TvmChecker_InfrastructureFailuresAreRetryableServerErrors
+  ---
+  duration_ms: 68.947458
+  type: 'test'
+  ...
+# Subtest: TvmChecker_SelfCheckPingsLocalTvmtoolWithoutToken
+ok 288 - TvmChecker_SelfCheckPingsLocalTvmtoolWithoutToken
+  ---
+  duration_ms: 4.423833
+  type: 'test'
+  ...
+# Subtest: IdmIntegration_IsOffByDefaultAndRefusesUnsafeConfiguration
+ok 289 - IdmIntegration_IsOffByDefaultAndRefusesUnsafeConfiguration
+  ---
+  duration_ms: 4.878417
+  type: 'test'
+  ...
+# (node:65044) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: LockOwnership_SQLite_RotatesOwnTokenAndDoesNotReviveExpiredLock
+ok 290 - LockOwnership_SQLite_RotatesOwnTokenAndDoesNotReviveExpiredLock
+  ---
+  duration_ms: 65.526833
+  type: 'test'
+  ...
+# Subtest: LockOwnership_PostgreSQL_RotatesOwnTokenAndDoesNotReviveExpiredLock
+ok 291 - LockOwnership_PostgreSQL_RotatesOwnTokenAndDoesNotReviveExpiredLock # SKIP
+  ---
+  duration_ms: 0.6775
+  type: 'test'
+  ...
+# Subtest: PostgresHttp_TwoBackendInstancesRetryIndependentCreates
+ok 292 - PostgresHttp_TwoBackendInstancesRetryIndependentCreates # SKIP PLAN_FACT_MULTI_INSTANCE_TEST_URLS не задан
+  ---
+  duration_ms: 2.352792
+  type: 'test'
+  ...
+# Subtest: PostgresConfig_RejectsInsecureProductionTls
+ok 293 - PostgresConfig_RejectsInsecureProductionTls
+  ---
+  duration_ms: 5.427667
+  type: 'test'
+  ...
+# Subtest: PostgresStore_TwoInstancesCommitOneRevisionAndPersistAfterReconnect
+ok 294 - PostgresStore_TwoInstancesCommitOneRevisionAndPersistAfterReconnect # SKIP PLAN_FACT_TEST_DATABASE_URL не задан
+  ---
+  duration_ms: 6.84925
+  type: 'test'
+  ...
+# Subtest: PostgresStore_IdmRolesAreAtomicAndSerializedPerLogin
+ok 295 - PostgresStore_IdmRolesAreAtomicAndSerializedPerLogin # SKIP PLAN_FACT_TEST_DATABASE_URL не задан
+  ---
+  duration_ms: 0.293958
+  type: 'test'
+  ...
+# Subtest: PostgresStore_IdmCardSaveRaceReactivationAndRenameStayConsistent
+ok 296 - PostgresStore_IdmCardSaveRaceReactivationAndRenameStayConsistent # SKIP PLAN_FACT_TEST_DATABASE_URL не задан
+  ---
+  duration_ms: 0.273167
+  type: 'test'
+  ...
+# Subtest: RuntimeTrust_VendoredYandexRootCaIsThePinnedCertificate
+ok 297 - RuntimeTrust_VendoredYandexRootCaIsThePinnedCertificate
+  ---
+  duration_ms: 8.133333
+  type: 'test'
+  ...
+# Subtest: RuntimeTrust_ImageTrustsYandexRootCaForWebAuth
+ok 298 - RuntimeTrust_ImageTrustsYandexRootCaForWebAuth
+  ---
+  duration_ms: 11.202125
+  type: 'test'
+  ...
+# (node:65051) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: AuditPayload_MasksSensitiveKeysRecursively
+ok 299 - AuditPayload_MasksSensitiveKeysRecursively
+  ---
+  duration_ms: 6.931042
+  type: 'test'
+  ...
+# Subtest: RealtimeStateChanged_DoesNotExposeActorIdentity
+ok 300 - RealtimeStateChanged_DoesNotExposeActorIdentity
+  ---
+  duration_ms: 88.633792
+  type: 'test'
+  ...
+# Subtest: Migration_CreatesSchemaAndPersistsInitialState
+ok 301 - Migration_CreatesSchemaAndPersistsInitialState
+  ---
+  duration_ms: 41.086125
+  type: 'test'
+  ...
+# Subtest: StaffMigration_DisablesLegacyPinAccountsAndPreservesAclAudit
+ok 302 - StaffMigration_DisablesLegacyPinAccountsAndPreservesAclAudit
+  ---
+  duration_ms: 39.242125
+  type: 'test'
+  ...
+# Subtest: StaffLogin_BindsStableUidAndReturnsProjectedState
+ok 303 - StaffLogin_BindsStableUidAndReturnsProjectedState
+  ---
+  duration_ms: 54.177083
+  type: 'test'
+  ...
+# Subtest: StaffLogin_DeniesUnknownLoginAndUidMismatch
+ok 304 - StaffLogin_DeniesUnknownLoginAndUidMismatch
+  ---
+  duration_ms: 37.372375
+  type: 'test'
+  ...
+# Subtest: StaffLogin_AtomicallyBindsOnlyOneUidOnConcurrentFirstLogin
+ok 305 - StaffLogin_AtomicallyBindsOnlyOneUidOnConcurrentFirstLogin
+  ---
+  duration_ms: 28.815042
+  type: 'test'
+  ...
+# Subtest: StaffLogin_TracksRenamedLoginByStableUid
+ok 306 - StaffLogin_TracksRenamedLoginByStableUid
+  ---
+  duration_ms: 29.813292
+  type: 'test'
+  ...
+# Subtest: StaffIdentity_UsesServerSideRoleAndLocationMatrix
+ok 307 - StaffIdentity_UsesServerSideRoleAndLocationMatrix
+  ---
+  duration_ms: 29.721833
+  type: 'test'
+  ...
+# Subtest: StaffProvisioning_CreatesRosterIdempotentlyWithHiddenUserAccess
+ok 308 - StaffProvisioning_CreatesRosterIdempotentlyWithHiddenUserAccess
+  ---
+  duration_ms: 47.190625
+  type: 'test'
+  ...
+# Subtest: StaffAccess_OnlySuperadminCanManageAccountsAndLocationAcl
+ok 309 - StaffAccess_OnlySuperadminCanManageAccountsAndLocationAcl
+  ---
+  duration_ms: 36.780958
+  type: 'test'
+  ...
+# Subtest: ArchiveAccount_EnablingLegacyAccountRequiresStaffLoginFirst
+ok 310 - ArchiveAccount_EnablingLegacyAccountRequiresStaffLoginFirst
+  ---
+  duration_ms: 31.812041
+  type: 'test'
+  ...
+# Subtest: Logout_RecordsReasonAndRemovesSession
+ok 311 - Logout_RecordsReasonAndRemovesSession
+  ---
+  duration_ms: 33.855875
+  type: 'test'
+  ...
+# Subtest: StaffProvisioning_RejectsRoleConflictBeforeCreatingNewAccounts
+ok 312 - StaffProvisioning_RejectsRoleConflictBeforeCreatingNewAccounts
+  ---
+  duration_ms: 24.22
+  type: 'test'
+  ...
+# Subtest: IndependentCreates_RebaseOnCurrentRevisionWithoutLosingEitherChange
+ok 313 - IndependentCreates_RebaseOnCurrentRevisionWithoutLosingEitherChange
+  ---
+  duration_ms: 28.873084
+  type: 'test'
+  ...
+# (node:65052) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: SqliteToPostgresMigration_PreservesStateUsersAccessAndAudit
+ok 314 - SqliteToPostgresMigration_PreservesStateUsersAccessAndAudit # SKIP PLAN_FACT_MIGRATION_TEST_DATABASE_URL не задан
+  ---
+  duration_ms: 2.076541
+  type: 'test'
+  ...
+# (node:65053) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: StaffProvisioningPlan_AssignsInitialRolesAndSafeDefaults
+ok 315 - StaffProvisioningPlan_AssignsInitialRolesAndSafeDefaults
+  ---
+  duration_ms: 3.743042
+  type: 'test'
+  ...
+# Subtest: StaffProvisioningPlan_NormalizesDeduplicatesAndRejectsOverlap
+ok 316 - StaffProvisioningPlan_NormalizesDeduplicatesAndRejectsOverlap
+  ---
+  duration_ms: 1.193584
+  type: 'test'
+  ...
+# Subtest: TiroleProxy_OnlyRealUpstreamResponseConfirmsExactSlugAndRawSnapshot
+ok 317 - TiroleProxy_OnlyRealUpstreamResponseConfirmsExactSlugAndRawSnapshot
+  ---
+  duration_ms: 146.735667
+  type: 'test'
+  ...
+# Subtest: TiroleProxy_CompressedMetadataBindsDecodedRawBytes_SizeAndHash
+ok 318 - TiroleProxy_CompressedMetadataBindsDecodedRawBytes_SizeAndHash
+  ---
+  duration_ms: 62.070083
+  type: 'test'
+  ...
+# Subtest: TiroleProxy_Upstream304ConfirmsOnlyPreviouslyBoundRevision_ColdStartRequires200
+ok 319 - TiroleProxy_Upstream304ConfirmsOnlyPreviouslyBoundRevision_ColdStartRequires200
+  ---
+  duration_ms: 46.130416
+  type: 'test'
+  ...
+# Subtest: TiroleProxy_TenMinuteBoundarySleepAndClockRollbackFailClosed
+ok 320 - TiroleProxy_TenMinuteBoundarySleepAndClockRollbackFailClosed
+  ---
+  duration_ms: 58.64375
+  type: 'test'
+  ...
+# Subtest: TiroleProxy_RestartRequiresNewUpstreamProofAndRejectsCacheRollback
+ok 321 - TiroleProxy_RestartRequiresNewUpstreamProofAndRejectsCacheRollback
+  ---
+  duration_ms: 30.512375
+  type: 'test'
+  ...
+# Subtest: TiroleProxy_NetworkErrorsRedirectsAndOversizeInvalidateOldProofWithoutSecrets
+ok 322 - TiroleProxy_NetworkErrorsRedirectsAndOversizeInvalidateOldProofWithoutSecrets
+  ---
+  duration_ms: 67.06575
+  type: 'test'
+  ...
+# Subtest: TiroleProxy_DoesNotForwardOtherSlugsPathsCredentialsOrBrowserRequests
+ok 323 - TiroleProxy_DoesNotForwardOtherSlugsPathsCredentialsOrBrowserRequests
+  ---
+  duration_ms: 42.317
+  type: 'test'
+  ...
+# Subtest: TiroleProxy_ConcurrentOlderSuccessCannotOverwriteNewerFailureOrProof
+ok 324 - TiroleProxy_ConcurrentOlderSuccessCannotOverwriteNewerFailureOrProof
+  ---
+  duration_ms: 12.21575
+  type: 'test'
+  ...
+# Subtest: TiroleSource_ClosedSnapshotInvalidatesCorporateRolesAndNotifiesSessions
+ok 325 - TiroleSource_ClosedSnapshotInvalidatesCorporateRolesAndNotifiesSessions
+  ---
+  duration_ms: 21.541084
+  type: 'test'
+  ...
+# Subtest: TiroleSource_ActualWireFormatAllowsAbsentEmptyMaps_ButNotMalformedMaps
+ok 326 - TiroleSource_ActualWireFormatAllowsAbsentEmptyMaps_ButNotMalformedMaps
+  ---
+  duration_ms: 35.702875
+  type: 'test'
+  ...
+# Subtest: TiroleSource_RejectsUntrustedAddressWrongBindingAndBadLocalResponses
+ok 327 - TiroleSource_RejectsUntrustedAddressWrongBindingAndBadLocalResponses
+  ---
+  duration_ms: 7.776125
+  type: 'test'
+  ...
+# Subtest: RealWebAuth_UsesCentralClientAndPreservesStateEncoding
+ok 328 - RealWebAuth_UsesCentralClientAndPreservesStateEncoding
+  ---
+  duration_ms: 62.913042
+  type: 'test'
+  ...
+# Subtest: RealWebAuth_Gateway403AndIncompleteChallengesNeverStartLogin
+ok 329 - RealWebAuth_Gateway403AndIncompleteChallengesNeverStartLogin
+  ---
+  duration_ms: 6.48525
+  type: 'test'
+  ...
+# Subtest: RealWebAuth_SaveThenOnlineCheckKeepsCredentialOutOfIdentityAndBrowser
+ok 330 - RealWebAuth_SaveThenOnlineCheckKeepsCredentialOutOfIdentityAndBrowser
+  ---
+  duration_ms: 7.192
+  type: 'test'
+  ...
+# Subtest: RealWebAuth_RejectsBadSaveRedirectDuplicateCookiesAndMissingIdentity
+ok 331 - RealWebAuth_RejectsBadSaveRedirectDuplicateCookiesAndMissingIdentity
+  ---
+  duration_ms: 5.207917
+  type: 'test'
+  ...
+# Subtest: RealWebAuth_RevocationAndRestartDenyAnOtherwiseValidApplicationSession
+ok 332 - RealWebAuth_RevocationAndRestartDenyAnOtherwiseValidApplicationSession
+  ---
+  duration_ms: 2.517
+  type: 'test'
+  ...
+# Subtest: RealWebAuth_FlowUsesDocumentedCallbackWithOneTimeBrowserBinding
+ok 333 - RealWebAuth_FlowUsesDocumentedCallbackWithOneTimeBrowserBinding
+  ---
+  duration_ms: 4.360792
+  type: 'test'
+  ...
+# Subtest: RealWebAuth_ErrorsAndDiagnosticsNeverExposeUpstreamSecrets
+ok 334 - RealWebAuth_ErrorsAndDiagnosticsNeverExposeUpstreamSecrets
+  ---
+  duration_ms: 1.373291
+  type: 'test'
+  ...
+1..334
+# tests 334
+# suites 0
+# pass 328
+# fail 0
+# cancelled 0
+# skipped 6
+# todo 0
+# duration_ms 15942.335375
